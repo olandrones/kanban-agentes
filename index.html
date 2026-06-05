@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>🤖 Kanban dos Agentes</title>
+<style>
+  :root {
+    --bg: #0b0d10;
+    --panel: #14181d;
+    --panel-2: #1a1f26;
+    --border: #232a32;
+    --text: #e6e8eb;
+    --muted: #8a94a0;
+    --green: #22c55e;
+    --yellow: #eab308;
+    --red: #ef4444;
+    --blue: #3b82f6;
+    --purple: #a855f7;
+    --orange: #fb923c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 24px;
+  }
+  header {
+    max-width: 1400px;
+    margin: 0 auto 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  h1 { font-size: 22px; font-weight: 600; }
+  .meta { color: var(--muted); font-size: 13px; font-family: ui-monospace, "Cascadia Code", monospace; }
+  button {
+    background: var(--panel-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  button:hover { background: #222a33; }
+  .board {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color .2s;
+  }
+  .card:hover { border-color: #3a4452; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .emoji { font-size: 24px; }
+  .name { font-weight: 600; font-size: 15px; flex: 1; }
+  .badge {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+  }
+  .b-green { background: rgba(34,197,94,.15); color: var(--green); }
+  .b-yellow { background: rgba(234,179,8,.15); color: var(--yellow); }
+  .b-red { background: rgba(239,68,68,.15); color: var(--red); }
+  .b-blue { background: rgba(59,130,246,.15); color: var(--blue); }
+  .row { display: flex; gap: 8px; font-size: 13px; line-height: 1.5; }
+  .label { color: var(--muted); min-width: 80px; flex-shrink: 0; }
+  .value { color: var(--text); flex: 1; }
+  .freq { color: var(--orange); font-family: ui-monospace, monospace; font-size: 12px; }
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .stat {
+    background: var(--panel-2);
+    padding: 8px 10px;
+    border-radius: 6px;
+    text-align: center;
+  }
+  .stat-num { font-size: 18px; font-weight: 600; color: var(--blue); }
+  .stat-lbl { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .progress {
+    height: 4px;
+    background: var(--panel-2);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  .progress > div { height: 100%; background: var(--blue); transition: width .3s; }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .link {
+    font-size: 11px;
+    color: var(--muted);
+    text-decoration: none;
+    background: var(--panel-2);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .link:hover { color: var(--blue); }
+  footer {
+    max-width: 1400px;
+    margin: 24px auto 0;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .legend {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 12px;
+  }
+  .legend-item { display: inline-flex; align-items: center; gap: 4px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>🤖 Kanban dos Agentes</h1>
+    <div class="meta" id="meta">— carregando —</div>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+    <span class="legend">
+      <span class="legend-item"><span class="dot" style="background:var(--green)"></span> ativo</span>
+      <span class="legend-item"><span class="dot" style="background:var(--yellow)"></span> em curso</span>
+      <span class="legend-item"><span class="dot" style="background:var(--red)"></span> bloqueado</span>
+      <span class="legend-item"><span class="dot" style="background:var(--blue)"></span> sempre on</span>
+    </span>
+    <button onclick="render()">↻ Atualizar</button>
+  </div>
+</header>
+
+<div class="board" id="board"></div>
+
+<footer>
+  Atualizado manualmente · Fonte: <code>E:\00 - Hermes System\agentes\*.md</code> · Lyriane mantém isso vivo
+</footer>
+
+<script>
+const AGENTS = [
+  {
+    id: 'lyriane',
+    emoji: '✨',
+    name: 'Lyriane (você)',
+    status: 'blue',
+    badge: 'sempre on',
+    freq: 'tempo real',
+    role: 'main · estratégia',
+    currentTask: 'Reforçando memória holográfica + criando Kanban dos Agentes',
+    last: 'agora',
+    next: '— você decide —',
+    stats: [
+      { num: '24', lbl: 'fatos salvos' },
+      { num: '6', lbl: 'agentes ativos' },
+      { num: '1', lbl: 'sessão' },
+    ],
+    progress: 100,
+    links: [
+      { label: 'agentes/README.md', href: '../agentes/README.md' },
+      { label: 'user.md', href: '../memories/USER.md' },
+    ],
+  },
+  {
+    id: 'manutencao',
+    emoji: '🔧',
+    name: 'Agente Manutenção',
+    status: 'green',
+    badge: 'ativo',
+    freq: '0 11 * * * (07:00 Manaus)',
+    role: 'cron · saúde + melhorias',
+    currentTask: 'Próxima execução: 06/06 07:00 Manaus · modo cruzeiro',
+    last: '05/06 12:15 Manaus — 1ª execução completa',
+    next: '06/06 07:00 Manaus',
+    stats: [
+      { num: '1', lbl: 'execução' },
+      { num: '3/3', lbl: 'sites OK' },
+      { num: '4/4', lbl: 'P0 ✅' },
+    ],
+    progress: 100,
+    links: [
+      { label: 'agente-manutencao.md', href: '../agentes/agente-manutencao.md' },
+      { label: 'cron job f4c5a164fb64', href: '../cron/jobs.json' },
+    ],
+  },
+  {
+    id: 'heartbeat',
+    emoji: '💓',
+    name: 'Agente Heartbeat',
+    status: 'green',
+    badge: 'ativo',
+    freq: '0 * * * * (hora cheia Manaus)',
+    role: 'cron · supervisão horária',
+    currentTask: 'Modo cruzeiro (7 horas estáveis) — sentinela silenciosa',
+    last: '05/06 14:00 Manaus — 7ª execução',
+    next: 'hora cheia: 15:00 Manaus',
+    stats: [
+      { num: '7', lbl: 'execuções' },
+      { num: '8', lbl: 'ações Ctrl+G' },
+      { num: '0', lbl: 'problemas' },
+    ],
+    progress: 100,
+    links: [
+      { label: 'agente-heartbeat.md', href: '../agentes/agente-heartbeat.md' },
+    ],
+  },
+  {
+    id: 'pesquisa',
+    emoji: '🔍',
+    name: 'Pesquisa & Oportunidades',
+    status: 'yellow',
+    badge: 'em curso',
+    freq: '06h / 12h / 18h Manaus',
+    role: 'cron · 3 turnos de coleta',
+    currentTask: 'Última: 18h Oportunidades (5/6) · Publica em oportunidades-daily',
+    last: '05/06 18:00 — oportunidades-daily atualizado',
+    next: '06/06 06:00 — Tendências',
+    stats: [
+      { num: '3', lbl: 'turnos/dia' },
+      { num: '11', lbl: 'items publicados' },
+      { num: '30', lbl: 'no buffer' },
+    ],
+    progress: 66,
+    links: [
+      { label: 'agente-pesquisa-oportunidades.md', href: '../agentes/agente-pesquisa-oportunidades.md' },
+      { label: 'olandrones.github.io/oportunidades-daily', href: 'https://olandrones.github.io/oportunidades-daily/' },
+    ],
+  },
+  {
+    id: 'coaching',
+    emoji: '🪞',
+    name: 'Agente Coaching',
+    status: 'green',
+    badge: 'ativo',
+    freq: '0 1 * * * (21:00 Manaus)',
+    role: 'cron · provocações + diagnóstico',
+    currentTask: 'Próxima provocação: 21:00 Manaus · 3 categorias (ação/visão/momentum)',
+    last: 'última execução registrada em comportamento-daily',
+    next: 'hoje 21:00 Manaus',
+    stats: [
+      { num: '3', lbl: 'categorias' },
+      { num: '9', lbl: 'áreas D1-D5' },
+      { num: '~3', lbl: 'respondidas' },
+    ],
+    progress: 33,
+    links: [
+      { label: 'agente-coaching-comportamento.md', href: '../agentes/agente-coaching-comportamento.md' },
+      { label: 'comportamento-daily', href: 'https://olandrones.github.io/comportamento-daily/' },
+    ],
+  },
+  {
+    id: 'productman',
+    emoji: '🧭',
+    name: 'Agente ProductMan',
+    status: 'red',
+    badge: 'bloqueado',
+    freq: '0 9 * * * (05:00 Manaus)',
+    role: 'cron · desafios + insights',
+    currentTask: '⚠️ P0 aberto: site sem conteúdo (0/0/0 nos cards)',
+    last: '5h — Coach Matinal (5ª execução)',
+    next: '06/06 05:00 Manaus',
+    stats: [
+      { num: '0/0/0', lbl: 'cards' },
+      { num: '1', lbl: 'P0 aberto' },
+      { num: 'v2.0', lbl: 'deploy' },
+    ],
+    progress: 10,
+    links: [
+      { label: 'agente-productman.md', href: '../agentes/agente-productman.md' },
+    ],
+  },
+];
+
+function render() {
+  const board = document.getElementById('board');
+  const now = new Date();
+  const tz = now.toLocaleString('pt-BR', { timeZone: 'America/Manaus' });
+  document.getElementById('meta').textContent = 'Manaus: ' + tz;
+
+  board.innerHTML = AGENTS.map(a => `
+    <div class="card">
+      <div class="card-head">
+        <span class="emoji">${a.emoji}</span>
+        <div style="flex:1">
+          <div class="name">${a.name}</div>
+          <div class="meta" style="font-size:11px;margin-top:2px">${a.role}</div>
+        </div>
+        <span class="badge b-${a.status}">${a.badge}</span>
+      </div>
+
+      <div>
+        <div class="row">
+          <div class="label">⏰ Frequência</div>
+          <div class="value freq">${a.freq}</div>
+        </div>
+        <div class="row">
+          <div class="label">🎯 Agora</div>
+          <div class="value">${a.currentTask}</div>
+        </div>
+        <div class="row">
+          <div class="label">📜 Última</div>
+          <div class="value">${a.last}</div>
+        </div>
+        <div class="row">
+          <div class="label">⏭️ Próxima</div>
+          <div class="value">${a.next}</div>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        ${a.stats.map(s => `<div class="stat"><div class="stat-num">${s.num}</div><div class="stat-lbl">${s.lbl}</div></div>`).join('')}
+      </div>
+
+      <div class="progress"><div style="width:${a.progress}%"></div></div>
+
+      <div class="links">
+        ${a.links.map(l => `<a class="link" href="${l.href}">${l.label}</a>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+render();
+</script>
+</body>
+</html>
