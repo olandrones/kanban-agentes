@@ -38,8 +38,9 @@
     gap: 12px;
   }
   h1 { font-size: 22px; font-weight: 600; }
+  h2 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
   .meta { color: var(--muted); font-size: 13px; font-family: ui-monospace, "Cascadia Code", monospace; }
-  button {
+  button, .btn {
     background: var(--panel-2);
     color: var(--text);
     border: 1px solid var(--border);
@@ -49,13 +50,16 @@
     cursor: pointer;
     font-family: inherit;
   }
-  button:hover { background: #222a33; }
-  .board {
+  button:hover, .btn:hover { background: #222a33; }
+  .board, .tasks {
     max-width: 1400px;
     margin: 0 auto;
+  }
+  .board {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 16px;
+    margin-bottom: 32px;
   }
   .card {
     background: var(--panel);
@@ -130,6 +134,95 @@
     border-radius: 4px;
   }
   .link:hover { color: var(--blue); }
+
+  /* Tasks table */
+  .tasks-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .tasks-bar input[type="search"] {
+    flex: 1;
+    min-width: 200px;
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+  }
+  .tasks-bar input[type="search"]:focus { outline: none; border-color: var(--blue); }
+  .tasks-bar select {
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .table-wrap {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead th {
+    text-align: left;
+    padding: 12px 14px;
+    background: var(--panel-2);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  thead th:hover { color: var(--text); }
+  thead th .arrow { color: var(--blue); margin-left: 4px; }
+  tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tbody tr:hover { background: rgba(255,255,255,.02); }
+  tbody tr:last-child td { border-bottom: none; }
+  .agente-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+  }
+  .agente-cell .ag-emoji { font-size: 16px; }
+  .task-name { font-weight: 500; color: var(--text); }
+  .task-desc { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .ts { font-family: ui-monospace, monospace; font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .col-status { white-space: nowrap; }
+  .col-action { white-space: nowrap; }
+  .action-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+    margin-right: 4px;
+  }
+  .action-btn:hover { color: var(--blue); border-color: var(--blue); }
+  .empty { padding: 40px; text-align: center; color: var(--muted); }
   footer {
     max-width: 1400px;
     margin: 24px auto 0;
@@ -139,6 +232,7 @@
     padding-top: 16px;
     border-top: 1px solid var(--border);
   }
+  footer a { color: var(--muted); text-decoration: underline; }
   .legend {
     display: inline-flex;
     gap: 12px;
@@ -169,151 +263,92 @@
 
 <div class="board" id="board"></div>
 
+<section class="tasks">
+  <h2>📋 Tarefas em curso</h2>
+  <div class="tasks-bar">
+    <input type="search" id="searchInput" placeholder="🔍 buscar tarefa, agente, categoria…" />
+    <select id="filterAgente">
+      <option value="">todos os agentes</option>
+      <option value="lyriane">✨ Lyriane</option>
+      <option value="manutencao">🔧 Manutenção</option>
+      <option value="heartbeat">💓 Heartbeat</option>
+      <option value="pesquisa">🔍 Pesquisa</option>
+      <option value="coaching">🪞 Coaching</option>
+      <option value="productman">🧭 ProductMan</option>
+    </select>
+    <select id="filterStatus">
+      <option value="">todos os status</option>
+      <option value="running">▶️ rodando</option>
+      <option value="done">✅ feito</option>
+      <option value="blocked">⏸️ bloqueado</option>
+      <option value="idle">💤 aguardando</option>
+    </select>
+    <select id="filterPrioridade">
+      <option value="">todas prioridades</option>
+      <option value="P0">P0</option>
+      <option value="P1">P1</option>
+      <option value="P2">P2</option>
+      <option value="P3">P3</option>
+    </select>
+  </div>
+  <div class="table-wrap">
+    <table id="tasksTable">
+      <thead>
+        <tr>
+          <th data-sort="agente">Agente <span class="arrow"></span></th>
+          <th data-sort="tarefa">Tarefa <span class="arrow"></span></th>
+          <th data-sort="status">Status <span class="arrow"></span></th>
+          <th data-sort="prioridade">Prioridade <span class="arrow"></span></th>
+          <th data-sort="ultima">Última ação <span class="arrow"></span></th>
+          <th data-sort="proxima">Próxima <span class="arrow"></span></th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="tasksBody"></tbody>
+    </table>
+  </div>
+</section>
+
 <footer>
-  Atualizado diariamente pelo <strong>agente-manutenção</strong> · Fonte: <code>E:\00 - Hermes System\agentes\*.md</code> · Lyriane mantém isso vivo
+  Atualizado diariamente pelo <strong>agente-manutenção</strong> · Fonte: <code>E:\00 - Hermes System\agentes\*.md</code> · <a href="https://github.com/olandrones/kanban-agentes">ver código</a>
 </footer>
 
 <script>
 const AGENTS = [
-  {
-    id: 'lyriane',
-    emoji: '✨',
-    name: 'Lyriane (você)',
-    status: 'blue',
-    badge: 'sempre on',
-    freq: 'tempo real',
-    role: 'main · estratégia',
-    currentTask: 'Reforçando memória holográfica + criando Kanban dos Agentes',
-    last: 'agora',
-    next: '— você decide —',
-    stats: [
-      { num: '24', lbl: 'fatos salvos' },
-      { num: '6', lbl: 'agentes ativos' },
-      { num: '1', lbl: 'sessão' },
-    ],
-    progress: 100,
-    links: [
-      { label: 'agentes/README.md', href: '../agentes/README.md' },
-      { label: 'user.md', href: '../memories/USER.md' },
-    ],
-  },
-  {
-    id: 'manutencao',
-    emoji: '🔧',
-    name: 'Agente Manutenção',
-    status: 'green',
-    badge: 'ativo',
-    freq: '0 11 * * * (07:00 Manaus)',
-    role: 'cron · saúde + melhorias',
-    currentTask: 'Próxima execução: 06/06 07:00 Manaus · modo cruzeiro',
-    last: '05/06 12:15 Manaus — 1ª execução completa',
-    next: '06/06 07:00 Manaus',
-    stats: [
-      { num: '1', lbl: 'execução' },
-      { num: '3/3', lbl: 'sites OK' },
-      { num: '4/4', lbl: 'P0 ✅' },
-    ],
-    progress: 100,
-    links: [
-      { label: 'agente-manutencao.md', href: '../agentes/agente-manutencao.md' },
-      { label: 'cron job f4c5a164fb64', href: '../cron/jobs.json' },
-    ],
-  },
-  {
-    id: 'heartbeat',
-    emoji: '💓',
-    name: 'Agente Heartbeat',
-    status: 'green',
-    badge: 'ativo',
-    freq: '0 * * * * (hora cheia Manaus)',
-    role: 'cron · supervisão horária',
-    currentTask: 'Modo cruzeiro (7 horas estáveis) — sentinela silenciosa',
-    last: '05/06 14:00 Manaus — 7ª execução',
-    next: 'hora cheia: 15:00 Manaus',
-    stats: [
-      { num: '7', lbl: 'execuções' },
-      { num: '8', lbl: 'ações Ctrl+G' },
-      { num: '0', lbl: 'problemas' },
-    ],
-    progress: 100,
-    links: [
-      { label: 'agente-heartbeat.md', href: '../agentes/agente-heartbeat.md' },
-    ],
-  },
-  {
-    id: 'pesquisa',
-    emoji: '🔍',
-    name: 'Pesquisa & Oportunidades',
-    status: 'yellow',
-    badge: 'em curso',
-    freq: '06h / 12h / 18h Manaus',
-    role: 'cron · 3 turnos de coleta',
-    currentTask: 'Última: 18h Oportunidades (5/6) · Publica em oportunidades-daily',
-    last: '05/06 18:00 — oportunidades-daily atualizado',
-    next: '06/06 06:00 — Tendências',
-    stats: [
-      { num: '3', lbl: 'turnos/dia' },
-      { num: '11', lbl: 'items publicados' },
-      { num: '30', lbl: 'no buffer' },
-    ],
-    progress: 66,
-    links: [
-      { label: 'agente-pesquisa-oportunidades.md', href: '../agentes/agente-pesquisa-oportunidades.md' },
-      { label: 'olandrones.github.io/oportunidades-daily', href: 'https://olandrones.github.io/oportunidades-daily/' },
-    ],
-  },
-  {
-    id: 'coaching',
-    emoji: '🪞',
-    name: 'Agente Coaching',
-    status: 'green',
-    badge: 'ativo',
-    freq: '0 1 * * * (21:00 Manaus)',
-    role: 'cron · provocações + diagnóstico',
-    currentTask: 'Próxima provocação: 21:00 Manaus · 3 categorias (ação/visão/momentum)',
-    last: 'última execução registrada em comportamento-daily',
-    next: 'hoje 21:00 Manaus',
-    stats: [
-      { num: '3', lbl: 'categorias' },
-      { num: '9', lbl: 'áreas D1-D5' },
-      { num: '~3', lbl: 'respondidas' },
-    ],
-    progress: 33,
-    links: [
-      { label: 'agente-coaching-comportamento.md', href: '../agentes/agente-coaching-comportamento.md' },
-      { label: 'comportamento-daily', href: 'https://olandrones.github.io/comportamento-daily/' },
-    ],
-  },
-  {
-    id: 'productman',
-    emoji: '🧭',
-    name: 'Agente ProductMan',
-    status: 'red',
-    badge: 'bloqueado',
-    freq: '0 9 * * * (05:00 Manaus)',
-    role: 'cron · desafios + insights',
-    currentTask: '⚠️ P0 aberto: site sem conteúdo (0/0/0 nos cards)',
-    last: '5h — Coach Matinal (5ª execução)',
-    next: '06/06 05:00 Manaus',
-    stats: [
-      { num: '0/0/0', lbl: 'cards' },
-      { num: '1', lbl: 'P0 aberto' },
-      { num: 'v2.0', lbl: 'deploy' },
-    ],
-    progress: 10,
-    links: [
-      { label: 'agente-productman.md', href: '../agentes/agente-productman.md' },
-    ],
-  },
+  { id:'lyriane', emoji:'✨', name:'Lyriane (você)', status:'blue', badge:'sempre on', freq:'tempo real', role:'main · estratégia', currentTask:'Reforçando memória holográfica + evoluindo Kanban dos Agentes', last:'agora', next:'— você decide —', stats:[{num:'24',lbl:'fatos salvos'},{num:'6',lbl:'agentes ativos'},{num:'1',lbl:'sessão'}], progress:100, links:[{label:'comportamento-daily',href:'https://olandrones.github.io/comportamento-daily/'},{label:'oportunidades-daily',href:'https://olandrones.github.io/oportunidades-daily/'}] },
+  { id:'manutencao', emoji:'🔧', name:'Agente Manutenção', status:'green', badge:'ativo', freq:'0 11 * * * (07:00 Manaus)', role:'cron · saúde + melhorias', currentTask:'Próxima execução: 06/06 07:00 Manaus · modo cruzeiro', last:'05/06 12:15 Manaus — 1ª execução completa', next:'06/06 07:00 Manaus', stats:[{num:'1',lbl:'execução'},{num:'3/3',lbl:'sites OK'},{num:'4/4',lbl:'P0 ✅'}], progress:100, links:[{label:'oportunidades-daily',href:'https://olandrones.github.io/oportunidades-daily/'}] },
+  { id:'heartbeat', emoji:'💓', name:'Agente Heartbeat', status:'green', badge:'ativo', freq:'0 * * * * (hora cheia Manaus)', role:'cron · supervisão horária', currentTask:'Modo cruzeiro (7 horas estáveis) — sentinela silenciosa', last:'05/06 14:00 Manaus — 7ª execução', next:'hora cheia: 15:00 Manaus', stats:[{num:'7',lbl:'execuções'},{num:'8',lbl:'ações Ctrl+G'},{num:'0',lbl:'problemas'}], progress:100, links:[] },
+  { id:'pesquisa', emoji:'🔍', name:'Pesquisa & Oportunidades', status:'yellow', badge:'em curso', freq:'06h / 12h / 18h Manaus', role:'cron · 3 turnos de coleta', currentTask:'Última: 18h Oportunidades (5/6) · Publica em oportunidades-daily', last:'05/06 18:00 — oportunidades-daily atualizado', next:'06/06 06:00 — Tendências', stats:[{num:'3',lbl:'turnos/dia'},{num:'11',lbl:'items publicados'},{num:'30',lbl:'no buffer'}], progress:66, links:[{label:'oportunidades-daily',href:'https://olandrones.github.io/oportunidades-daily/'}] },
+  { id:'coaching', emoji:'🪞', name:'Agente Coaching', status:'green', badge:'ativo', freq:'0 1 * * * (21:00 Manaus)', role:'cron · provocações + diagnóstico', currentTask:'Próxima provocação: 21:00 Manaus · 3 categorias (ação/visão/momentum)', last:'última execução registrada em comportamento-daily', next:'hoje 21:00 Manaus', stats:[{num:'3',lbl:'categorias'},{num:'9',lbl:'áreas D1-D5'},{num:'~3',lbl:'respondidas'}], progress:33, links:[{label:'comportamento-daily',href:'https://olandrones.github.io/comportamento-daily/'}] },
+  { id:'productman', emoji:'🧭', name:'Agente ProductMan', status:'red', badge:'bloqueado', freq:'0 9 * * * (05:00 Manaus)', role:'cron · desafios + insights', currentTask:'⚠️ P0 aberto: site sem conteúdo (0/0/0 nos cards)', last:'5h — Coach Matinal (5ª execução)', next:'06/06 05:00 Manaus', stats:[{num:'0/0/0',lbl:'cards'},{num:'1',lbl:'P0 aberto'},{num:'v2.0',lbl:'deploy'}], progress:10, links:[] },
 ];
 
+const TASKS = [
+  { id:'t1', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Reforçar memória holográfica', desc:'Seedar fact_store com sessões passadas + memory_banks por projeto', status:'running', prioridade:'P1', ultima:'agora', proxima:'em curso' },
+  { id:'t2', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Consolidar 2 instalações Hermes em E:\\00', desc:'Mover state.db, kanban.db, .env, cron jobs do AppData → E:\\00', status:'idle', prioridade:'P1', ultima:'análise inicial', proxima:'aguardando decisão do Renato' },
+  { id:'t3', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Conversar com agente-manutenção sobre visão do Kanban', desc:'Adicionar guidance no .md dele — regenerar tabela, evoluir interatividade', status:'running', prioridade:'P2', ultima:'05/06 19:23', proxima:'próximo turno' },
+  { id:'t4', agente:'manutencao', ag_emoji:'🔧', ag_nome:'Manutenção', tarefa:'Verificar saúde 3 sites (curl + manchete)', desc:'productman, oportunidades, comportamento', status:'running', prioridade:'P0', ultima:'05/06 12:15', proxima:'06/06 07:00 Manaus' },
+  { id:'t5', agente:'manutencao', ag_emoji:'🔧', ag_nome:'Manutenção', tarefa:'Regenerar Kanban dos Agentes HTML', desc:'Ler agentes/*.md + commits + logs, gerar index.html, commit, push', status:'idle', prioridade:'P1', ultima:'instrução adicionada', proxima:'06/06 07:00 Manaus (1ª execução)' },
+  { id:'t6', agente:'manutencao', ag_emoji:'🔧', ag_nome:'Manutenção', tarefa:'Aplicar melhorias Ctrl+G pequenas', desc:'Markdown, CSS, copy — alterações inofensivas', status:'idle', prioridade:'P2', ultima:'—', proxima:'06/06 07:00 Manaus' },
+  { id:'t7', agente:'heartbeat', ag_emoji:'💓', ag_nome:'Heartbeat', tarefa:'Health check horário (curl + leitura .md)', desc:'Ler contexto memory, ler backlog/melhorias, detectar ações', status:'running', prioridade:'P0', ultima:'05/06 14:00 (7ª exec)', proxima:'15:00 Manaus' },
+  { id:'t8', agente:'heartbeat', ag_emoji:'💓', ag_nome:'Heartbeat', tarefa:'Reportar no chat formato minimalista', desc:'≤8 linhas, escaneável, TDAH-friendly', status:'running', prioridade:'P2', ultima:'05/06 14:00', proxima:'hora cheia' },
+  { id:'t9', agente:'pesquisa', ag_emoji:'🔍', ag_nome:'Pesquisa', tarefa:'Tendências 06h — coletar trending topics', desc:'GitHub Trending + Exploding Topics + HNR', status:'idle', prioridade:'P1', ultima:'05/06 06:00', proxima:'06/06 06:00 Manaus' },
+  { id:'t10', agente:'pesquisa', ag_emoji:'🔍', ag_nome:'Pesquisa', tarefa:'Apps e produtos 12h', desc:'Product Hunt + IndieHackers + beta lists', status:'idle', prioridade:'P1', ultima:'05/06 12:00', proxima:'06/06 12:00 Manaus' },
+  { id:'t11', agente:'pesquisa', ag_emoji:'🔍', ag_nome:'Pesquisa', tarefa:'Oportunidades de negócio 18h', desc:'Publica em oportunidades-daily via site-publishing', status:'done', prioridade:'P0', ultima:'05/06 18:00 ✅', proxima:'06/06 18:00 Manaus' },
+  { id:'t12', agente:'coaching', ag_emoji:'🪞', ag_nome:'Coaching', tarefa:'Provocações diárias 21h (3 perguntas)', desc:'3 categorias: ação, visão, momentum', status:'idle', prioridade:'P1', ultima:'04/06 21:00', proxima:'hoje 21:00 Manaus' },
+  { id:'t13', agente:'productman', ag_emoji:'🧭', ag_nome:'ProductMan', tarefa:'Popular ProductMan (cards 0/0/0)', desc:'⚠️ P0 aberto — site mostra zeros para qualquer visitante', status:'blocked', prioridade:'P0', ultima:'deploy v2.0 sem conteúdo', proxima:'aguardando decisão editorial do Renato' },
+  { id:'t14', agente:'productman', ag_emoji:'🧭', ag_nome:'ProductMan', tarefa:'Coach Matinal 5h', desc:'Provocação diária ProductMan', status:'idle', prioridade:'P2', ultima:'05/06 05:00', proxima:'06/06 05:00 Manaus' },
+];
+
+let sortKey = 'agente';
+let sortDir = 1;
+
 function render() {
-  const board = document.getElementById('board');
   const now = new Date();
   const tz = now.toLocaleString('pt-BR', { timeZone: 'America/Manaus' });
   document.getElementById('meta').textContent = 'Manaus: ' + tz;
 
-  board.innerHTML = AGENTS.map(a => `
+  document.getElementById('board').innerHTML = AGENTS.map(a => `
     <div class="card">
       <div class="card-head">
         <span class="emoji">${a.emoji}</span>
@@ -323,38 +358,121 @@ function render() {
         </div>
         <span class="badge b-${a.status}">${a.badge}</span>
       </div>
-
       <div>
-        <div class="row">
-          <div class="label">⏰ Frequência</div>
-          <div class="value freq">${a.freq}</div>
-        </div>
-        <div class="row">
-          <div class="label">🎯 Agora</div>
-          <div class="value">${a.currentTask}</div>
-        </div>
-        <div class="row">
-          <div class="label">📜 Última</div>
-          <div class="value">${a.last}</div>
-        </div>
-        <div class="row">
-          <div class="label">⏭️ Próxima</div>
-          <div class="value">${a.next}</div>
-        </div>
+        <div class="row"><div class="label">freq</div><div class="value freq">${a.freq}</div></div>
+        <div class="row"><div class="label">agora</div><div class="value">${a.currentTask}</div></div>
+        <div class="row"><div class="label">última</div><div class="value">${a.last}</div></div>
+        <div class="row"><div class="label">próxima</div><div class="value">${a.next}</div></div>
       </div>
-
-      <div class="stat-row">
-        ${a.stats.map(s => `<div class="stat"><div class="stat-num">${s.num}</div><div class="stat-lbl">${s.lbl}</div></div>`).join('')}
-      </div>
-
+      <div class="stat-row">${a.stats.map(s => `<div class="stat"><div class="stat-num">${s.num}</div><div class="stat-lbl">${s.lbl}</div></div>`).join('')}</div>
       <div class="progress"><div style="width:${a.progress}%"></div></div>
-
-      <div class="links">
-        ${a.links.map(l => `<a class="link" href="${l.href}">${l.label}</a>`).join('')}
-      </div>
+      <div class="links">${a.links.map(l => `<a class="link" href="${l.href}" target="_blank">${l.label}</a>`).join('')}</div>
     </div>
   `).join('');
+
+  renderTasks();
 }
+
+function statusBadge(s) {
+  const map = {
+    running: ['▶️ rodando', 'b-yellow'],
+    done:    ['✅ feito', 'b-green'],
+    blocked: ['⏸️ bloqueado', 'b-red'],
+    idle:    ['💤 aguardando', 'b-blue'],
+  };
+  const [label, cls] = map[s] || ['?', 'b-blue'];
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+function getFilteredTasks() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const ag = document.getElementById('filterAgente').value;
+  const st = document.getElementById('filterStatus').value;
+  const pr = document.getElementById('filterPrioridade').value;
+  return TASKS
+    .filter(t => !ag || t.agente === ag)
+    .filter(t => !st || t.status === st)
+    .filter(t => !pr || t.prioridade === pr)
+    .filter(t => !q || (t.tarefa + ' ' + t.desc + ' ' + t.ag_nome).toLowerCase().includes(q))
+    .sort((a, b) => {
+      const va = (a[sortKey] || '').toString().toLowerCase();
+      const vb = (b[sortKey] || '').toString().toLowerCase();
+      if (va < vb) return -1 * sortDir;
+      if (va > vb) return 1 * sortDir;
+      return 0;
+    });
+}
+
+function renderTasks() {
+  const tasks = getFilteredTasks();
+  const body = document.getElementById('tasksBody');
+  if (!tasks.length) {
+    body.innerHTML = `<tr><td colspan="7" class="empty">Nenhuma tarefa bate com os filtros.</td></tr>`;
+    return;
+  }
+  body.innerHTML = tasks.map(t => `
+    <tr data-id="${t.id}">
+      <td>
+        <div class="agente-cell">
+          <span class="ag-emoji">${t.ag_emoji}</span>
+          <span>${t.ag_nome}</span>
+        </div>
+      </td>
+      <td>
+        <div class="task-name">${t.tarefa}</div>
+        <div class="task-desc">${t.desc}</div>
+      </td>
+      <td class="col-status">${statusBadge(t.status)}</td>
+      <td>${t.prioridade}</td>
+      <td class="ts">${t.ultima}</td>
+      <td class="ts">${t.proxima}</td>
+      <td class="col-action">
+        <button class="action-btn" onclick="askTask('${t.id}')">💬 perguntar</button>
+        <button class="action-btn" onclick="pauseTask('${t.id}')">⏸</button>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function askTask(id) {
+  const t = TASKS.find(x => x.id === id);
+  if (!t) return;
+  // Em produção: abre Telegram deep-link com a Lyriane
+  const msg = encodeURIComponent(`Lyriane, sobre a tarefa "${t.tarefa}" do ${t.ag_nome} (${t.prioridade}): `);
+  window.open(`https://t.me/LyrianeBot?text=${msg}`, '_blank');
+}
+
+function pauseTask(id) {
+  const t = TASKS.find(x => x.id === id);
+  if (!t) return;
+  if (t.status === 'blocked') {
+    alert(`"${t.tarefa}" já está bloqueada. Para desbloquear, é necessário resolver a causa raiz (veja descrição).`);
+    return;
+  }
+  if (confirm(`Pausar "${t.tarefa}"? (em produção, isso marca a tarefa como idle e notifica o agente responsável)`)) {
+    t.status = 'idle';
+    renderTasks();
+  }
+}
+
+// Bind filters
+['searchInput','filterAgente','filterStatus','filterPrioridade'].forEach(id => {
+  document.getElementById(id).addEventListener('input', renderTasks);
+  document.getElementById(id).addEventListener('change', renderTasks);
+});
+
+// Bind sort
+document.querySelectorAll('thead th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const k = th.dataset.sort;
+    if (sortKey === k) sortDir *= -1;
+    else { sortKey = k; sortDir = 1; }
+    document.querySelectorAll('thead th .arrow').forEach(a => a.textContent = '');
+    th.querySelector('.arrow').textContent = sortDir === 1 ? '↑' : '↓';
+    renderTasks();
+  });
+});
+
 render();
 </script>
 </body>
