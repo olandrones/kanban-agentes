@@ -1,6 +1,30 @@
 [
   {
     "id": "1",
+    "titulo": "hermes-agent",
+    "descricao": "The agent that grows with you",
+    "fonte": "GitHub Trending",
+    "tags": ["ai", "agent", "open-source", "framework"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 185536,
+    "forks": 31884,
+    "badge": "🤖 185K stars - AI Agent Framework"
+  },
+  {
+    "id": "2",
+    "titulo": "llama.cpp",
+    "descricao": "LLM inference in C/C++",
+    "fonte": "GitHub Trending",
+    "tags": ["ai", "llm", "c++", "inference", "open-source"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 115176,
+    "forks": 19278,
+    "badge": "⚡ 115K stars - LLM Inference"
+  },
+  {
+    "id": "3",
     "titulo": "MemPalace",
     "descricao": "The best-benchmarked open-source AI memory system. And it's free.",
     "fonte": "GitHub Trending",
@@ -9,10 +33,22 @@
     "origem": "global",
     "stars": 54532,
     "forks": 7127,
-    "badge": "🔥 54.5K stars - Open Source AI Memory"
+    "badge": "🔥 54.5K stars - AI Memory"
   },
   {
-    "id": "2",
+    "id": "4",
+    "titulo": "Maybe",
+    "descricao": "The personal finance app for everyone - open source finance management",
+    "fonte": "GitHub Trending",
+    "tags": ["finance", "personal-finance", "ruby", "open-source"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 54151,
+    "forks": 5605,
+    "badge": "💰 54K stars - Personal Finance"
+  },
+  {
+    "id": "5",
     "titulo": "VibeVoice",
     "descricao": "Open-Source Frontier Voice AI from Microsoft",
     "fonte": "GitHub Trending",
@@ -24,7 +60,19 @@
     "badge": "🎙️ 48K stars - Voice AI"
   },
   {
-    "id": "3",
+    "id": "6",
+    "titulo": "goose",
+    "descricao": "An open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
+    "fonte": "GitHub Trending",
+    "tags": ["ai", "agent", "extensible", "python"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 47256,
+    "forks": 4981,
+    "badge": "🦆 47K stars - AI Agent"
+  },
+  {
+    "id": "7",
     "titulo": "CopilotKit",
     "descricao": "The Frontend Stack for Agents & Generative UI. Makers of the AG-UI Protocol",
     "fonte": "GitHub Trending",
@@ -36,9 +84,9 @@
     "badge": "🤖 33.5K stars - AI Agent UI"
   },
   {
-    "id": "4",
+    "id": "8",
     "titulo": "Svelte",
-    "descricao": "web development for the rest of us",
+    "descricao": "Web development for the rest of us",
     "fonte": "GitHub Trending",
     "tags": ["javascript", "framework", "web", "svelte"],
     "categoria": "app",
@@ -48,7 +96,7 @@
     "badge": "⚡ 87K stars - Web Framework"
   },
   {
-    "id": "5",
+    "id": "9",
     "titulo": "Vite",
     "descricao": "Next generation frontend tooling. It's fast!",
     "fonte": "GitHub Trending",
@@ -60,19 +108,19 @@
     "badge": "⚡ 81K stars - Frontend Tooling"
   },
   {
-    "id": "6",
+    "id": "10",
     "titulo": "Open Notebook",
     "descricao": "An Open Source implementation of Notebook LM with more flexibility and features",
     "fonte": "GitHub Trending",
     "tags": ["ai", "notebook", "typescript", "open-source"],
     "categoria": "app",
     "origem": "global",
-    "stars": 26599,
-    "forks": 3037,
-    "badge": "📓 26.6K stars - AI Notebook"
+    "stars": 26993,
+    "forks": 3069,
+    "badge": "📓 27K stars - AI Notebook"
   },
   {
-    "id": "7",
+    "id": "11",
     "titulo": "Trivy",
     "descricao": "Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more",
     "fonte": "GitHub Trending",
@@ -84,175 +132,67 @@
     "badge": "🛡️ 36K stars - Security Scanner"
   },
   {
-    "id": "8",
+    "id": "12",
     "titulo": "last30days-skill",
     "descricao": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
     "fonte": "GitHub Trending",
     "tags": ["ai", "agent", "research", "python", "automation"],
     "categoria": "app",
     "origem": "global",
-    "stars": 29456,
-    "forks": 2496,
-    "badge": "🔍 29.5K stars - AI Research Agent"
-  },
-  {
-    "id": "9",
-    "titulo": "Agent-Reach",
-    "descricao": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
-    "fonte": "GitHub Trending",
-    "tags": ["ai", "agent", "web-scraping", "python", "cli"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 22883,
-    "forks": 1939,
-    "badge": "🌐 22.9K stars - AI Web Agent"
-  },
-  {
-    "id": "10",
-    "titulo": "Personal AI Infrastructure",
-    "descricao": "Agentic AI Infrastructure for magnifying HUMAN capabilities.",
-    "fonte": "GitHub Trending",
-    "tags": ["ai", "agentic", "infrastructure", "productivity"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 15154,
-    "forks": 2135,
-    "badge": "🚀 15K stars - Personal AI Stack"
-  },
-  {
-    "id": "11",
-    "titulo": "Maybe Finance",
-    "descricao": "The personal finance app for everyone - open source finance management",
-    "fonte": "GitHub Trending",
-    "tags": ["finance", "personal-finance", "ruby", "open-source"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 54151,
-    "forks": 5605,
-    "badge": "💰 54K stars - Personal Finance"
-  },
-  {
-    "id": "12",
-    "titulo": "build-your-own-x",
-    "descricao": "Master programming by recreating your favorite technologies from scratch.",
-    "fonte": "GitHub Trending",
-    "tags": ["programming", "tutorial", "education", "learning"],
-    "categoria": "tendencia",
-    "origem": "global",
-    "stars": 512689,
-    "forks": 48577,
-    "badge": "📚 512K stars - Build Your Own X"
+    "stars": 30037,
+    "forks": 2524,
+    "badge": "🔍 30K stars - AI Research Agent"
   },
   {
     "id": "13",
-    "titulo": "awesome",
-    "descricao": "Awesome lists about all kinds of interesting topics",
+    "titulo": "taste-skill",
+    "descricao": "Gives your AI good taste - stops the AI from generating boring, generic slop",
     "fonte": "GitHub Trending",
-    "tags": ["awesome-list", "resources", "curated-list"],
-    "categoria": "tendencia",
+    "tags": ["ai", "agent", "creativity", "prompting"],
+    "categoria": "app",
     "origem": "global",
-    "stars": 473642,
-    "forks": 35341,
-    "badge": "⭐ 473K stars - Awesome Lists"
+    "stars": 36144,
+    "forks": 2619,
+    "badge": "🎨 36K stars - AI Taste"
   },
   {
     "id": "14",
-    "titulo": "Luminance",
-    "descricao": "UK-based legal technology company providing AI solutions for contract analysis, negotiation, and eDiscovery",
+    "titulo": "Project N.O.M.A.D",
+    "descricao": "Self-contained, offline survival computer packed with critical tools, knowledge, and AI to keep you informed and empowered—anytime, anywhere",
+    "fonte": "GitHub Trending",
+    "tags": ["ai", "offline", "survival", "knowledge", "tools"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 29532,
+    "forks": 2928,
+    "badge": "🏕️ 29.5K stars - Offline AI"
+  },
+  {
+    "id": "15",
+    "titulo": "AiToEarn",
+    "descricao": "Let's use AI to Earn!",
+    "fonte": "GitHub Trending",
+    "tags": ["ai", "earn", "make-money", "automation"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 18617,
+    "forks": 2897,
+    "badge": "💡 18.6K stars - AI to Earn"
+  },
+  {
+    "id": "16",
+    "titulo": "Lovescape",
+    "descricao": "AI-based platform that generates photorealistic, uncensored adult content with full control and privacy",
     "fonte": "Exploding Topics",
-    "tags": ["legal", "ai", "contracts", "automation"],
+    "tags": ["ai", "adult", "privacy", "content"],
     "categoria": "app",
     "origem": "global",
     "stars": 0,
     "forks": 0,
-    "badge": "⚖️ 49.5K Volume +257% - Legal AI"
-  },
-  {
-    "id": "15",
-    "titulo": "Weight Loss Peptides",
-    "descricao": "Peptides that mimic the GLP-1 hormone for regulating appetite and metabolism in weight management",
-    "fonte": "Exploding Topics",
-    "tags": ["health", "weight-loss", "pharmaceutical", "wellness"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "💊 40.5K Volume +900% - Peptides"
-  },
-  {
-    "id": "16",
-    "titulo": "Epitalon",
-    "descricao": "Synthetic peptide known for potential anti-aging properties by stimulating telomerase production",
-    "fonte": "Exploding Topics",
-    "tags": ["anti-aging", "longevity", "peptide", "health"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🧬 27.1K Volume +900% - Anti-aging"
+    "badge": "🔥 60.5K Volume +3233% - AI Content"
   },
   {
     "id": "17",
-    "titulo": "Quantum Machine Learning",
-    "descricao": "Merges quantum computing with machine learning to enhance algorithms using quantum systems",
-    "fonte": "Exploding Topics",
-    "tags": ["quantum", "ml", "ai", "research", "computing"],
-    "categoria": "tendencia",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "⚛️ 5.4K Volume +733% - Quantum ML"
-  },
-  {
-    "id": "18",
-    "titulo": "Therapeutic Plasma Exchange",
-    "descricao": "Medical procedure for removing plasma and replacing with substitute fluid to eliminate harmful substances",
-    "fonte": "Exploding Topics",
-    "tags": ["medical", "health", "treatment", "autoimmune"],
-    "categoria": "tendencia",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🩸 4.4K Volume +1400% - Plasma Exchange"
-  },
-  {
-    "id": "19",
-    "titulo": "Vention",
-    "descricao": "Company specializing in simplified industrial automation for high-mix manufacturers",
-    "fonte": "Exploding Topics",
-    "tags": ["automation", "manufacturing", "industrial", "saas"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🏭 33.1K Volume +257% - Industrial Automation"
-  },
-  {
-    "id": "20",
-    "titulo": "Echodyne",
-    "descricao": "Company specializing in advanced radar solutions for intelligent systems and autonomous machines",
-    "fonte": "Exploding Topics",
-    "tags": ["radar", "autonomous", "technology", "security"],
-    "categoria": "tendencia",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "📡 5.4K Volume +525% - Radar Tech"
-  },
-  {
-    "id": "21",
-    "titulo": "Portable EV Charger",
-    "descricao": "Devices enabling EV owners to charge vehicles on the move - Level 1, Level 2, and DC fast chargers",
-    "fonte": "Exploding Topics",
-    "tags": ["ev", "charging", "electric-vehicle", "hardware"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🔌 22.2K Volume +365% - EV Charger"
-  },
-  {
-    "id": "22",
     "titulo": "Enzyme Cleaner",
     "descricao": "Cleaning products using enzymes to decompose organic stains and odors",
     "fonte": "Exploding Topics",
@@ -264,67 +204,7 @@
     "badge": "🧹 90.5K Volume +257% - Enzyme Cleaner"
   },
   {
-    "id": "23",
-    "titulo": "Glass Skin Cream",
-    "descricao": "Skincare product for smooth, luminous, transparent complexion inspired by Korean beauty",
-    "fonte": "Exploding Topics",
-    "tags": ["skincare", "k-beauty", "beauty", "hydration"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "✨ 3.6K Volume +560% - Glass Skin"
-  },
-  {
-    "id": "24",
-    "titulo": "Stovepipe Jeans",
-    "descricao": "Jeans characterized by a straight cut from hip to hem, maintaining consistent width for a sleek silhouette",
-    "fonte": "Exploding Topics",
-    "tags": ["fashion", "clothing", "jeans", "style"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "👖 22.2K Volume +800% - Fashion"
-  },
-  {
-    "id": "25",
-    "titulo": "Pleated Shorts",
-    "descricao": "Shorts featuring pleats at the front for tailored appearance and enhanced comfort",
-    "fonte": "Exploding Topics",
-    "tags": ["fashion", "clothing", "shorts", "summer"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🩳 18.1K Volume +290% - Fashion"
-  },
-  {
-    "id": "26",
-    "titulo": "Voltify",
-    "descricao": "Company developing battery locomotives, charging systems, and microgrids for freight rail",
-    "fonte": "Exploding Topics",
-    "tags": ["battery", "rail", "sustainable", "logistics"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🚂 6.6K Volume +600% - Rail Battery"
-  },
-  {
-    "id": "27",
-    "titulo": "Silicone Tape",
-    "descricao": "Flexible and durable adhesive tape made from silicone rubber for sealing and repairing",
-    "fonte": "Exploding Topics",
-    "tags": ["industrial", "hardware", "repair", "automotive"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🔧 33.1K Volume +240% - Industrial Tape"
-  },
-  {
-    "id": "28",
+    "id": "18",
     "titulo": "Ulanzi",
     "descricao": "Company specializing in research, development, production, and sales of accessories for mobile phone and camera photography",
     "fonte": "Exploding Topics",
@@ -336,19 +216,31 @@
     "badge": "📷 74K Volume +271% - Photo Accessories"
   },
   {
-    "id": "29",
-    "titulo": "Hey App",
-    "descricao": "Email service with Screener, Imbox, Paper Trail, and The Feed for newsletters",
+    "id": "19",
+    "titulo": "Luminance",
+    "descricao": "UK-based legal technology company providing AI solutions for contract analysis, negotiation, and eDiscovery",
     "fonte": "Exploding Topics",
-    "tags": ["email", "productivity", "saas", "organization"],
+    "tags": ["legal", "ai", "contracts", "automation"],
     "categoria": "app",
     "origem": "global",
     "stars": 0,
     "forks": 0,
-    "badge": "📧 1.9K Volume +270% - Email Service"
+    "badge": "⚖️ 49.5K Volume +257% - Legal AI"
   },
   {
-    "id": "30",
+    "id": "20",
+    "titulo": "Weight Loss Peptides",
+    "descricao": "Peptides that mimic the GLP-1 hormone for regulating appetite and metabolism in weight management",
+    "fonte": "Exploding Topics",
+    "tags": ["health", "weight-loss", "pharmaceutical", "wellness"],
+    "categoria": "negocio",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "💊 40.5K Volume +900% - Peptides"
+  },
+  {
+    "id": "21",
     "titulo": "Konigle",
     "descricao": "AI-powered platform for building websites and managing email marketing campaigns",
     "fonte": "Exploding Topics",
@@ -358,5 +250,113 @@
     "stars": 0,
     "forks": 0,
     "badge": "🚀 140 Volume +1400% - AI Website"
+  },
+  {
+    "id": "22",
+    "titulo": "Epitalon",
+    "descricao": "Synthetic peptide known for potential anti-aging properties by stimulating telomerase production",
+    "fonte": "Exploding Topics",
+    "tags": ["anti-aging", "longevity", "peptide", "health"],
+    "categoria": "negocio",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "🧬 27.1K Volume +900% - Anti-aging"
+  },
+  {
+    "id": "23",
+    "titulo": "Vention",
+    "descricao": "Company specializing in simplified industrial automation for high-mix manufacturers",
+    "fonte": "Exploding Topics",
+    "tags": ["automation", "manufacturing", "industrial", "saas"],
+    "categoria": "negocio",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "🏭 33.1K Volume +257% - Industrial Automation"
+  },
+  {
+    "id": "24",
+    "titulo": "Silicone Tape",
+    "descricao": "Flexible and durable adhesive tape made from silicone rubber for sealing and repairing",
+    "fonte": "Exploding Topics",
+    "tags": ["industrial", "hardware", "repair", "automotive"],
+    "categoria": "negocio",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "🔧 33.1K Volume +240% - Industrial Tape"
+  },
+  {
+    "id": "25",
+    "titulo": "Stovepipe Jeans",
+    "descricao": "Jeans characterized by a straight cut from hip to hem, maintaining consistent width for a sleek silhouette",
+    "fonte": "Exploding Topics",
+    "tags": ["fashion", "clothing", "jeans", "style"],
+    "categoria": "negocio",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "👖 22.2K Volume +800% - Fashion"
+  },
+  {
+    "id": "26",
+    "titulo": "Portable EV Charger",
+    "descricao": "Devices enabling EV owners to charge vehicles on the move - Level 1, Level 2, and DC fast chargers",
+    "fonte": "Exploding Topics",
+    "tags": ["ev", "charging", "electric-vehicle", "hardware"],
+    "categoria": "negocio",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "🔌 22.2K Volume +365% - EV Charger"
+  },
+  {
+    "id": "27",
+    "titulo": "Therapeutic Plasma Exchange",
+    "descricao": "Medical procedure for removing plasma and replacing with substitute fluid to eliminate harmful substances",
+    "fonte": "Exploding Topics",
+    "tags": ["medical", "health", "treatment", "autoimmune"],
+    "categoria": "tendencia",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "🩸 4.4K Volume +1400% - Plasma Exchange"
+  },
+  {
+    "id": "28",
+    "titulo": "Quantum Machine Learning",
+    "descricao": "Merges quantum computing with machine learning to enhance algorithms using quantum systems",
+    "fonte": "Exploding Topics",
+    "tags": ["quantum", "ml", "ai", "research", "computing"],
+    "categoria": "tendencia",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "⚛️ 5.4K Volume +733% - Quantum ML"
+  },
+  {
+    "id": "29",
+    "titulo": "Echodyne",
+    "descricao": "Company specializing in advanced radar solutions for intelligent systems and autonomous machines",
+    "fonte": "Exploding Topics",
+    "tags": ["radar", "autonomous", "technology", "security"],
+    "categoria": "tendencia",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "📡 5.4K Volume +525% - Radar Tech"
+  },
+  {
+    "id": "30",
+    "titulo": "Hey App",
+    "descricao": "Email service with Screener, Imbox, Paper Trail, and The Feed for newsletters",
+    "fonte": "Exploding Topics",
+    "tags": ["email", "productivity", "saas", "organization"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "📧 1.9K Volume +270% - Email Service"
   }
 ]
