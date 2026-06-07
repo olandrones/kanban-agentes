@@ -7,24 +7,60 @@
     "tags": ["ai", "agent", "open-source", "framework"],
     "categoria": "app",
     "origem": "global",
-    "stars": 185536,
-    "forks": 31884,
-    "badge": "🤖 185K stars - AI Agent Framework"
+    "stars": 185826,
+    "forks": 31960,
+    "badge": "🤖 185.8K stars - AI Agent Framework"
   },
   {
     "id": "2",
+    "titulo": "OpenCV",
+    "descricao": "Open Source Computer Vision Library - real-time computer vision and ML",
+    "fonte": "GitHub Trending",
+    "tags": ["cv", "computer-vision", "ai", "python", "c++", "open-source"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 88042,
+    "forks": 56596,
+    "badge": "👁️ 88K stars - Computer Vision"
+  },
+  {
+    "id": "3",
     "titulo": "llama.cpp",
     "descricao": "LLM inference in C/C++",
     "fonte": "GitHub Trending",
     "tags": ["ai", "llm", "c++", "inference", "open-source"],
     "categoria": "app",
     "origem": "global",
-    "stars": 115176,
-    "forks": 19278,
-    "badge": "⚡ 115K stars - LLM Inference"
+    "stars": 115289,
+    "forks": 19295,
+    "badge": "⚡ 115.3K stars - LLM Inference"
   },
   {
-    "id": "3",
+    "id": "4",
+    "titulo": "Svelte",
+    "descricao": "Web development for the rest of us",
+    "fonte": "GitHub Trending",
+    "tags": ["javascript", "framework", "web", "svelte"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 87097,
+    "forks": 4940,
+    "badge": "⚡ 87.1K stars - Web Framework"
+  },
+  {
+    "id": "5",
+    "titulo": "Vite",
+    "descricao": "Next generation frontend tooling. It's fast!",
+    "fonte": "GitHub Trending",
+    "tags": ["javascript", "tooling", "build", "typescript"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 81178,
+    "forks": 8274,
+    "badge": "⚡ 81.2K stars - Frontend Tooling"
+  },
+  {
+    "id": "6",
     "titulo": "MemPalace",
     "descricao": "The best-benchmarked open-source AI memory system. And it's free.",
     "fonte": "GitHub Trending",
@@ -36,7 +72,7 @@
     "badge": "🔥 54.5K stars - AI Memory"
   },
   {
-    "id": "4",
+    "id": "7",
     "titulo": "Maybe",
     "descricao": "The personal finance app for everyone - open source finance management",
     "fonte": "GitHub Trending",
@@ -45,10 +81,10 @@
     "origem": "global",
     "stars": 54151,
     "forks": 5605,
-    "badge": "💰 54K stars - Personal Finance"
+    "badge": "💰 54.2K stars - Personal Finance"
   },
   {
-    "id": "5",
+    "id": "8",
     "titulo": "VibeVoice",
     "descricao": "Open-Source Frontier Voice AI from Microsoft",
     "fonte": "GitHub Trending",
@@ -57,22 +93,22 @@
     "origem": "global",
     "stars": 48467,
     "forks": 5391,
-    "badge": "🎙️ 48K stars - Voice AI"
+    "badge": "🎙️ 48.5K stars - Voice AI"
   },
   {
-    "id": "6",
+    "id": "9",
     "titulo": "goose",
     "descricao": "An open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
     "fonte": "GitHub Trending",
     "tags": ["ai", "agent", "extensible", "python"],
     "categoria": "app",
     "origem": "global",
-    "stars": 47256,
-    "forks": 4981,
-    "badge": "🦆 47K stars - AI Agent"
+    "stars": 47432,
+    "forks": 5005,
+    "badge": "🦆 47.4K stars - AI Agent"
   },
   {
-    "id": "7",
+    "id": "10",
     "titulo": "CopilotKit",
     "descricao": "The Frontend Stack for Agents & Generative UI. Makers of the AG-UI Protocol",
     "fonte": "GitHub Trending",
@@ -84,43 +120,19 @@
     "badge": "🤖 33.5K stars - AI Agent UI"
   },
   {
-    "id": "8",
-    "titulo": "Svelte",
-    "descricao": "Web development for the rest of us",
-    "fonte": "GitHub Trending",
-    "tags": ["javascript", "framework", "web", "svelte"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 87097,
-    "forks": 4940,
-    "badge": "⚡ 87K stars - Web Framework"
-  },
-  {
-    "id": "9",
-    "titulo": "Vite",
-    "descricao": "Next generation frontend tooling. It's fast!",
-    "fonte": "GitHub Trending",
-    "tags": ["javascript", "tooling", "build", "typescript"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 81178,
-    "forks": 8274,
-    "badge": "⚡ 81K stars - Frontend Tooling"
-  },
-  {
-    "id": "10",
-    "titulo": "Open Notebook",
-    "descricao": "An Open Source implementation of Notebook LM with more flexibility and features",
-    "fonte": "GitHub Trending",
-    "tags": ["ai", "notebook", "typescript", "open-source"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 26993,
-    "forks": 3069,
-    "badge": "📓 27K stars - AI Notebook"
-  },
-  {
     "id": "11",
+    "titulo": "taste-skill",
+    "descricao": "Gives your AI good taste - stops the AI from generating boring, generic slop",
+    "fonte": "GitHub Trending",
+    "tags": ["ai", "agent", "creativity", "prompting"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 36474,
+    "forks": 2639,
+    "badge": "🎨 36.5K stars - AI Taste"
+  },
+  {
+    "id": "12",
     "titulo": "Trivy",
     "descricao": "Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more",
     "fonte": "GitHub Trending",
@@ -129,58 +141,58 @@
     "origem": "global",
     "stars": 36067,
     "forks": 458,
-    "badge": "🛡️ 36K stars - Security Scanner"
+    "badge": "🛡️ 36.1K stars - Security Scanner"
   },
   {
-    "id": "12",
+    "id": "13",
     "titulo": "last30days-skill",
     "descricao": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
     "fonte": "GitHub Trending",
     "tags": ["ai", "agent", "research", "python", "automation"],
     "categoria": "app",
     "origem": "global",
-    "stars": 30037,
-    "forks": 2524,
-    "badge": "🔍 30K stars - AI Research Agent"
-  },
-  {
-    "id": "13",
-    "titulo": "taste-skill",
-    "descricao": "Gives your AI good taste - stops the AI from generating boring, generic slop",
-    "fonte": "GitHub Trending",
-    "tags": ["ai", "agent", "creativity", "prompting"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 36144,
-    "forks": 2619,
-    "badge": "🎨 36K stars - AI Taste"
+    "stars": 30672,
+    "forks": 2571,
+    "badge": "🔍 30.7K stars - AI Research Agent"
   },
   {
     "id": "14",
+    "titulo": "Open Notebook",
+    "descricao": "An Open Source implementation of Notebook LM with more flexibility and features",
+    "fonte": "GitHub Trending",
+    "tags": ["ai", "notebook", "typescript", "open-source"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 27171,
+    "forks": 3089,
+    "badge": "📓 27.2K stars - AI Notebook"
+  },
+  {
+    "id": "15",
     "titulo": "Project N.O.M.A.D",
     "descricao": "Self-contained, offline survival computer packed with critical tools, knowledge, and AI to keep you informed and empowered—anytime, anywhere",
     "fonte": "GitHub Trending",
     "tags": ["ai", "offline", "survival", "knowledge", "tools"],
     "categoria": "app",
     "origem": "global",
-    "stars": 29532,
-    "forks": 2928,
-    "badge": "🏕️ 29.5K stars - Offline AI"
+    "stars": 29664,
+    "forks": 2938,
+    "badge": "🏕️ 29.7K stars - Offline AI"
   },
   {
-    "id": "15",
+    "id": "16",
     "titulo": "AiToEarn",
     "descricao": "Let's use AI to Earn!",
     "fonte": "GitHub Trending",
     "tags": ["ai", "earn", "make-money", "automation"],
     "categoria": "app",
     "origem": "global",
-    "stars": 18617,
-    "forks": 2897,
-    "badge": "💡 18.6K stars - AI to Earn"
+    "stars": 18711,
+    "forks": 2903,
+    "badge": "💡 18.7K stars - AI to Earn"
   },
   {
-    "id": "16",
+    "id": "17",
     "titulo": "Lovescape",
     "descricao": "AI-based platform that generates photorealistic, uncensored adult content with full control and privacy",
     "fonte": "Exploding Topics",
@@ -190,18 +202,6 @@
     "stars": 0,
     "forks": 0,
     "badge": "🔥 60.5K Volume +3233% - AI Content"
-  },
-  {
-    "id": "17",
-    "titulo": "Enzyme Cleaner",
-    "descricao": "Cleaning products using enzymes to decompose organic stains and odors",
-    "fonte": "Exploding Topics",
-    "tags": ["cleaning", "eco-friendly", "household", "pets"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🧹 90.5K Volume +257% - Enzyme Cleaner"
   },
   {
     "id": "18",
@@ -253,18 +253,6 @@
   },
   {
     "id": "22",
-    "titulo": "Epitalon",
-    "descricao": "Synthetic peptide known for potential anti-aging properties by stimulating telomerase production",
-    "fonte": "Exploding Topics",
-    "tags": ["anti-aging", "longevity", "peptide", "health"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🧬 27.1K Volume +900% - Anti-aging"
-  },
-  {
-    "id": "23",
     "titulo": "Vention",
     "descricao": "Company specializing in simplified industrial automation for high-mix manufacturers",
     "fonte": "Exploding Topics",
@@ -276,19 +264,7 @@
     "badge": "🏭 33.1K Volume +257% - Industrial Automation"
   },
   {
-    "id": "24",
-    "titulo": "Silicone Tape",
-    "descricao": "Flexible and durable adhesive tape made from silicone rubber for sealing and repairing",
-    "fonte": "Exploding Topics",
-    "tags": ["industrial", "hardware", "repair", "automotive"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🔧 33.1K Volume +240% - Industrial Tape"
-  },
-  {
-    "id": "25",
+    "id": "23",
     "titulo": "Stovepipe Jeans",
     "descricao": "Jeans characterized by a straight cut from hip to hem, maintaining consistent width for a sleek silhouette",
     "fonte": "Exploding Topics",
@@ -300,7 +276,7 @@
     "badge": "👖 22.2K Volume +800% - Fashion"
   },
   {
-    "id": "26",
+    "id": "24",
     "titulo": "Portable EV Charger",
     "descricao": "Devices enabling EV owners to charge vehicles on the move - Level 1, Level 2, and DC fast chargers",
     "fonte": "Exploding Topics",
@@ -312,7 +288,19 @@
     "badge": "🔌 22.2K Volume +365% - EV Charger"
   },
   {
-    "id": "27",
+    "id": "25",
+    "titulo": "Epitalon",
+    "descricao": "Synthetic peptide known for potential anti-aging properties by stimulating telomerase production",
+    "fonte": "Exploding Topics",
+    "tags": ["anti-aging", "longevity", "peptide", "health"],
+    "categoria": "negocio",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "🧬 27.1K Volume +900% - Anti-aging"
+  },
+  {
+    "id": "26",
     "titulo": "Therapeutic Plasma Exchange",
     "descricao": "Medical procedure for removing plasma and replacing with substitute fluid to eliminate harmful substances",
     "fonte": "Exploding Topics",
@@ -324,39 +312,15 @@
     "badge": "🩸 4.4K Volume +1400% - Plasma Exchange"
   },
   {
-    "id": "28",
-    "titulo": "Quantum Machine Learning",
-    "descricao": "Merges quantum computing with machine learning to enhance algorithms using quantum systems",
+    "id": "27",
+    "titulo": "Milky Moisturizer",
+    "descricao": "Skincare product with Snow Mushroom, Hyaluronic Acid, and Shea Butter for enhanced skin barrier and prolonged hydration",
     "fonte": "Exploding Topics",
-    "tags": ["quantum", "ml", "ai", "research", "computing"],
-    "categoria": "tendencia",
+    "tags": ["skincare", "beauty", "hydration", "wellness", "retail"],
+    "categoria": "negocio",
     "origem": "global",
     "stars": 0,
     "forks": 0,
-    "badge": "⚛️ 5.4K Volume +733% - Quantum ML"
-  },
-  {
-    "id": "29",
-    "titulo": "Echodyne",
-    "descricao": "Company specializing in advanced radar solutions for intelligent systems and autonomous machines",
-    "fonte": "Exploding Topics",
-    "tags": ["radar", "autonomous", "technology", "security"],
-    "categoria": "tendencia",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "📡 5.4K Volume +525% - Radar Tech"
-  },
-  {
-    "id": "30",
-    "titulo": "Hey App",
-    "descricao": "Email service with Screener, Imbox, Paper Trail, and The Feed for newsletters",
-    "fonte": "Exploding Topics",
-    "tags": ["email", "productivity", "saas", "organization"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "📧 1.9K Volume +270% - Email Service"
+    "badge": "🥛 2.9K Volume +925% - Skincare"
   }
 ]
