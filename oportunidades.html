@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oportunidades de Negócio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 1px solid #30363d;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #58a6ff;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #8b949e;
+            font-size: 1.1em;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #58a6ff;
+        }
+        .stat-label {
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+        .filters {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: #58a6ff;
+            color: #0d1117;
+            border-color: #58a6ff;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+        .card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #f0f6fc;
+        }
+        .badge {
+            background: #238636;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .badge.tendencia { background: #a371f7; }
+        .badge.app { background: #238636; }
+        .badge.negocio { background: #1f6feb; }
+        .badge.github { background: #f0883e; }
+        .card-desc {
+            color: #8b949e;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        .card-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #8b949e;
+            font-size: 0.85em;
+        }
+        .meta-item .icon {
+            font-size: 1.1em;
+        }
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: #21262d;
+            color: #8b949e;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+        .source {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #30363d;
+            font-size: 0.85em;
+            color: #8b949e;
+        }
+        .source-icon {
+            width: 16px;
+            height: 16px;
+        }
+        .hidden {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .stats {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 Oportunidades de Negócio</h1>
+        <p>Trending topics, GitHub projects e ideias para Micro SaaS e Side Projects</p>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">30</div>
+                <div class="stat-label">Oportunidades</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">15</div>
+                <div class="stat-label">GitHub Projects</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">15</div>
+                <div class="stat-label">Exploding Topics</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">Todas</button>
+        <button class="filter-btn" data-filter="app">💼 Apps</button>
+        <button class="filter-btn" data-filter="negocio">🏢 Negócios</button>
+        <button class="filter-btn" data-filter="tendencia">📈 Tendências</button>
+        <button class="filter-btn" data-filter="github">⭐ GitHub</button>
+    </div>
+
+    <div class="grid" id="opportunities">
+        <!-- Cards will be generated here -->
+    </div>
+
+    <script>
+        const dados = [
+            {"id":"1","titulo":"MemPalace","descricao":"The best-benchmarked open-source AI memory system. And it's free.","fonte":"GitHub Trending","tags":["ai","memory","python","open-source"],"categoria":"app","origem":"global","stars":54268,"forks":7109,"badge":"🔥 54K stars - Open Source AI Memory"},
+            {"id":"2","titulo":"VibeVoice","descricao":"Open-Source Frontier Voice AI from Microsoft","fonte":"GitHub Trending","tags":["ai","voice","python","microsoft"],"categoria":"app","origem":"global","stars":48467,"forks":5391,"badge":"🎙️ 48K stars - Voice AI"},
+            {"id":"3","titulo":"CopilotKit","descricao":"The Frontend Stack for Agents & Generative UI. Makers of the AG-UI Protocol","fonte":"GitHub Trending","tags":["agent","generative-ui","react","typescript","ai"],"categoria":"app","origem":"global","stars":33196,"forks":4238,"badge":"🤖 33K stars - AI Agent UI"},
+            {"id":"4","titulo":"Svelte","descricao":"web development for the rest of us","fonte":"GitHub Trending","tags":["javascript","framework","web","svelte"],"categoria":"app","origem":"global","stars":86981,"forks":4937,"badge":"⚡ 87K stars - Web Framework"},
+            {"id":"5","titulo":"Vite","descricao":"Next generation frontend tooling. It's fast!","fonte":"GitHub Trending","tags":["javascript","tooling","build","typescript"],"categoria":"app","origem":"global","stars":81178,"forks":8274,"badge":"⚡ 81K stars - Frontend Tooling"},
+            {"id":"6","titulo":"Open Notebook","descricao":"An Open Source implementation of Notebook LM with more flexibility and features","fonte":"GitHub Trending","tags":["ai","notebook","typescript","open-source"],"categoria":"app","origem":"global","stars":26599,"forks":3037,"badge":"📓 26.6K stars - AI Notebook"},
+            {"id":"7","titulo":"Trivy","descricao":"Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more","fonte":"GitHub Trending","tags":["security","devops","go","vulnerability"],"categoria":"negocio","origem":"global","stars":35998,"forks":454,"badge":"🛡️ 36K stars - Security Scanner"},
+            {"id":"8","titulo":"Ceylon Cinnamon","descricao":"Derived from the inner bark of the Cinnamomum verum tree native to Sri Lanka, known for its delicate, sweet flavor","fonte":"Exploding Topics","tags":["spice","health","organic","food"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"🌿 246K Volume +239% - Spice"},
+            {"id":"9","titulo":"Label Printer","descricao":"Specialized devices designed to print individual labels for products, packages, and other items","fonte":"Exploding Topics","tags":["printing","hardware","business","logistics"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"🏷️ 135K Volume +332% - Label Printing"},
+            {"id":"10","titulo":"Ulanzi","descricao":"Company specializing in research, development, production, and sales of accessories for mobile phone and camera photography","fonte":"Exploding Topics","tags":["photography","accessories","hardware","content-creator"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"📷 74K Volume +271% - Photo Accessories"},
+            {"id":"11","titulo":"Joi Ai","descricao":"Platform offering real-time AI-powered chat, photos, and videos for self-expression and intimacy","fonte":"Exploding Topics","tags":["ai","chat","photos","videos","adult"],"categoria":"app","origem":"global","stars":0,"forks":0,"badge":"🎮 90.5K Volume +355% - AI Platform"},
+            {"id":"12","titulo":"Weight Loss Peptides","descricao":"Peptides that mimic the GLP-1 hormone for regulating appetite and metabolism in weight management","fonte":"Exploding Topics","tags":["health","weight-loss","pharmaceutical","wellness"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"💊 40.5K Volume +900% - Peptides"},
+            {"id":"13","titulo":"Epitalon","descricao":"Synthetic peptide known for potential anti-aging properties by stimulating telomerase production","fonte":"Exploding Topics","tags":["anti-aging","longevity","peptide","health"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"🧬 27.1K Volume +900% - Anti-aging"},
+            {"id":"14","titulo":"Luminance","descricao":"UK-based legal technology company providing AI solutions for contract analysis, negotiation, and eDiscovery","fonte":"Exploding Topics","tags":["legal","ai","contracts","automation"],"categoria":"app","origem":"global","stars":0,"forks":0,"badge":"⚖️ 49.5K Volume +257% - Legal AI"},
+            {"id":"15","titulo":"Konigle","descricao":"AI-powered platform for building websites and managing email marketing campaigns","fonte":"Exploding Topics","tags":["ai","website-builder","email-marketing","saas"],"categoria":"app","origem":"global","stars":0,"forks":0,"badge":"🚀 140 Volume +1400% - AI Website"},
+            {"id":"16","titulo":"Hey App","descricao":"Email service with Screener, Imbox, Paper Trail, and The Feed for newsletters","fonte":"Exploding Topics","tags":["email","productivity","saas","organization"],"categoria":"app","origem":"global","stars":0,"forks":0,"badge":"📧 1.9K Volume +270% - Email Service"},
+            {"id":"17","titulo":"Vention","descricao":"Company specializing in simplified industrial automation for high-mix manufacturers","fonte":"Exploding Topics","tags":["automation","manufacturing","industrial","saas"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"🏭 33.1K Volume +257% - Industrial Automation"},
+            {"id":"18","titulo":"Quantum Machine Learning","descricao":"Merges quantum computing with machine learning to enhance algorithms using quantum systems","fonte":"Exploding Topics","tags":["quantum","ml","ai","research","computing"],"categoria":"tendencia","origem":"global","stars":0,"forks":0,"badge":"⚛️ 5.4K Volume +733% - Quantum ML"},
+            {"id":"19","titulo":"Therapeutic Plasma Exchange","descricao":"Medical procedure for removing plasma and replacing with substitute fluid to eliminate harmful substances","fonte":"Exploding Topics","tags":["medical","health","treatment","autoimmune"],"categoria":"tendencia","origem":"global","stars":0,"forks":0,"badge":"🩸 4.4K Volume +1400% - Plasma Exchange"},
+            {"id":"20","titulo":"Lovescape","descricao":"AI-based platform that generates photorealistic adult content with privacy focus","fonte":"Exploding Topics","tags":["ai","adult","privacy","content"],"categoria":"app","origem":"global","stars":0,"forks":0,"badge":"🎨 60.5K Volume +3233% - AI Content"},
+            {"id":"21","titulo":"Milky Moisturizer","descricao":"Skincare product with Snow Mushroom, Hyaluronic Acid, and Shea Butter for prolonged hydration","fonte":"Exploding Topics","tags":["skincare","beauty","moisturizer","k-beauty"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"🧴 2.9K Volume +925% - Skincare"},
+            {"id":"22","titulo":"Glass Skin Cream","descricao":"Skincare product for smooth, luminous, transparent complexion inspired by Korean beauty","fonte":"Exploding Topics","tags":["skincare","k-beauty","beauty","hydration"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"✨ 3.6K Volume +560% - Glass Skin"},
+            {"id":"23","titulo":"Enzyme Cleaner","descricao":"Cleaning products using enzymes to decompose organic stains and odors","fonte":"Exploding Topics","tags":["cleaning","eco-friendly","household","pets"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"🧹 90.5K Volume +257% - Enzyme Cleaner"},
+            {"id":"24","titulo":"Portable Ev Charger","descricao":"Devices enabling EV owners to charge vehicles on the move - Level 1, Level 2, and DC fast chargers","fonte":"Exploding Topics","tags":["ev","charging","electric-vehicle","hardware"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"🔌 22.2K Volume +365% - EV Charger"},
+            {"id":"25","titulo":"Stovepipe Jeans","descricao":"Jeans characterized by a straight cut from hip to hem, maintaining consistent width for a sleek silhouette","fonte":"Exploding Topics","tags":["fashion","clothing","jeans","style"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"👖 22.2K Volume +800% - Fashion"},
+            {"id":"26","titulo":"Pleated Shorts","descricao":"Shorts featuring pleats at the front for tailored appearance and enhanced comfort","fonte":"Exploding Topics","tags":["fashion","clothing","shorts","summer"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"🩳 18.1K Volume +290% - Fashion"},
+            {"id":"27","titulo":"Echodyne","descricao":"Company specializing in advanced radar solutions for intelligent systems and autonomous machines","fonte":"Exploding Topics","tags":["radar","autonomous","technology","security"],"categoria":"tendencia","origem":"global","stars":0,"forks":0,"badge":"📡 5.4K Volume +525% - Radar Tech"},
+            {"id":"28","titulo":"Voltify","descricao":"Company developing battery locomotives, charging systems, and microgrids for freight rail","fonte":"Exploding Topics","tags":["battery","rail","sustainable","logistics"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"🚂 6.6K Volume +600% - Rail Battery"},
+            {"id":"29","titulo":"Silicone Tape","descricao":"Flexible and durable adhesive tape made from silicone rubber for sealing and repairing","fonte":"Exploding Topics","tags":["industrial","hardware","repair","automotive"],"categoria":"negocio","origem":"global","stars":0,"forks":0,"badge":"🔧 33.1K Volume +240% - Industrial Tape"},
+            {"id":"30","titulo":"Maybe Finance","descricao":"The personal finance app for everyone - open source finance management","fonte":"GitHub Trending","tags":["finance","personal-finance","ruby","open-source"],"categoria":"app","origem":"global","stars":54151,"forks":5605,"badge":"💰 54K stars - Personal Finance"}
+        ];
+
+        function createCard(item) {
+            const isGitHub = item.fonte === 'GitHub Trending';
+            const badgeClass = isGitHub ? 'github' : item.categoria;
+            const starsDisplay = item.stars > 0 ? `<span class="meta-item"><span class="icon">⭐</span> ${item.stars.toLocaleString()}</span>` : '';
+            const forksDisplay = item.forks > 0 ? `<span class="meta-item"><span class="icon">🍴</span> ${item.forks.toLocaleString()}</span>` : '';
+            
+            return `
+                <div class="card" data-categoria="${item.categoria}" data-fonte="${item.fonte}">
+                    <div class="card-header">
+                        <span class="card-title">${item.titulo}</span>
+                        <span class="badge ${badgeClass}">${item.badge}</span>
+                    </div>
+                    <p class="card-desc">${item.descricao}</p>
+                    <div class="card-meta">
+                        ${starsDisplay}
+                        ${forksDisplay}
+                    </div>
+                    <div class="tags">
+                        ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="source">
+                        <svg class="source-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                        ${item.fonte} • ${item.origem.toUpperCase()}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderCards(filter = 'all') {
+            const grid = document.getElementById('opportunities');
+            const filtered = filter === 'all' 
+                ? dados 
+                : filter === 'github'
+                    ? dados.filter(d => d.fonte === 'GitHub Trending')
+                    : dados.filter(d => d.categoria === filter);
+            
+            grid.innerHTML = filtered.map(createCard).join('');
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderCards(btn.dataset.filter);
+            });
+        });
+
+        // Initial render
+        renderCards();
+    </script>
+</body>
+</html>
