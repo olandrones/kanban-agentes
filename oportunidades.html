@@ -6,7 +6,6 @@
   <title>Oportunidades de Negócio</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
     :root {
       --bg-primary: #0a0a0f;
       --bg-secondary: #12121a;
@@ -27,761 +26,402 @@
       --tag-bg: #1e1e2e;
       --tag-text: #a0a0c0;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      min-height: 100vh;
-      line-height: 1.6;
-    }
-
-    /* subtle grid bg */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: 
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 60px 60px;
-      opacity: 0.15;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    header {
-      text-align: center;
-      padding: 3rem 0 2.5rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 2.5rem;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #f0f0f5 0%, #9999b0 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
-
-    .stats-bar {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
-
-    .stat {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.5rem 1rem;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-    }
-
-    .stat strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    .filters {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-      justify-content: center;
-    }
-
-    .filter-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.8rem;
-      font-family: inherit;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-
-    .filter-btn:hover, .filter-btn.active {
-      border-color: var(--accent-ai);
-      color: var(--text-primary);
-      background: var(--accent-ai-glow);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1rem;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem;
-      transition: all 0.25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--card-accent, var(--accent-ai)), transparent);
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
-
-    .card:hover {
-      border-color: var(--card-accent, var(--accent-ai));
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-    }
-
+    body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.15; pointer-events: none; z-index: 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; position: relative; z-index: 1; }
+    header { text-align: center; padding: 3rem 0 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
+    header h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; background: linear-gradient(135deg, #f0f0f5 0%, #9999b0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
+    header p { color: var(--text-secondary); font-size: 0.95rem; }
+    .stats-bar { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .stat { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.8rem; color: var(--text-secondary); }
+    .stat strong { color: var(--text-primary); font-weight: 600; }
+    .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: center; }
+    .filter-btn { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); padding: 0.4rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-family: inherit; font-weight: 500; transition: all 0.2s; }
+    .filter-btn:hover, .filter-btn.active { border-color: var(--accent-ai); color: var(--text-primary); background: var(--accent-ai-glow); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; }
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; transition: all 0.25s ease; position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--card-accent, var(--accent-ai)), transparent); opacity: 0; transition: opacity 0.25s; }
+    .card:hover { border-color: var(--card-accent, var(--accent-ai)); background: var(--bg-card-hover); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
     .card:hover::before { opacity: 1; }
-
     .card[data-categoria="app"] { --card-accent: var(--accent-app); }
     .card[data-categoria="negocio"] { --card-accent: var(--accent-negocio); }
     .card[data-categoria="tendencia"] { --card-accent: var(--accent-tendencia); }
-
-    .card-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .card-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      line-height: 1.3;
-    }
-
-    .badge {
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .badge-github {
-      background: var(--accent-ai-glow);
-      color: #a78bfa;
-      border: 1px solid #7c3aed50;
-    }
-
-    .badge-exploding {
-      background: var(--accent-tendencia-glow);
-      color: #f472b6;
-      border: 1px solid #db277740;
-    }
-
-    .card-desc {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.75rem;
-      line-height: 1.5;
-    }
-
-    .card-meta {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .card-meta span {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .card-title { font-size: 1rem; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
+    .badge { font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
+    .badge-github { background: var(--accent-ai-glow); color: #a78bfa; border: 1px solid #7c3aed50; }
+    .badge-exploding { background: var(--accent-tendencia-glow); color: #f472b6; border: 1px solid #db277740; }
+    .card-desc { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem; line-height: 1.5; }
+    .card-meta { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.75rem; color: var(--text-muted); }
+    .card-meta span { display: flex; align-items: center; gap: 0.25rem; }
     .stars { color: #fbbf24; }
     .forks { color: var(--text-muted); }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-
-    .tag {
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      font-size: 0.68rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-      font-weight: 500;
-    }
-
-    .categoria-badge {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 0.6rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 0.15rem 0.45rem;
-      border-radius: 4px;
-      opacity: 0.8;
-    }
-
+    .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .tag { background: var(--tag-bg); color: var(--tag-text); font-size: 0.68rem; padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 500; }
+    .categoria-badge { position: absolute; top: 1rem; right: 1rem; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.15rem 0.45rem; border-radius: 4px; opacity: 0.8; }
     .categoria-badge.app { background: var(--accent-app-glow); color: #60a5fa; }
     .categoria-badge.negocio { background: var(--accent-negocio-glow); color: #4ade80; }
     .categoria-badge.tendencia { background: var(--accent-tendencia-glow); color: #f472b6; }
-
-    footer {
-      text-align: center;
-      padding: 2rem 0;
-      margin-top: 2rem;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 0.75rem;
-    }
-
-    @media (max-width: 600px) {
-      .grid { grid-template-columns: 1fr; }
-      header h1 { font-size: 1.5rem; }
-    }
+    footer { text-align: center; padding: 2rem 0; margin-top: 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.75rem; }
+    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } header h1 { font-size: 1.5rem; } }
   </style>
 </head>
 <body>
 <div class="container">
-
   <header>
     <h1>🚀 Oportunidades de Negócio</h1>
     <p>Fontes: GitHub Trending · Exploding Topics · Micro SaaS · Indie Hackers</p>
     <div class="stats-bar">
-      <div class="stat"><strong>27</strong> oportunidades</div>
+      <div class="stat"><strong>30</strong> oportunidades</div>
       <div class="stat"><strong>GitHub</strong> + Exploding Topics</div>
-      <div class="stat">Atualizado: 07/06/2026 18:00 BRT</div>
+      <div class="stat">Atualizado: 08/06/2026 18:10:57 BRT</div>
     </div>
   </header>
-
   <div class="filters">
     <button class="filter-btn active" onclick="filterAll()">Todas</button>
     <button class="filter-btn" onclick="filterCat('app')">🤖 Apps</button>
     <button class="filter-btn" onclick="filterCat('negocio')">💼 Negócios</button>
     <button class="filter-btn" onclick="filterCat('tendencia')">📈 Tendências</button>
   </div>
-
   <div class="grid" id="grid">
 
-    <!-- CARD 1 -->
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
         <div class="card-title">hermes-agent</div>
         <span class="badge badge-github">🤖 GitHub</span>
       </div>
-      <div class="card-desc">The agent that grows with you — AI agent framework for building autonomous workflows</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 185.8K</span>
-        <span class="forks">🍴 32K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ai</span><span class="tag">agent</span><span class="tag">framework</span><span class="tag">open-source</span>
-      </div>
+      <div class="card-desc">The agent that grows with you</div>
+      <div class="card-meta"><span class="stars">⭐ 185.8K</span><span class="forks">🍴 31960</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">agent</span><span class="tag">open-source</span><span class="tag">framework</span></div>
     </div>
 
-    <!-- CARD 2 -->
-    <div class="card" data-categoria="app">
-      <span class="categoria-badge app">app</span>
-      <div class="card-header">
-        <div class="card-title">OpenCV</div>
-        <span class="badge badge-github">👁️ GitHub</span>
-      </div>
-      <div class="card-desc">Open Source Computer Vision Library — real-time computer vision and ML in C/C++</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 88K</span>
-        <span class="forks">🍴 56.6K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">cv</span><span class="tag">computer-vision</span><span class="tag">ai</span><span class="tag">python</span><span class="tag">c++</span>
-      </div>
-    </div>
-
-    <!-- CARD 3 -->
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
         <div class="card-title">llama.cpp</div>
-        <span class="badge badge-github">⚡ GitHub</span>
+        <span class="badge badge-github">🤖 GitHub</span>
       </div>
-      <div class="card-desc">LLM inference in pure C/C++ — high-performance LLM inference without dependencies</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 115.3K</span>
-        <span class="forks">🍴 19.3K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ai</span><span class="tag">llm</span><span class="tag">c++</span><span class="tag">inference</span><span class="tag">open-source</span>
-      </div>
+      <div class="card-desc">LLM inference in C/C++</div>
+      <div class="card-meta"><span class="stars">⭐ 115.3K</span><span class="forks">🍴 19295</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">llm</span><span class="tag">c++</span><span class="tag">inference</span><span class="tag">open-source</span></div>
     </div>
 
-    <!-- CARD 4 -->
+    <div class="card" data-categoria="app">
+      <span class="categoria-badge app">app</span>
+      <div class="card-header">
+        <div class="card-title">OpenCV</div>
+        <span class="badge badge-github">🤖 GitHub</span>
+      </div>
+      <div class="card-desc">Open Source Computer Vision Library - real-time computer vision and ML</div>
+      <div class="card-meta"><span class="stars">⭐ 88.0K</span><span class="forks">🍴 56596</span></div>
+      <div class="tags"><span class="tag">cv</span><span class="tag">computer-vision</span><span class="tag">ai</span><span class="tag">python</span><span class="tag">c++</span><span class="tag">open-source</span></div>
+    </div>
+
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
         <div class="card-title">Svelte</div>
-        <span class="badge badge-github">⚡ GitHub</span>
+        <span class="badge badge-github">🤖 GitHub</span>
       </div>
-      <div class="card-desc">Web development for the rest of us — compiles to vanilla JS, no virtual DOM</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 87.1K</span>
-        <span class="forks">🍴 4.9K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">javascript</span><span class="tag">framework</span><span class="tag">web</span><span class="tag">svelte</span>
-      </div>
+      <div class="card-desc">Web development for the rest of us</div>
+      <div class="card-meta"><span class="stars">⭐ 87.1K</span><span class="forks">🍴 4940</span></div>
+      <div class="tags"><span class="tag">javascript</span><span class="tag">framework</span><span class="tag">web</span><span class="tag">svelte</span></div>
     </div>
 
-    <!-- CARD 5 -->
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
         <div class="card-title">Vite</div>
-        <span class="badge badge-github">⚡ GitHub</span>
+        <span class="badge badge-github">🤖 GitHub</span>
       </div>
-      <div class="card-desc">Next generation frontend tooling — instant server start, lightning fast HMR</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 81.2K</span>
-        <span class="forks">🍴 8.3K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">javascript</span><span class="tag">tooling</span><span class="tag">build</span><span class="tag">typescript</span>
-      </div>
+      <div class="card-desc">Next generation frontend tooling. It's fast!</div>
+      <div class="card-meta"><span class="stars">⭐ 81.2K</span><span class="forks">🍴 8274</span></div>
+      <div class="tags"><span class="tag">javascript</span><span class="tag">tooling</span><span class="tag">build</span><span class="tag">typescript</span></div>
     </div>
 
-    <!-- CARD 6 -->
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
         <div class="card-title">MemPalace</div>
-        <span class="badge badge-github">🔥 GitHub</span>
+        <span class="badge badge-github">🤖 GitHub</span>
       </div>
-      <div class="card-desc">The best-benchmarked open-source AI memory system — scalable memory for LLM agents</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 54.5K</span>
-        <span class="forks">🍴 7.1K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ai</span><span class="tag">memory</span><span class="tag">python</span><span class="tag">open-source</span>
-      </div>
+      <div class="card-desc">The best-benchmarked open-source AI memory system. And it's free.</div>
+      <div class="card-meta"><span class="stars">⭐ 54.5K</span><span class="forks">🍴 7127</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">memory</span><span class="tag">python</span><span class="tag">open-source</span></div>
     </div>
 
-    <!-- CARD 7 -->
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
         <div class="card-title">Maybe</div>
-        <span class="badge badge-github">💰 GitHub</span>
+        <span class="badge badge-github">🤖 GitHub</span>
       </div>
-      <div class="card-desc">The personal finance app for everyone — open source finance management in Ruby</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 54.2K</span>
-        <span class="forks">🍴 5.6K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">finance</span><span class="tag">personal-finance</span><span class="tag">ruby</span><span class="tag">open-source</span>
-      </div>
+      <div class="card-desc">The personal finance app for everyone - open source finance management</div>
+      <div class="card-meta"><span class="stars">⭐ 54.2K</span><span class="forks">🍴 5605</span></div>
+      <div class="tags"><span class="tag">finance</span><span class="tag">personal-finance</span><span class="tag">ruby</span><span class="tag">open-source</span></div>
     </div>
 
-    <!-- CARD 8 -->
+    <div class="card" data-categoria="app">
+      <span class="categoria-badge app">app</span>
+      <div class="card-header">
+        <div class="card-title">career-ops</div>
+        <span class="badge badge-github">🤖 GitHub</span>
+      </div>
+      <div class="card-desc">AI-powered job search system built on Claude Code. 14 skill modes, Go dashboard, PDF generation, batch processing.</div>
+      <div class="card-meta"><span class="stars">⭐ 50.4K</span><span class="forks">🍴 10329</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">job-search</span><span class="tag">claude-code</span><span class="tag">automation</span><span class="tag">career</span></div>
+    </div>
+
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
         <div class="card-title">VibeVoice</div>
-        <span class="badge badge-github">🎙️ GitHub</span>
+        <span class="badge badge-github">🤖 GitHub</span>
       </div>
-      <div class="card-desc">Open-Source Frontier Voice AI from Microsoft — speech-to-text and voice synthesis</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 48.5K</span>
-        <span class="forks">🍴 5.4K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ai</span><span class="tag">voice</span><span class="tag">python</span><span class="tag">microsoft</span>
-      </div>
+      <div class="card-desc">Open-Source Frontier Voice AI from Microsoft</div>
+      <div class="card-meta"><span class="stars">⭐ 48.5K</span><span class="forks">🍴 5391</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">voice</span><span class="tag">python</span><span class="tag">microsoft</span></div>
     </div>
 
-    <!-- CARD 9 -->
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
         <div class="card-title">goose</div>
-        <span class="badge badge-github">🦆 GitHub</span>
+        <span class="badge badge-github">🤖 GitHub</span>
       </div>
-      <div class="card-desc">Open source, extensible AI agent — install, execute, edit, and test with any LLM</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 47.4K</span>
-        <span class="forks">🍴 5K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ai</span><span class="tag">agent</span><span class="tag">extensible</span><span class="tag">python</span>
-      </div>
+      <div class="card-desc">An open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM</div>
+      <div class="card-meta"><span class="stars">⭐ 47.4K</span><span class="forks">🍴 5005</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">agent</span><span class="tag">extensible</span><span class="tag">python</span></div>
     </div>
 
-    <!-- CARD 10 -->
+    <div class="card" data-categoria="app">
+      <span class="categoria-badge app">app</span>
+      <div class="card-header">
+        <div class="card-title">taste-skill</div>
+        <span class="badge badge-github">🤖 GitHub</span>
+      </div>
+      <div class="card-desc">Gives your AI good taste - stops the AI from generating boring, generic slop</div>
+      <div class="card-meta"><span class="stars">⭐ 36.5K</span><span class="forks">🍴 2639</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">agent</span><span class="tag">creativity</span><span class="tag">prompting</span></div>
+    </div>
+
+    <div class="card" data-categoria="negocio">
+      <span class="categoria-badge negocio">negocio</span>
+      <div class="card-header">
+        <div class="card-title">Trivy</div>
+        <span class="badge badge-github">🤖 GitHub</span>
+      </div>
+      <div class="card-desc">Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more</div>
+      <div class="card-meta"><span class="stars">⭐ 36.1K</span><span class="forks">🍴 458</span></div>
+      <div class="tags"><span class="tag">security</span><span class="tag">devops</span><span class="tag">go</span><span class="tag">vulnerability</span></div>
+    </div>
+
+    <div class="card" data-categoria="app">
+      <span class="categoria-badge app">app</span>
+      <div class="card-header">
+        <div class="card-title">last30days-skill</div>
+        <span class="badge badge-github">🤖 GitHub</span>
+      </div>
+      <div class="card-desc">AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary</div>
+      <div class="card-meta"><span class="stars">⭐ 34.3K</span><span class="forks">🍴 2811</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">agent</span><span class="tag">research</span><span class="tag">python</span><span class="tag">automation</span></div>
+    </div>
+
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
         <div class="card-title">CopilotKit</div>
         <span class="badge badge-github">🤖 GitHub</span>
       </div>
-      <div class="card-desc">The Frontend Stack for Agents & Generative UI — makers of the AG-UI Protocol</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 33.5K</span>
-        <span class="forks">🍴 4.3K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">agent</span><span class="tag">generative-ui</span><span class="tag">react</span><span class="tag">typescript</span>
-      </div>
+      <div class="card-desc">The Frontend Stack for Agents & Generative UI. Makers of the AG-UI Protocol</div>
+      <div class="card-meta"><span class="stars">⭐ 33.5K</span><span class="forks">🍴 4263</span></div>
+      <div class="tags"><span class="tag">agent</span><span class="tag">generative-ui</span><span class="tag">react</span><span class="tag">typescript</span><span class="tag">ai</span></div>
     </div>
 
-    <!-- CARD 11 -->
-    <div class="card" data-categoria="app">
-      <span class="categoria-badge app">app</span>
-      <div class="card-header">
-        <div class="card-title">taste-skill</div>
-        <span class="badge badge-github">🎨 GitHub</span>
-      </div>
-      <div class="card-desc">Gives your AI good taste — stops the AI from generating boring, generic slop</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 36.5K</span>
-        <span class="forks">🍴 2.6K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ai</span><span class="tag">agent</span><span class="tag">creativity</span><span class="tag">prompting</span>
-      </div>
-    </div>
-
-    <!-- CARD 12 -->
-    <div class="card" data-categoria="negocio">
-      <span class="categoria-badge negocio">negocio</span>
-      <div class="card-header">
-        <div class="card-title">Trivy</div>
-        <span class="badge badge-github">🛡️ GitHub</span>
-      </div>
-      <div class="card-desc">Find vulnerabilities, misconfigurations, secrets, SBOM in containers and code repos</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 36.1K</span>
-        <span class="forks">🍴 458</span>
-      </div>
-      <div class="tags">
-        <span class="tag">security</span><span class="tag">devops</span><span class="tag">go</span><span class="tag">vulnerability</span>
-      </div>
-    </div>
-
-    <!-- CARD 13 -->
-    <div class="card" data-categoria="app">
-      <span class="categoria-badge app">app</span>
-      <div class="card-header">
-        <div class="card-title">last30days-skill</div>
-        <span class="badge badge-github">🔍 GitHub</span>
-      </div>
-      <div class="card-desc">AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 30.7K</span>
-        <span class="forks">🍴 2.6K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ai</span><span class="tag">agent</span><span class="tag">research</span><span class="tag">python</span>
-      </div>
-    </div>
-
-    <!-- CARD 14 -->
-    <div class="card" data-categoria="app">
-      <span class="categoria-badge app">app</span>
-      <div class="card-header">
-        <div class="card-title">Open Notebook</div>
-        <span class="badge badge-github">📓 GitHub</span>
-      </div>
-      <div class="card-desc">Open Source implementation of Notebook LM — AI-powered research notebook</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 27.2K</span>
-        <span class="forks">🍴 3.1K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ai</span><span class="tag">notebook</span><span class="tag">typescript</span><span class="tag">open-source</span>
-      </div>
-    </div>
-
-    <!-- CARD 15 -->
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
         <div class="card-title">Project N.O.M.A.D</div>
-        <span class="badge badge-github">🏕️ GitHub</span>
+        <span class="badge badge-github">🤖 GitHub</span>
       </div>
-      <div class="card-desc">Self-contained offline survival computer with tools, knowledge, and AI — works anywhere</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 29.7K</span>
-        <span class="forks">🍴 2.9K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ai</span><span class="tag">offline</span><span class="tag">survival</span><span class="tag">knowledge</span>
-      </div>
+      <div class="card-desc">Self-contained, offline survival computer packed with critical tools, knowledge, and AI to keep you informed and empowered—anytime, anywhere</div>
+      <div class="card-meta"><span class="stars">⭐ 29.7K</span><span class="forks">🍴 2938</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">offline</span><span class="tag">survival</span><span class="tag">knowledge</span><span class="tag">tools</span></div>
     </div>
 
-    <!-- CARD 16 -->
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
-        <div class="card-title">AiToEarn</div>
-        <span class="badge badge-github">💡 GitHub</span>
+        <div class="card-title">Open Notebook</div>
+        <span class="badge badge-github">🤖 GitHub</span>
       </div>
-      <div class="card-desc">Let's use AI to Earn! — automation tools for monetization with AI</div>
-      <div class="card-meta">
-        <span class="stars">⭐ 18.7K</span>
-        <span class="forks">🍴 2.9K</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ai</span><span class="tag">earn</span><span class="tag">make-money</span><span class="tag">automation</span>
-      </div>
+      <div class="card-desc">An Open Source implementation of Notebook LM with more flexibility and features</div>
+      <div class="card-meta"><span class="stars">⭐ 27.2K</span><span class="forks">🍴 3089</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">notebook</span><span class="tag">typescript</span><span class="tag">open-source</span></div>
     </div>
 
-    <!-- CARD 17 -->
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
-        <div class="card-title">Lovescape</div>
-        <span class="badge badge-exploding">🔥 ET</span>
+        <div class="card-title">Agent-Reach</div>
+        <span class="badge badge-github">🤖 GitHub</span>
       </div>
-      <div class="card-desc">AI-based platform that generates photorealistic adult content with full privacy control</div>
-      <div class="card-meta">
-        <span class="stars">📊 60.5K vol</span>
-        <span class="forks">+3233% growth</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ai</span><span class="tag">adult</span><span class="tag">privacy</span><span class="tag">content</span>
-      </div>
+      <div class="card-desc">Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.</div>
+      <div class="card-meta"><span class="stars">⭐ 24.0K</span><span class="forks">🍴 2026</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">agent</span><span class="tag">web-scraping</span><span class="tag">multi-platform</span><span class="tag">cli</span></div>
     </div>
 
-    <!-- CARD 18 -->
+    <div class="card" data-categoria="app">
+      <span class="categoria-badge app">app</span>
+      <div class="card-header">
+        <div class="card-title">Personal AI Infrastructure</div>
+        <span class="badge badge-github">🤖 GitHub</span>
+      </div>
+      <div class="card-desc">Agentic AI Infrastructure for magnifying HUMAN capabilities. Open source personal AI stack.</div>
+      <div class="card-meta"><span class="stars">⭐ 15.4K</span><span class="forks">🍴 2158</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">agentic</span><span class="tag">infrastructure</span><span class="tag">personal</span><span class="tag">automation</span></div>
+    </div>
+
+    <div class="card" data-categoria="app">
+      <span class="categoria-badge app">app</span>
+      <div class="card-header">
+        <div class="card-title">tolaria</div>
+        <span class="badge badge-github">🤖 GitHub</span>
+      </div>
+      <div class="card-desc">Desktop app to manage markdown knowledge bases. Build and organize your personal wiki.</div>
+      <div class="card-meta"><span class="stars">⭐ 13.5K</span><span class="forks">🍴 950</span></div>
+      <div class="tags"><span class="tag">markdown</span><span class="tag">knowledge-base</span><span class="tag">desktop</span><span class="tag">productivity</span><span class="tag">wiki</span></div>
+    </div>
+
+    <div class="card" data-categoria="app">
+      <span class="categoria-badge app">app</span>
+      <div class="card-header">
+        <div class="card-title">pm-skills</div>
+        <span class="badge badge-github">🤖 GitHub</span>
+      </div>
+      <div class="card-desc">PM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and growth.</div>
+      <div class="card-meta"><span class="stars">⭐ 12.6K</span><span class="forks">🍴 1494</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">agent</span><span class="tag">pm</span><span class="tag">product-management</span><span class="tag">marketplace</span></div>
+    </div>
+
+    <div class="card" data-categoria="app">
+      <span class="categoria-badge app">app</span>
+      <div class="card-header">
+        <div class="card-title">google/skills</div>
+        <span class="badge badge-github">🤖 GitHub</span>
+      </div>
+      <div class="card-desc">Agent Skills for Google products and technologies. Connect AI agents to Google ecosystem.</div>
+      <div class="card-meta"><span class="stars">⭐ 12.3K</span><span class="forks">🍴 965</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">agent</span><span class="tag">google</span><span class="tag">skills</span><span class="tag">integration</span></div>
+    </div>
+
+    <div class="card" data-categoria="app">
+      <span class="categoria-badge app">app</span>
+      <div class="card-header">
+        <div class="card-title">turbovec</div>
+        <span class="badge badge-github">🤖 GitHub</span>
+      </div>
+      <div class="card-desc">A vector index built on TurboQuant, written in Rust with Python bindings</div>
+      <div class="card-meta"><span class="stars">⭐ 8.7K</span><span class="forks">🍴 808</span></div>
+      <div class="tags"><span class="tag">vector-search</span><span class="tag">rust</span><span class="tag">python</span><span class="tag">ai</span><span class="tag">infrastructure</span></div>
+    </div>
+
     <div class="card" data-categoria="negocio">
       <span class="categoria-badge negocio">negocio</span>
       <div class="card-header">
         <div class="card-title">Ulanzi</div>
-        <span class="badge badge-exploding">📷 ET</span>
+        <span class="badge badge-exploding">📊 ET</span>
       </div>
-      <div class="card-desc">Company specializing in accessories for mobile phone and camera photography</div>
-      <div class="card-meta">
-        <span class="stars">📊 74K vol</span>
-        <span class="forks">+271% growth</span>
-      </div>
-      <div class="tags">
-        <span class="tag">photography</span><span class="tag">accessories</span><span class="tag">hardware</span>
-      </div>
+      <div class="card-desc">Company specializing in research, development, production, and sales of accessories for mobile phone and camera photography</div>
+      <div class="card-meta"><span class="stars">📊 📷 74K Volume +271%</span></div>
+      <div class="tags"><span class="tag">photography</span><span class="tag">accessories</span><span class="tag">hardware</span><span class="tag">content-creator</span></div>
     </div>
 
-    <!-- CARD 19 -->
+    <div class="card" data-categoria="app">
+      <span class="categoria-badge app">app</span>
+      <div class="card-header">
+        <div class="card-title">Lovescape</div>
+        <span class="badge badge-exploding">📊 ET</span>
+      </div>
+      <div class="card-desc">AI-based platform that generates photorealistic, uncensored adult content with full control and privacy</div>
+      <div class="card-meta"><span class="stars">📊 🔥 60.5K Volume +3233%</span></div>
+      <div class="tags"><span class="tag">ai</span><span class="tag">adult</span><span class="tag">privacy</span><span class="tag">content</span></div>
+    </div>
+
     <div class="card" data-categoria="app">
       <span class="categoria-badge app">app</span>
       <div class="card-header">
         <div class="card-title">Luminance</div>
-        <span class="badge badge-exploding">⚖️ ET</span>
+        <span class="badge badge-exploding">📊 ET</span>
       </div>
-      <div class="card-desc">UK-based legal technology company — AI solutions for contract analysis and eDiscovery</div>
-      <div class="card-meta">
-        <span class="stars">📊 49.5K vol</span>
-        <span class="forks">+257% growth</span>
-      </div>
-      <div class="tags">
-        <span class="tag">legal</span><span class="tag">ai</span><span class="tag">contracts</span><span class="tag">automation</span>
-      </div>
+      <div class="card-desc">UK-based legal technology company providing AI solutions for contract analysis, negotiation, and eDiscovery</div>
+      <div class="card-meta"><span class="stars">📊 ⚖️ 49.5K Volume +257%</span></div>
+      <div class="tags"><span class="tag">legal</span><span class="tag">ai</span><span class="tag">contracts</span><span class="tag">automation</span></div>
     </div>
 
-    <!-- CARD 20 -->
     <div class="card" data-categoria="negocio">
       <span class="categoria-badge negocio">negocio</span>
       <div class="card-header">
         <div class="card-title">Weight Loss Peptides</div>
-        <span class="badge badge-exploding">💊 ET</span>
+        <span class="badge badge-exploding">📊 ET</span>
       </div>
-      <div class="card-desc">Peptides that mimic GLP-1 hormone for regulating appetite and metabolism in weight management</div>
-      <div class="card-meta">
-        <span class="stars">📊 40.5K vol</span>
-        <span class="forks">+900% growth</span>
-      </div>
-      <div class="tags">
-        <span class="tag">health</span><span class="tag">weight-loss</span><span class="tag">pharmaceutical</span><span class="tag">wellness</span>
-      </div>
+      <div class="card-desc">Peptides that mimic the GLP-1 hormone for regulating appetite and metabolism in weight management</div>
+      <div class="card-meta"><span class="stars">📊 💊 40.5K Volume +900%</span></div>
+      <div class="tags"><span class="tag">health</span><span class="tag">weight-loss</span><span class="tag">pharmaceutical</span><span class="tag">wellness</span></div>
     </div>
 
-    <!-- CARD 21 -->
-    <div class="card" data-categoria="app">
-      <span class="categoria-badge app">app</span>
-      <div class="card-header">
-        <div class="card-title">Konigle</div>
-        <span class="badge badge-exploding">🚀 ET</span>
-      </div>
-      <div class="card-desc">AI-powered platform for building websites and managing email marketing campaigns</div>
-      <div class="card-meta">
-        <span class="stars">📊 140 vol</span>
-        <span class="forks">+1400% growth</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ai</span><span class="tag">website-builder</span><span class="tag">email-marketing</span><span class="tag">saas</span>
-      </div>
-    </div>
-
-    <!-- CARD 22 -->
     <div class="card" data-categoria="negocio">
       <span class="categoria-badge negocio">negocio</span>
       <div class="card-header">
         <div class="card-title">Vention</div>
-        <span class="badge badge-exploding">🏭 ET</span>
+        <span class="badge badge-exploding">📊 ET</span>
       </div>
       <div class="card-desc">Company specializing in simplified industrial automation for high-mix manufacturers</div>
-      <div class="card-meta">
-        <span class="stars">📊 33.1K vol</span>
-        <span class="forks">+257% growth</span>
-      </div>
-      <div class="tags">
-        <span class="tag">automation</span><span class="tag">manufacturing</span><span class="tag">industrial</span><span class="tag">saas</span>
-      </div>
+      <div class="card-meta"><span class="stars">📊 🏭 33.1K Volume +257%</span></div>
+      <div class="tags"><span class="tag">automation</span><span class="tag">manufacturing</span><span class="tag">industrial</span><span class="tag">saas</span></div>
     </div>
 
-    <!-- CARD 23 -->
-    <div class="card" data-categoria="negocio">
-      <span class="categoria-badge negocio">negocio</span>
-      <div class="card-header">
-        <div class="card-title">Stovepipe Jeans</div>
-        <span class="badge badge-exploding">👖 ET</span>
-      </div>
-      <div class="card-desc">Jeans with straight cut from hip to hem — consistent width for a sleek silhouette</div>
-      <div class="card-meta">
-        <span class="stars">📊 22.2K vol</span>
-        <span class="forks">+800% growth</span>
-      </div>
-      <div class="tags">
-        <span class="tag">fashion</span><span class="tag">clothing</span><span class="tag">jeans</span><span class="tag">style</span>
-      </div>
-    </div>
-
-    <!-- CARD 24 -->
-    <div class="card" data-categoria="negocio">
-      <span class="categoria-badge negocio">negocio</span>
-      <div class="card-header">
-        <div class="card-title">Portable EV Charger</div>
-        <span class="badge badge-exploding">🔌 ET</span>
-      </div>
-      <div class="card-desc">Devices enabling EV owners to charge vehicles on the move — Level 1, Level 2, DC fast</div>
-      <div class="card-meta">
-        <span class="stars">📊 22.2K vol</span>
-        <span class="forks">+365% growth</span>
-      </div>
-      <div class="tags">
-        <span class="tag">ev</span><span class="tag">charging</span><span class="tag">electric-vehicle</span><span class="tag">hardware</span>
-      </div>
-    </div>
-
-    <!-- CARD 25 -->
     <div class="card" data-categoria="negocio">
       <span class="categoria-badge negocio">negocio</span>
       <div class="card-header">
         <div class="card-title">Epitalon</div>
-        <span class="badge badge-exploding">🧬 ET</span>
+        <span class="badge badge-exploding">📊 ET</span>
       </div>
       <div class="card-desc">Synthetic peptide known for potential anti-aging properties by stimulating telomerase production</div>
-      <div class="card-meta">
-        <span class="stars">📊 27.1K vol</span>
-        <span class="forks">+900% growth</span>
-      </div>
-      <div class="tags">
-        <span class="tag">anti-aging</span><span class="tag">longevity</span><span class="tag">peptide</span><span class="tag">health</span>
-      </div>
+      <div class="card-meta"><span class="stars">📊 🧬 27.1K Volume +900%</span></div>
+      <div class="tags"><span class="tag">anti-aging</span><span class="tag">longevity</span><span class="tag">peptide</span><span class="tag">health</span></div>
     </div>
 
-    <!-- CARD 26 -->
-    <div class="card" data-categoria="tendencia">
-      <span class="categoria-badge tendencia">tendencia</span>
-      <div class="card-header">
-        <div class="card-title">Therapeutic Plasma Exchange</div>
-        <span class="badge badge-exploding">🩸 ET</span>
-      </div>
-      <div class="card-desc">Medical procedure removing plasma and replacing with substitute fluid to eliminate harmful substances</div>
-      <div class="card-meta">
-        <span class="stars">📊 4.4K vol</span>
-        <span class="forks">+1400% growth</span>
-      </div>
-      <div class="tags">
-        <span class="tag">medical</span><span class="tag">health</span><span class="tag">treatment</span><span class="tag">autoimmune</span>
-      </div>
-    </div>
-
-    <!-- CARD 27 -->
     <div class="card" data-categoria="negocio">
       <span class="categoria-badge negocio">negocio</span>
       <div class="card-header">
-        <div class="card-title">Milky Moisturizer</div>
-        <span class="badge badge-exploding">🥛 ET</span>
+        <div class="card-title">Stovepipe Jeans</div>
+        <span class="badge badge-exploding">📊 ET</span>
       </div>
-      <div class="card-desc">Skincare with Snow Mushroom, Hyaluronic Acid, and Shea Butter for enhanced skin barrier</div>
-      <div class="card-meta">
-        <span class="stars">📊 2.9K vol</span>
-        <span class="forks">+925% growth</span>
+      <div class="card-desc">Jeans characterized by a straight cut from hip to hem, maintaining consistent width for a sleek silhouette</div>
+      <div class="card-meta"><span class="stars">📊 👖 22.2K Volume +800%</span></div>
+      <div class="tags"><span class="tag">fashion</span><span class="tag">clothing</span><span class="tag">jeans</span><span class="tag">style</span></div>
+    </div>
+
+    <div class="card" data-categoria="negocio">
+      <span class="categoria-badge negocio">negocio</span>
+      <div class="card-header">
+        <div class="card-title">Portable EV Charger</div>
+        <span class="badge badge-exploding">📊 ET</span>
       </div>
-      <div class="tags">
-        <span class="tag">skincare</span><span class="tag">beauty</span><span class="tag">hydration</span><span class="tag">wellness</span>
-      </div>
+      <div class="card-desc">Devices enabling EV owners to charge vehicles on the move - Level 1, Level 2, and DC fast chargers</div>
+      <div class="card-meta"><span class="stars">📊 🔌 22.2K Volume +365%</span></div>
+      <div class="tags"><span class="tag">ev</span><span class="tag">charging</span><span class="tag">electric-vehicle</span><span class="tag">hardware</span></div>
     </div>
 
   </div>
-
-  <footer>
-    Atualizado automaticamente · Hermes Agent · 07/06/2026 18:00 BRT
-  </footer>
-
+  <footer>Atualizado automaticamente · Hermes Agent · 08/06/2026 18:10:57 BRT</footer>
 </div>
-
 <script>
-  function filterAll() {
-    document.querySelectorAll('.card').forEach(c => c.style.display = '');
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector('.filter-btn').classList.add('active');
-  }
-  function filterCat(cat) {
-    document.querySelectorAll('.card').forEach(c => {
-      c.style.display = c.dataset.categoria === cat ? '' : 'none';
-    });
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-  }
+  function filterAll() { document.querySelectorAll('.card').forEach(c => c.style.display = ''); document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); document.querySelector('.filter-btn').classList.add('active'); }
+  function filterCat(cat) { document.querySelectorAll('.card').forEach(c => { c.style.display = c.dataset.categoria === cat ? '' : 'none'; }); document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); event.target.classList.add('active'); }
 </script>
-
 </body>
 </html>

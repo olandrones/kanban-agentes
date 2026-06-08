@@ -4,7 +4,12 @@
     "titulo": "hermes-agent",
     "descricao": "The agent that grows with you",
     "fonte": "GitHub Trending",
-    "tags": ["ai", "agent", "open-source", "framework"],
+    "tags": [
+      "ai",
+      "agent",
+      "open-source",
+      "framework"
+    ],
     "categoria": "app",
     "origem": "global",
     "stars": 185826,
@@ -13,22 +18,16 @@
   },
   {
     "id": "2",
-    "titulo": "OpenCV",
-    "descricao": "Open Source Computer Vision Library - real-time computer vision and ML",
-    "fonte": "GitHub Trending",
-    "tags": ["cv", "computer-vision", "ai", "python", "c++", "open-source"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 88042,
-    "forks": 56596,
-    "badge": "👁️ 88K stars - Computer Vision"
-  },
-  {
-    "id": "3",
     "titulo": "llama.cpp",
     "descricao": "LLM inference in C/C++",
     "fonte": "GitHub Trending",
-    "tags": ["ai", "llm", "c++", "inference", "open-source"],
+    "tags": [
+      "ai",
+      "llm",
+      "c++",
+      "inference",
+      "open-source"
+    ],
     "categoria": "app",
     "origem": "global",
     "stars": 115289,
@@ -36,11 +35,35 @@
     "badge": "⚡ 115.3K stars - LLM Inference"
   },
   {
+    "id": "3",
+    "titulo": "OpenCV",
+    "descricao": "Open Source Computer Vision Library - real-time computer vision and ML",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "cv",
+      "computer-vision",
+      "ai",
+      "python",
+      "c++",
+      "open-source"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 88042,
+    "forks": 56596,
+    "badge": "👁️ 88K stars - Computer Vision"
+  },
+  {
     "id": "4",
     "titulo": "Svelte",
     "descricao": "Web development for the rest of us",
     "fonte": "GitHub Trending",
-    "tags": ["javascript", "framework", "web", "svelte"],
+    "tags": [
+      "javascript",
+      "framework",
+      "web",
+      "svelte"
+    ],
     "categoria": "app",
     "origem": "global",
     "stars": 87097,
@@ -52,7 +75,12 @@
     "titulo": "Vite",
     "descricao": "Next generation frontend tooling. It's fast!",
     "fonte": "GitHub Trending",
-    "tags": ["javascript", "tooling", "build", "typescript"],
+    "tags": [
+      "javascript",
+      "tooling",
+      "build",
+      "typescript"
+    ],
     "categoria": "app",
     "origem": "global",
     "stars": 81178,
@@ -64,7 +92,12 @@
     "titulo": "MemPalace",
     "descricao": "The best-benchmarked open-source AI memory system. And it's free.",
     "fonte": "GitHub Trending",
-    "tags": ["ai", "memory", "python", "open-source"],
+    "tags": [
+      "ai",
+      "memory",
+      "python",
+      "open-source"
+    ],
     "categoria": "app",
     "origem": "global",
     "stars": 54532,
@@ -76,7 +109,12 @@
     "titulo": "Maybe",
     "descricao": "The personal finance app for everyone - open source finance management",
     "fonte": "GitHub Trending",
-    "tags": ["finance", "personal-finance", "ruby", "open-source"],
+    "tags": [
+      "finance",
+      "personal-finance",
+      "ruby",
+      "open-source"
+    ],
     "categoria": "app",
     "origem": "global",
     "stars": 54151,
@@ -85,10 +123,33 @@
   },
   {
     "id": "8",
+    "titulo": "career-ops",
+    "descricao": "AI-powered job search system built on Claude Code. 14 skill modes, Go dashboard, PDF generation, batch processing.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "job-search",
+      "claude-code",
+      "automation",
+      "career"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 50432,
+    "forks": 10329,
+    "badge": "💼 50.4K stars - AI Job Search"
+  },
+  {
+    "id": "9",
     "titulo": "VibeVoice",
     "descricao": "Open-Source Frontier Voice AI from Microsoft",
     "fonte": "GitHub Trending",
-    "tags": ["ai", "voice", "python", "microsoft"],
+    "tags": [
+      "ai",
+      "voice",
+      "python",
+      "microsoft"
+    ],
     "categoria": "app",
     "origem": "global",
     "stars": 48467,
@@ -96,11 +157,16 @@
     "badge": "🎙️ 48.5K stars - Voice AI"
   },
   {
-    "id": "9",
+    "id": "10",
     "titulo": "goose",
     "descricao": "An open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
     "fonte": "GitHub Trending",
-    "tags": ["ai", "agent", "extensible", "python"],
+    "tags": [
+      "ai",
+      "agent",
+      "extensible",
+      "python"
+    ],
     "categoria": "app",
     "origem": "global",
     "stars": 47432,
@@ -108,23 +174,16 @@
     "badge": "🦆 47.4K stars - AI Agent"
   },
   {
-    "id": "10",
-    "titulo": "CopilotKit",
-    "descricao": "The Frontend Stack for Agents & Generative UI. Makers of the AG-UI Protocol",
-    "fonte": "GitHub Trending",
-    "tags": ["agent", "generative-ui", "react", "typescript", "ai"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 33519,
-    "forks": 4263,
-    "badge": "🤖 33.5K stars - AI Agent UI"
-  },
-  {
     "id": "11",
     "titulo": "taste-skill",
     "descricao": "Gives your AI good taste - stops the AI from generating boring, generic slop",
     "fonte": "GitHub Trending",
-    "tags": ["ai", "agent", "creativity", "prompting"],
+    "tags": [
+      "ai",
+      "agent",
+      "creativity",
+      "prompting"
+    ],
     "categoria": "app",
     "origem": "global",
     "stars": 36474,
@@ -136,7 +195,12 @@
     "titulo": "Trivy",
     "descricao": "Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more",
     "fonte": "GitHub Trending",
-    "tags": ["security", "devops", "go", "vulnerability"],
+    "tags": [
+      "security",
+      "devops",
+      "go",
+      "vulnerability"
+    ],
     "categoria": "negocio",
     "origem": "global",
     "stars": 36067,
@@ -148,31 +212,49 @@
     "titulo": "last30days-skill",
     "descricao": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
     "fonte": "GitHub Trending",
-    "tags": ["ai", "agent", "research", "python", "automation"],
+    "tags": [
+      "ai",
+      "agent",
+      "research",
+      "python",
+      "automation"
+    ],
     "categoria": "app",
     "origem": "global",
-    "stars": 30672,
-    "forks": 2571,
-    "badge": "🔍 30.7K stars - AI Research Agent"
+    "stars": 34311,
+    "forks": 2811,
+    "badge": "🔍 34.3K stars - AI Research Agent"
   },
   {
     "id": "14",
-    "titulo": "Open Notebook",
-    "descricao": "An Open Source implementation of Notebook LM with more flexibility and features",
+    "titulo": "CopilotKit",
+    "descricao": "The Frontend Stack for Agents & Generative UI. Makers of the AG-UI Protocol",
     "fonte": "GitHub Trending",
-    "tags": ["ai", "notebook", "typescript", "open-source"],
+    "tags": [
+      "agent",
+      "generative-ui",
+      "react",
+      "typescript",
+      "ai"
+    ],
     "categoria": "app",
     "origem": "global",
-    "stars": 27171,
-    "forks": 3089,
-    "badge": "📓 27.2K stars - AI Notebook"
+    "stars": 33519,
+    "forks": 4263,
+    "badge": "🤖 33.5K stars - AI Agent UI"
   },
   {
     "id": "15",
     "titulo": "Project N.O.M.A.D",
     "descricao": "Self-contained, offline survival computer packed with critical tools, knowledge, and AI to keep you informed and empowered—anytime, anywhere",
     "fonte": "GitHub Trending",
-    "tags": ["ai", "offline", "survival", "knowledge", "tools"],
+    "tags": [
+      "ai",
+      "offline",
+      "survival",
+      "knowledge",
+      "tools"
+    ],
     "categoria": "app",
     "origem": "global",
     "stars": 29664,
@@ -181,34 +263,140 @@
   },
   {
     "id": "16",
-    "titulo": "AiToEarn",
-    "descricao": "Let's use AI to Earn!",
+    "titulo": "Open Notebook",
+    "descricao": "An Open Source implementation of Notebook LM with more flexibility and features",
     "fonte": "GitHub Trending",
-    "tags": ["ai", "earn", "make-money", "automation"],
+    "tags": [
+      "ai",
+      "notebook",
+      "typescript",
+      "open-source"
+    ],
     "categoria": "app",
     "origem": "global",
-    "stars": 18711,
-    "forks": 2903,
-    "badge": "💡 18.7K stars - AI to Earn"
+    "stars": 27171,
+    "forks": 3089,
+    "badge": "📓 27.2K stars - AI Notebook"
   },
   {
     "id": "17",
-    "titulo": "Lovescape",
-    "descricao": "AI-based platform that generates photorealistic, uncensored adult content with full control and privacy",
-    "fonte": "Exploding Topics",
-    "tags": ["ai", "adult", "privacy", "content"],
+    "titulo": "Agent-Reach",
+    "descricao": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agent",
+      "web-scraping",
+      "multi-platform",
+      "cli"
+    ],
     "categoria": "app",
     "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🔥 60.5K Volume +3233% - AI Content"
+    "stars": 24014,
+    "forks": 2026,
+    "badge": "🌐 24K stars - Multi-platform AI Scraping"
   },
   {
     "id": "18",
+    "titulo": "Personal AI Infrastructure",
+    "descricao": "Agentic AI Infrastructure for magnifying HUMAN capabilities. Open source personal AI stack.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agentic",
+      "infrastructure",
+      "personal",
+      "automation"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 15392,
+    "forks": 2158,
+    "badge": "🔮 15.4K stars - Agentic AI Stack"
+  },
+  {
+    "id": "19",
+    "titulo": "tolaria",
+    "descricao": "Desktop app to manage markdown knowledge bases. Build and organize your personal wiki.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "markdown",
+      "knowledge-base",
+      "desktop",
+      "productivity",
+      "wiki"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 13520,
+    "forks": 950,
+    "badge": "📚 13.5K stars - Markdown KB Manager"
+  },
+  {
+    "id": "20",
+    "titulo": "pm-skills",
+    "descricao": "PM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and growth.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agent",
+      "pm",
+      "product-management",
+      "marketplace"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 12598,
+    "forks": 1494,
+    "badge": "📊 12.6K stars - PM Skills Marketplace"
+  },
+  {
+    "id": "21",
+    "titulo": "google/skills",
+    "descricao": "Agent Skills for Google products and technologies. Connect AI agents to Google ecosystem.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agent",
+      "google",
+      "skills",
+      "integration"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 12335,
+    "forks": 965,
+    "badge": "🔗 12.3K stars - Google Agent Skills"
+  },
+  {
+    "id": "22",
+    "titulo": "turbovec",
+    "descricao": "A vector index built on TurboQuant, written in Rust with Python bindings",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "vector-search",
+      "rust",
+      "python",
+      "ai",
+      "infrastructure"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 8711,
+    "forks": 808,
+    "badge": "⚡ 8.7K stars - Rust Vector Index"
+  },
+  {
+    "id": "23",
     "titulo": "Ulanzi",
     "descricao": "Company specializing in research, development, production, and sales of accessories for mobile phone and camera photography",
     "fonte": "Exploding Topics",
-    "tags": ["photography", "accessories", "hardware", "content-creator"],
+    "tags": [
+      "photography",
+      "accessories",
+      "hardware",
+      "content-creator"
+    ],
     "categoria": "negocio",
     "origem": "global",
     "stars": 0,
@@ -216,11 +404,33 @@
     "badge": "📷 74K Volume +271% - Photo Accessories"
   },
   {
-    "id": "19",
+    "id": "24",
+    "titulo": "Lovescape",
+    "descricao": "AI-based platform that generates photorealistic, uncensored adult content with full control and privacy",
+    "fonte": "Exploding Topics",
+    "tags": [
+      "ai",
+      "adult",
+      "privacy",
+      "content"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "🔥 60.5K Volume +3233% - AI Content"
+  },
+  {
+    "id": "25",
     "titulo": "Luminance",
     "descricao": "UK-based legal technology company providing AI solutions for contract analysis, negotiation, and eDiscovery",
     "fonte": "Exploding Topics",
-    "tags": ["legal", "ai", "contracts", "automation"],
+    "tags": [
+      "legal",
+      "ai",
+      "contracts",
+      "automation"
+    ],
     "categoria": "app",
     "origem": "global",
     "stars": 0,
@@ -228,11 +438,16 @@
     "badge": "⚖️ 49.5K Volume +257% - Legal AI"
   },
   {
-    "id": "20",
+    "id": "26",
     "titulo": "Weight Loss Peptides",
     "descricao": "Peptides that mimic the GLP-1 hormone for regulating appetite and metabolism in weight management",
     "fonte": "Exploding Topics",
-    "tags": ["health", "weight-loss", "pharmaceutical", "wellness"],
+    "tags": [
+      "health",
+      "weight-loss",
+      "pharmaceutical",
+      "wellness"
+    ],
     "categoria": "negocio",
     "origem": "global",
     "stars": 0,
@@ -240,23 +455,16 @@
     "badge": "💊 40.5K Volume +900% - Peptides"
   },
   {
-    "id": "21",
-    "titulo": "Konigle",
-    "descricao": "AI-powered platform for building websites and managing email marketing campaigns",
-    "fonte": "Exploding Topics",
-    "tags": ["ai", "website-builder", "email-marketing", "saas"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🚀 140 Volume +1400% - AI Website"
-  },
-  {
-    "id": "22",
+    "id": "27",
     "titulo": "Vention",
     "descricao": "Company specializing in simplified industrial automation for high-mix manufacturers",
     "fonte": "Exploding Topics",
-    "tags": ["automation", "manufacturing", "industrial", "saas"],
+    "tags": [
+      "automation",
+      "manufacturing",
+      "industrial",
+      "saas"
+    ],
     "categoria": "negocio",
     "origem": "global",
     "stars": 0,
@@ -264,35 +472,16 @@
     "badge": "🏭 33.1K Volume +257% - Industrial Automation"
   },
   {
-    "id": "23",
-    "titulo": "Stovepipe Jeans",
-    "descricao": "Jeans characterized by a straight cut from hip to hem, maintaining consistent width for a sleek silhouette",
-    "fonte": "Exploding Topics",
-    "tags": ["fashion", "clothing", "jeans", "style"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "👖 22.2K Volume +800% - Fashion"
-  },
-  {
-    "id": "24",
-    "titulo": "Portable EV Charger",
-    "descricao": "Devices enabling EV owners to charge vehicles on the move - Level 1, Level 2, and DC fast chargers",
-    "fonte": "Exploding Topics",
-    "tags": ["ev", "charging", "electric-vehicle", "hardware"],
-    "categoria": "negocio",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🔌 22.2K Volume +365% - EV Charger"
-  },
-  {
-    "id": "25",
+    "id": "28",
     "titulo": "Epitalon",
     "descricao": "Synthetic peptide known for potential anti-aging properties by stimulating telomerase production",
     "fonte": "Exploding Topics",
-    "tags": ["anti-aging", "longevity", "peptide", "health"],
+    "tags": [
+      "anti-aging",
+      "longevity",
+      "peptide",
+      "health"
+    ],
     "categoria": "negocio",
     "origem": "global",
     "stars": 0,
@@ -300,63 +489,37 @@
     "badge": "🧬 27.1K Volume +900% - Anti-aging"
   },
   {
-    "id": "26",
-    "titulo": "Therapeutic Plasma Exchange",
-    "descricao": "Medical procedure for removing plasma and replacing with substitute fluid to eliminate harmful substances",
+    "id": "29",
+    "titulo": "Stovepipe Jeans",
+    "descricao": "Jeans characterized by a straight cut from hip to hem, maintaining consistent width for a sleek silhouette",
     "fonte": "Exploding Topics",
-    "tags": ["medical", "health", "treatment", "autoimmune"],
-    "categoria": "tendencia",
-    "origem": "global",
-    "stars": 0,
-    "forks": 0,
-    "badge": "🩸 4.4K Volume +1400% - Plasma Exchange"
-  },
-  {
-    "id": "27",
-    "titulo": "Milky Moisturizer",
-    "descricao": "Skincare product with Snow Mushroom, Hyaluronic Acid, and Shea Butter for enhanced skin barrier and prolonged hydration",
-    "fonte": "Exploding Topics",
-    "tags": ["skincare", "beauty", "hydration", "wellness", "retail"],
+    "tags": [
+      "fashion",
+      "clothing",
+      "jeans",
+      "style"
+    ],
     "categoria": "negocio",
     "origem": "global",
     "stars": 0,
     "forks": 0,
-    "badge": "🥛 2.9K Volume +925% - Skincare"
-  },
-  {
-    "id": "28",
-    "titulo": "Agent-Reach",
-    "descricao": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
-    "fonte": "GitHub Trending",
-    "tags": ["ai", "agent", "web-scraping", "multi-platform", "cli"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 23534,
-    "forks": 1984,
-    "badge": "🌐 23.5K stars - Multi-platform AI Scraping"
-  },
-  {
-    "id": "29",
-    "titulo": "turbovec",
-    "descricao": "A vector index built on TurboQuant, written in Rust with Python bindings",
-    "fonte": "GitHub Trending",
-    "tags": ["vector-search", "rust", "python", "ai", "infrastructure"],
-    "categoria": "app",
-    "origem": "global",
-    "stars": 7889,
-    "forks": 746,
-    "badge": "⚡ 7.9K stars - Rust Vector Index"
+    "badge": "👖 22.2K Volume +800% - Fashion"
   },
   {
     "id": "30",
-    "titulo": "Neurotech",
-    "descricao": "Technology focusing on development and application of devices that interact with the nervous system - brain-computer interfaces, neuroprosthetics, neuromodulation.",
+    "titulo": "Portable EV Charger",
+    "descricao": "Devices enabling EV owners to charge vehicles on the move - Level 1, Level 2, and DC fast chargers",
     "fonte": "Exploding Topics",
-    "tags": ["neurotech", "brain-computer-interface", "health", "bci"],
-    "categoria": "tendencia",
+    "tags": [
+      "ev",
+      "charging",
+      "electric-vehicle",
+      "hardware"
+    ],
+    "categoria": "negocio",
     "origem": "global",
     "stars": 0,
     "forks": 0,
-    "badge": "🧠 14.8K Volume +360% - Neurotech"
+    "badge": "🔌 22.2K Volume +365% - EV Charger"
   }
 ]
