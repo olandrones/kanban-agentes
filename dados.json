@@ -322,5 +322,41 @@
     "stars": 0,
     "forks": 0,
     "badge": "🥛 2.9K Volume +925% - Skincare"
+  },
+  {
+    "id": "28",
+    "titulo": "Agent-Reach",
+    "descricao": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
+    "fonte": "GitHub Trending",
+    "tags": ["ai", "agent", "web-scraping", "multi-platform", "cli"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 23534,
+    "forks": 1984,
+    "badge": "🌐 23.5K stars - Multi-platform AI Scraping"
+  },
+  {
+    "id": "29",
+    "titulo": "turbovec",
+    "descricao": "A vector index built on TurboQuant, written in Rust with Python bindings",
+    "fonte": "GitHub Trending",
+    "tags": ["vector-search", "rust", "python", "ai", "infrastructure"],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 7889,
+    "forks": 746,
+    "badge": "⚡ 7.9K stars - Rust Vector Index"
+  },
+  {
+    "id": "30",
+    "titulo": "Neurotech",
+    "descricao": "Technology focusing on development and application of devices that interact with the nervous system - brain-computer interfaces, neuroprosthetics, neuromodulation.",
+    "fonte": "Exploding Topics",
+    "tags": ["neurotech", "brain-computer-interface", "health", "bci"],
+    "categoria": "tendencia",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "🧠 14.8K Volume +360% - Neurotech"
   }
 ]
