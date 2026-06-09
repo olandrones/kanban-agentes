@@ -19,6 +19,7 @@
     --blue: #3b82f6;
     --purple: #a855f7;
     --orange: #fb923c;
+    --gray: #6b7280;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -93,6 +94,7 @@
   .b-yellow { background: rgba(234,179,8,.15); color: var(--yellow); }
   .b-red { background: rgba(239,68,68,.15); color: var(--red); }
   .b-blue { background: rgba(59,130,246,.15); color: var(--blue); }
+  .b-gray { background: rgba(107,114,128,.15); color: var(--gray); }
   .row { display: flex; gap: 8px; font-size: 13px; line-height: 1.5; }
   .label { color: var(--muted); min-width: 80px; flex-shrink: 0; }
   .value { color: var(--text); flex: 1; }
@@ -242,6 +244,27 @@
   }
   .legend-item { display: inline-flex; align-items: center; gap: 4px; }
   .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* Visão Lyriane */
+  .visao {
+    max-width: 1400px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #14181d 0%, #1a1f26 100%);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--purple);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .visao-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+  .visao-autor { font-size: 11px; color: var(--purple); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .visao-data { font-size: 11px; color: var(--muted); }
+  .visao-alerta { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; text-transform: uppercase; }
+  .visao-alerta.amarelo { background: rgba(234,179,8,.15); color: var(--yellow); }
+  .visao-alerta.vermelho { background: rgba(239,68,68,.15); color: var(--red); }
+  .visao-alerta.verde { background: rgba(34,197,94,.15); color: var(--green); }
+  .visao-texto { font-size: 14px; color: var(--text); line-height: 1.6; }
+  .visao-loading { font-size: 13px; color: var(--muted); font-style: italic; }
+  .visao-oculto { display: none; }
 </style>
 </head>
 <body>
@@ -255,11 +278,23 @@
       <span class="legend-item"><span class="dot" style="background:var(--green)"></span> ativo</span>
       <span class="legend-item"><span class="dot" style="background:var(--yellow)"></span> em curso</span>
       <span class="legend-item"><span class="dot" style="background:var(--red)"></span> bloqueado</span>
+      <span class="legend-item"><span class="dot" style="background:var(--gray)"></span> desabilitado / hold</span>
       <span class="legend-item"><span class="dot" style="background:var(--blue)"></span> sempre on</span>
     </span>
     <button onclick="render()">↻ Atualizar</button>
   </div>
 </header>
+
+<section class="visao" id="visaoLyriane">
+  <div class="visao-head">
+    <span class="visao-autor">✨ Visão Lyriane</span>
+    <span class="visao-data" id="visaoData">—</span>
+    <span class="visao-alerta verde" id="visaoAlerta">sustentável</span>
+  </div>
+  <div class="visao-texto" id="visaoTexto">
+    <span class="visao-loading">carregando visão do dia…</span>
+  </div>
+</section>
 
 <div class="board" id="board"></div>
 
@@ -282,6 +317,7 @@
       <option value="done">✅ feito</option>
       <option value="blocked">⏸️ bloqueado</option>
       <option value="idle">💤 aguardando</option>
+      <option value="hold">⏸️ hold</option>
     </select>
     <select id="filterPrioridade">
       <option value="">todas prioridades</option>
@@ -320,24 +356,30 @@ const AGENTS = [
   { id:'heartbeat', emoji:'💓', name:'Agente Heartbeat', status:'green', badge:'ativo', freq:'0 * * * * (hora cheia Manaus)', role:'cron · supervisão horária', currentTask:'Modo cruzeiro (7 horas estáveis) — sentinela silenciosa', last:'05/06 14:00 Manaus — 7ª execução', next:'hora cheia: 15:00 Manaus', stats:[{num:'7',lbl:'execuções'},{num:'8',lbl:'ações Ctrl+G'},{num:'0',lbl:'problemas'}], progress:100, links:[] },
   { id:'pesquisa', emoji:'🔍', name:'Pesquisa & Oportunidades', status:'yellow', badge:'em curso', freq:'06h / 12h / 18h Manaus', role:'cron · 3 turnos de coleta', currentTask:'Última: 18h Oportunidades (5/6) · Publica em oportunidades-daily', last:'05/06 18:00 — oportunidades-daily atualizado', next:'06/06 06:00 — Tendências', stats:[{num:'3',lbl:'turnos/dia'},{num:'11',lbl:'items publicados'},{num:'30',lbl:'no buffer'}], progress:66, links:[{label:'oportunidades-daily',href:'https://olandrones.github.io/oportunidades-daily/'}] },
   { id:'coaching', emoji:'🪞', name:'Agente Coaching', status:'green', badge:'ativo', freq:'0 1 * * * (21:00 Manaus)', role:'cron · provocações + diagnóstico', currentTask:'Próxima provocação: 21:00 Manaus · 3 categorias (ação/visão/momentum)', last:'última execução registrada em comportamento-daily', next:'hoje 21:00 Manaus', stats:[{num:'3',lbl:'categorias'},{num:'9',lbl:'áreas D1-D5'},{num:'~3',lbl:'respondidas'}], progress:33, links:[{label:'comportamento-daily',href:'https://olandrones.github.io/comportamento-daily/'}] },
-  { id:'productman', emoji:'🧭', name:'Agente ProductMan', status:'red', badge:'bloqueado', freq:'0 9 * * * (05:00 Manaus)', role:'cron · desafios + insights', currentTask:'⚠️ P0 aberto: site sem conteúdo (0/0/0 nos cards)', last:'5h — Coach Matinal (5ª execução)', next:'06/06 05:00 Manaus', stats:[{num:'0/0/0',lbl:'cards'},{num:'1',lbl:'P0 aberto'},{num:'v2.0',lbl:'deploy'}], progress:10, links:[] },
+  { id:'productman', emoji:'🧭', name:'Agente ProductMan', status:'gray', badge:'desabilitado', freq:'— (job 5h removido 09/06)', role:'LEGADO 07/06 — sem investimento', currentTask:'P0 aberto: site sem conteúdo. Em hold por decisão do Renato (marcar como legado).', last:'job 5h removido 09/06', next:'— só reviver com decisão explícita do Renato', stats:[{num:'0/0/0',lbl:'cards'},{num:'1',lbl:'P0 hold'},{num:'v2.0',lbl:'deploy'}], progress:0, links:[] },
 ];
 
 const TASKS = [
   { id:'t1', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Reforçar memória holográfica', desc:'Seedar fact_store com sessões passadas + memory_banks por projeto', status:'running', prioridade:'P1', ultima:'agora', proxima:'em curso' },
   { id:'t2', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Consolidar 2 instalações Hermes em E:\\00', desc:'Mover state.db, kanban.db, .env, cron jobs do AppData → E:\\00', status:'idle', prioridade:'P1', ultima:'análise inicial', proxima:'aguardando decisão do Renato' },
-  { id:'t3', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Conversar com agente-manutenção sobre visão do Kanban', desc:'Adicionar guidance no .md dele — regenerar tabela, evoluir interatividade', status:'running', prioridade:'P2', ultima:'05/06 19:23', proxima:'próximo turno' },
-  { id:'t4', agente:'manutencao', ag_emoji:'🔧', ag_nome:'Manutenção', tarefa:'Verificar saúde 3 sites (curl + manchete)', desc:'productman, oportunidades, comportamento', status:'running', prioridade:'P0', ultima:'05/06 12:15', proxima:'06/06 07:00 Manaus' },
-  { id:'t5', agente:'manutencao', ag_emoji:'🔧', ag_nome:'Manutenção', tarefa:'Regenerar Kanban dos Agentes HTML', desc:'Ler agentes/*.md + commits + logs, gerar index.html, commit, push', status:'idle', prioridade:'P1', ultima:'instrução adicionada', proxima:'06/06 07:00 Manaus (1ª execução)' },
-  { id:'t6', agente:'manutencao', ag_emoji:'🔧', ag_nome:'Manutenção', tarefa:'Aplicar melhorias Ctrl+G pequenas', desc:'Markdown, CSS, copy — alterações inofensivas', status:'idle', prioridade:'P2', ultima:'—', proxima:'06/06 07:00 Manaus' },
-  { id:'t7', agente:'heartbeat', ag_emoji:'💓', ag_nome:'Heartbeat', tarefa:'Health check horário (curl + leitura .md)', desc:'Ler contexto memory, ler backlog/melhorias, detectar ações', status:'running', prioridade:'P0', ultima:'05/06 14:00 (7ª exec)', proxima:'15:00 Manaus' },
-  { id:'t8', agente:'heartbeat', ag_emoji:'💓', ag_nome:'Heartbeat', tarefa:'Reportar no chat formato minimalista', desc:'≤8 linhas, escaneável, TDAH-friendly', status:'running', prioridade:'P2', ultima:'05/06 14:00', proxima:'hora cheia' },
-  { id:'t9', agente:'pesquisa', ag_emoji:'🔍', ag_nome:'Pesquisa', tarefa:'Tendências 06h — coletar trending topics', desc:'GitHub Trending + Exploding Topics + HNR', status:'idle', prioridade:'P1', ultima:'05/06 06:00', proxima:'06/06 06:00 Manaus' },
-  { id:'t10', agente:'pesquisa', ag_emoji:'🔍', ag_nome:'Pesquisa', tarefa:'Apps e produtos 12h', desc:'Product Hunt + IndieHackers + beta lists', status:'idle', prioridade:'P1', ultima:'05/06 12:00', proxima:'06/06 12:00 Manaus' },
-  { id:'t11', agente:'pesquisa', ag_emoji:'🔍', ag_nome:'Pesquisa', tarefa:'Oportunidades de negócio 18h', desc:'Publica em oportunidades-daily via site-publishing', status:'done', prioridade:'P0', ultima:'05/06 18:00 ✅', proxima:'06/06 18:00 Manaus' },
-  { id:'t12', agente:'coaching', ag_emoji:'🪞', ag_nome:'Coaching', tarefa:'Provocações diárias 21h (3 perguntas)', desc:'3 categorias: ação, visão, momentum', status:'idle', prioridade:'P1', ultima:'04/06 21:00', proxima:'hoje 21:00 Manaus' },
-  { id:'t13', agente:'productman', ag_emoji:'🧭', ag_nome:'ProductMan', tarefa:'Popular ProductMan (cards 0/0/0)', desc:'⚠️ P0 aberto — site mostra zeros para qualquer visitante', status:'blocked', prioridade:'P0', ultima:'deploy v2.0 sem conteúdo', proxima:'aguardando decisão editorial do Renato' },
-  { id:'t14', agente:'productman', ag_emoji:'🧭', ag_nome:'ProductMan', tarefa:'Coach Matinal 5h', desc:'Provocação diária ProductMan', status:'idle', prioridade:'P2', ultima:'05/06 05:00', proxima:'06/06 05:00 Manaus' },
+  { id:'t3', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Evoluir Kanban dos Agentes (visão Renato)', desc:'Tabela de tarefas, filtros, pause, ask — agente-manutenção regenera diária', status:'running', prioridade:'P2', ultima:'09/06 09:30', proxima:'manhã 10/06' },
+  { id:'t4', agente:'manutencao', ag_emoji:'🔧', ag_nome:'Manutenção', tarefa:'Verificar saúde 3 sites (curl + manchete)', desc:'productman, oportunidades, comportamento', status:'running', prioridade:'P0', ultima:'09/06 09:05', proxima:'10/06 09:00 Manaus' },
+  { id:'t5', agente:'manutencao', ag_emoji:'🔧', ag_nome:'Manutenção', tarefa:'Regenerar Kanban dos Agentes HTML (cards + tabela)', desc:'Ler agentes/*.md + tarefas.json + commits + logs, gerar index.html, commit, push', status:'idle', prioridade:'P1', ultima:'instrução consolidada 09/06', proxima:'10/06 09:00 Manaus' },
+  { id:'t7', agente:'heartbeat', ag_emoji:'💓', ag_nome:'Heartbeat', tarefa:'Health check (incorporado na manutenção 09h)', desc:'Heartbeat horário pausado 09/06 — mesclar no job manutenção 09h', status:'hold', prioridade:'P2', ultima:'cron 9e0838ff0cb6 removido 09/06', proxima:'revisitar se virar gargalo' },
+  { id:'t9', agente:'pesquisa', ag_emoji:'🔍', ag_nome:'Pesquisa', tarefa:'Tendências 07:30 — coletar trending topics', desc:'GitHub Trending + Exploding Topics + HNR', status:'running', prioridade:'P1', ultima:'09/06 07:56', proxima:'10/06 07:30 Manaus' },
+  { id:'t10', agente:'pesquisa', ag_emoji:'🔍', ag_nome:'Pesquisa', tarefa:'Apps e produtos 12h', desc:'TINHA ERRO 400 — fix prompt antes de retomar', status:'hold', prioridade:'P2', ultima:'08/06 18:15 (atrasado)', proxima:'fix prompt antes de retomar' },
+  { id:'t11', agente:'pesquisa', ag_emoji:'🔍', ag_nome:'Pesquisa', tarefa:'Oportunidades 18:50 (era 18:00 — consolidado)', desc:'Job 18:00 removido 09/06. Mantido 18:50 (4025c1bbe2a0) como oficial.', status:'done', prioridade:'P0', ultima:'08/06 18:54 ✅', proxima:'10/06 18:50 Manaus' },
+  { id:'t12', agente:'coaching', ag_emoji:'🪞', ag_nome:'Coaching', tarefa:'Atlas Reflete 21h (era "Provocações Diárias")', desc:'Renomeado 09/06 — alinhado com skill marketing-insights (Atlas)', status:'running', prioridade:'P1', ultima:'08/06 21:00', proxima:'hoje 21:00 Manaus' },
+  { id:'t19', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Criar painel /insights.html (Atlas) no oportunidades-daily', desc:'Hero insight + 4 mosaicos (cruzamentos) + 3 perguntas proativas. Skill marketing-insights já existia.', status:'running', prioridade:'P0', ultima:'09/06 09:30', proxima:'agendar job Atlas 08:00' },
+  { id:'t20', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Limpar cron jobs: remover duplicações e jobs de projeto legado', desc:'8 jobs → 5 jobs ativos. Removidos: ProductMan 5h, Heartbeat horário, 18h Oportunidades duplicado. Renomeado 21h → Atlas Reflete.', status:'done', prioridade:'P0', ultima:'09/06 09:25 ✅', proxima:'—' },
+  { id:'t15', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Oportunidades: nova view tabela + filtro período + badge HOJE', desc:'✅ ENTREGUE 06/06. tabela.html (sort/search/sticky), label HOJE, filtro Período, view switch.', status:'done', prioridade:'P1', ultima:'06/06 20:00 ✅', proxima:'—' },
+  { id:'t16', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Tabela: coluna descrição + filtros por coluna', desc:'✅ ENTREGUE 06/06. Coluna Descrição + 9 inputs no thead.', status:'done', prioridade:'P1', ultima:'06/06 20:45 ✅', proxima:'—' },
+  { id:'t17', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Criar HUB Lyriane (E:\\01 - Team Claw\\hermes  - Lyriane\\index.html)', desc:'✅ ENTREGUE 06/06. HUB local com hero HOJE, cards dos 3 sites.', status:'done', prioridade:'P1', ultima:'06/06 20:30 ✅', proxima:'—' },
+  { id:'t18', agente:'lyriane', ag_emoji:'✨', ag_nome:'Lyriane', tarefa:'Tabela: Top Tags widget + manter busca global', desc:'✅ ENTREGUE 06/06. Top tags widget + busca global no topbar.', status:'done', prioridade:'P1', ultima:'06/06 21:50 ✅', proxima:'—' },
+  { id:'t6', agente:'manutencao', ag_emoji:'🔧', ag_nome:'Manutenção', tarefa:'Aplicar melhorias Ctrl+G pequenas', desc:'HOLD — escopo vago, sem critério de parada.', status:'hold', prioridade:'P3', ultima:'—', proxima:'revisitar se virar gargalo' },
+  { id:'t8', agente:'heartbeat', ag_emoji:'💓', ag_nome:'Heartbeat', tarefa:'Reportar no chat formato minimalista', desc:'HOLD — era subproduto do heartbeat horário (removido).', status:'hold', prioridade:'P3', ultima:'—', proxima:'—' },
+  { id:'t13', agente:'productman', ag_emoji:'🧭', ag_nome:'ProductMan', tarefa:'Popular ProductMan (cards 0/0/0)', desc:'HOLD — ProductMan LEGADO desde 07/06 (VISAO.md).', status:'hold', prioridade:'P3', ultima:'deploy v2.0 sem conteúdo', proxima:'—' },
+  { id:'t14', agente:'productman', ag_emoji:'🧭', ag_nome:'ProductMan', tarefa:'Coach Matinal 5h (ProductMan)', desc:'HOLD — job 5h removido 09/06. ProductMan legado.', status:'hold', prioridade:'P3', ultima:'job removido 09/06', proxima:'—' },
 ];
 
 let sortKey = 'agente';
@@ -379,6 +421,7 @@ function statusBadge(s) {
     done:    ['✅ feito', 'b-green'],
     blocked: ['⏸️ bloqueado', 'b-red'],
     idle:    ['💤 aguardando', 'b-blue'],
+    hold:    ['⏸️ hold', 'b-gray'],
   };
   const [label, cls] = map[s] || ['?', 'b-blue'];
   return `<span class="badge ${cls}">${label}</span>`;
@@ -472,6 +515,24 @@ document.querySelectorAll('thead th[data-sort]').forEach(th => {
     renderTasks();
   });
 });
+
+// === VISÃO LYRIANE — fetch do visao.json ===
+async function loadVisao() {
+  try {
+    const r = await fetch('./visao.json?ts=' + Date.now());
+    if (!r.ok) throw new Error('http ' + r.status);
+    const v = await r.json();
+    document.getElementById('visaoData').textContent = v.data || '—';
+    document.getElementById('visaoTexto').textContent = v.texto || '(sem texto)';
+    const alerta = document.getElementById('visaoAlerta');
+    const cores = { verde: 'verde', amarelo: 'amarelo', vermelho: 'vermelho' };
+    alerta.className = 'visao-alerta ' + (cores[v.alerta_cor] || 'verde');
+    alerta.textContent = v.alerta || 'sustentável';
+  } catch (e) {
+    document.getElementById('visaoTexto').innerHTML = '<span class="visao-loading">visão do dia indisponível (refresh em 60s)</span>';
+  }
+}
+loadVisao();
 
 render();
 </script>
