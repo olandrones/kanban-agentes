@@ -1,8 +1,8 @@
 {
-  "data": "09/06/2026 16:00",
+  "data": "09/06/2026 16:15",
   "autor": "Lyriane",
-  "alerta": "atenção: openrouter",
-  "alerta_cor": "amarelo",
-  "texto": "Atlas 08:00 agendado (skill pronta, próximo sprint). Job Apps 12h pausado: erro 402 (sem crédito OpenRouter, pediu 65k tokens, só tem 14k). Outros 4 jobs de LLM estão ok. Solução é decisão sua: (A) adicionar crédito OpenRouter, (B) trocar de modelo mais barato, (C) deixar Apps 12h em hold permanente. Vida limpa: 5 jobs → 4 jobs ativos até resolver. Quando você responder 3 perguntas do Atlas, transformo direção escolhida em MVP de 1-2 semanas. Sem pressa, sem pergunta de volta.",
-  "tags": ["openrouter-credito", "apps-12h", "objetividade"]
+  "alerta": "próximo sprint claro",
+  "alerta_cor": "verde",
+  "texto": "Mandato Renato 09/06 tarde: páginas interativas que escrevem em DB (servidor local) > Telegram chat. Liberdade criativa total: cores, botões, experimentos visuais. Métrica: 'quanto ele responde, decido quanto eu pergunto mais'. TDAH explícito — contraste, simplicidade, controle de volume. Próximo sprint (assim que ele responder as 3 do Atlas): MVP interativo no oportunidades-daily ou projeto novo, com botões que escrevem em arquivo, eu leio via rotina horária. Sem pressa. Sem pergunta de volta.",
+  "tags": ["interatividade", "tdah", "criatividade", "servidor-local"]
 }
