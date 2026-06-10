@@ -1,8 +1,8 @@
 {
   "data": "2026-06-09",
   "autor": "Lyriane",
-  "alerta": "reduzir carga + tornar páginas vivas",
+  "alerta": "carapuça de explorativo",
   "alerta_cor": "amarelo",
-  "texto": "Renato sinalizou hoje que tá sobrecarregado de coisas pra responder. Mural virou semanal-inteligente (só dispara se 3+ dias sem resposta dele), Manutenção reformulada pra relatório completo diário (visibilidade alta), Atlas virou 'Drone de Insights' que detecta amadurecimento de ideias e gera TRDs esqueleto. Criei 3 skills: token-usage-report (OpenRouter API), hermes-recovery (recovery do daemon), sustainability-report (painel de saúde). Integrei OpenRouter no watchdog (toda 6h puxa usage/limit/remaining). PRÓXIMO PASSO CRÍTICO: resolver persistência das páginas — Renato cobrou resposta sobre JSONBin/Supabase/Cloudflare D1. Vou responder agora. Métrica dura segue: 1 cliente pagante até 30/06.",
-  "tags": ["mural-semanal", "atlas-drone", "sustentabilidade", "persistencia-pendente"]
+  "texto": "Renato cravou: 'Sou exploratório, não metódico'. Sistema precisa ser FERRAMENTA EXPLORATÓRIA, não checklist. Reformulei Mural/Coach (ce56) pra ser PESSOAL (postura/identidade/energia/ritmo, max 20 palavras, semanal-inteligente). 2 projetos novos identificados: (1) App de Música 🌱semente — violão + campos harmônicos + BTN/MIDI + exportar MP3; (2) DemandScout 🌿tronco — plataforma de IA pra detectar lacunas de demanda, brainstorm denso de 230KB. Criei skill 'agente-desenvolvimento' (PM+CTO+Designer+Marketing). Aba nova '🚀 Projetos' no Kanban com cards dos 2. Repo destino: olandrones/desenvolvimento (criado por Renato). Ele respondeu V2/M1/M2 — vai publicar demo do app música no sábado/domingo. 'Espada de lindas' = ferramenta afiada que corta rápido. Métrica dura segue: 1 cliente pagante até 30/06.",
+  "tags": ["exploratorio", "coach-pessoal", "app-musica", "demandscout", "agente-desenvolvimento", "carapuca-explorativo"]
 }

@@ -530,6 +530,7 @@
   <button class="tab active" data-view="visao">🎯 Visão Geral</button>
   <button class="tab" data-view="cronjobs">⏰ Cron Jobs (7)</button>
   <button class="tab" data-view="agentes">🧬 Agentes (7)</button>
+  <button class="tab" data-view="projetos">🚀 Projetos (2)</button>
 </nav>
 
 <section class="visao" id="visaoLyriane">
@@ -678,6 +679,18 @@
     </div>
   </div>
 </div>
+
+<section class="projetos" id="projetosView" style="display:none">
+  <h2 style="max-width:1400px;margin:0 auto 12px">🚀 Projetos — onde a espada afia</h2>
+
+  <div class="cj-instrucoes">
+    <strong>🎯 Carapuça de explorativo:</strong> Renato é explorador, não metódico. Esses projetos existem pra ELE gastar energia em IDEIA — a parte método fica automatizada pelos agentes.
+    <br><br>
+    <strong>📦 Hospedagem:</strong> o repo <code>olandrones/desenvolvimento</code> foi criado pelo Renato pra abrigar esses projetos. Cada um vira uma página com TRD esqueleto (Atlas Drone gera), wireframe inicial, e status (semente → broto → árvore → floresta).
+  </div>
+
+  <div class="ag-grid" id="projGrid"></div>
+</section>
 
 <footer>
   Atualizado diariamente pelo <strong>agente-manutenção</strong> · Fonte: <code>E:\00 - Hermes System\agentes\*.md</code> · <a href="https://github.com/olandrones/kanban-agentes">ver código</a>
@@ -905,8 +918,10 @@ function switchView(view) {
   document.getElementById('visaoView').style.display = view === 'visao' ? '' : 'none';
   document.getElementById('cronjobsView').style.display = view === 'cronjobs' ? '' : 'none';
   document.getElementById('agentesView').style.display = view === 'agentes' ? '' : 'none';
+  document.getElementById('projetosView').style.display = view === 'projetos' ? '' : 'none';
   if (view === 'cronjobs') renderCronJobs();
   if (view === 'agentes') renderAgentes();
+  if (view === 'projetos') renderProjetos();
   localStorage.setItem('kanbanTab', view);
 }
 
