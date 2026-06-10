@@ -1,15 +1,14 @@
 {
   "data": "2026-06-09",
   "autor": "Lyriane",
-  "alerta": "Hub no ar + M1 entregue 🎉",
-  "alerta_cor": "verde",
-  "texto": "Renato gravou o video demo do App de Musica (M1 do Mural ENTREGUE). Pediu Hub = indice de TODAS as paginas com persistencia JSONBin + comentarios por pagina + agrupamento por familia + ultima update. Criei hub.html (12.6KB) + hub-metadata.json + bin 6a28eccb (comentarios do Hub). 12 paginas catalogadas em 5 grupos: Operacao (Kanban, Mural, Coach), Pesquisa (Oportunidades, Tabela, Atlas Insights, Aprofundar), Comportamento, Desenvolvimento (App Musica, DemandScout) com destaque laranja, Legado (ProductMan, Heartbeat). Cada card tem textarea com auto-save na nuvem + lista dos 3 ultimos comentarios. Proximos: Aprofundar sync, Kanban comentarios sync, SOP documentado.",
+  "alerta": "processamento de respostas",
+  "alerta_cor": "amarelo",
+  "texto": "Renato me cobrou: eu NÃO tinha processado as respostas do Mural/coaching (Lição 18:20 falhei). Corrigi AGORA: (1) agente-coaching-comportamento.md atualizado com TODAS as respostas 09/06 23:14 processadas — posicionamento cravado (Estrategista de Produto que entrega resultado yesterday), exploratório não metódico, M1 entregue (sábado/domingo gravou vídeo), M2 em curso, DemandScout + App Música adicionados. (2) Site comportamento-daily agora tem TEXTAREA em cada provocação com persistência JSONBin (bin 6a290304). Quando Renato responde, auto-revolução: status muda pra 'answered' + sincroniza nuvem. (3) Próximo: refinar ce56 pra LER as respostas antes de perguntar (loop fechado). 3 commits: comportamento-daily 5ac6a23, kanban-agentes 473eb89 (hub-metadata), oportunidades-daily 085d3c5 (filtro aprofundar).",
   "tags": [
-    "hub",
-    "indice",
-    "m1-entregue",
-    "app-musica",
-    "persistencia",
-    "nucleo-continuo"
+    "processar-respostas",
+    "licao-1820",
+    "auto-revolucao",
+    "comportamento-textareas",
+    "jsonbin"
   ]
 }
