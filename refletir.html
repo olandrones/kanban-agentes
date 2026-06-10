@@ -247,6 +247,42 @@ const PERGUNTAS_BANCO = [
 const STORAGE_KEY = 'mural_reflexao';
 const HOJE_KEY = 'mural_pergunta_hoje';
 
+// === JSONBIN (persistência nuvem) ===
+// ⚠️ ATENÇÃO: Master Key está exposta no client. Free tier do JSONBin.io
+//    não tem Access Keys escopadas (é Pro-only). Trade-off aceito pro MVP.
+//    Se virar problema: revogue esta key na dashboard + gere nova.
+const JSONBIN_BIN_ID = '6a28e774f5f4af5e29d5e565';
+const JSONBIN_MASTER_KEY = '$2a$10$g6jrm.ifugmyTO7nGzWKIue3Q4ypHTUTwrxhFciJF43NiplD8w9mG';
+const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
+const JSONBIN_HEADERS = {
+  'Content-Type': 'application/json',
+  'X-Master-Key': JSONBIN_MASTER_KEY
+};
+
+// Carrega mural do JSONBin (cloud) com fallback pro localStorage
+async function loadFromBin() {
+  try {
+    const r = await fetch(JSONBIN_URL + '/latest', { headers: JSONBIN_HEADERS });
+    if (!r.ok) throw new Error('http ' + r.status);
+    const j = await r.json();
+    return (j && j.record && j.record.reflexoes) || [];
+  } catch (e) {
+    console.warn('JSONBin load falhou, usando localStorage:', e.message);
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+  }
+}
+
+// Salva mural inteiro no JSONBin
+async function saveToBin(reflexoes) {
+  const r = await fetch(JSONBIN_URL, {
+    method: 'PUT',
+    headers: JSONBIN_HEADERS,
+    body: JSON.stringify({ reflexoes, metadata: { owner: 'Renato', updated: new Date().toISOString() } })
+  });
+  if (!r.ok) throw new Error('http ' + r.status);
+  return await r.json();
+}
+
 // Gera pergunta do dia: estável pela data
 function perguntaDoDia() {
   const hoje = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Manaus' }); // YYYY-MM-DD
@@ -271,20 +307,40 @@ function renderPergunta() {
   document.getElementById('perguntaData').textContent = dt.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric', timeZone: 'America/Manaus' });
 }
 
+// cache local do mural (carregado do bin uma vez, atualizado a cada save)
+let MURAL_CACHE = null;
+
+async function getReflexoes() {
+  if (MURAL_CACHE === null) {
+    MURAL_CACHE = await loadFromBin();
+  }
+  return MURAL_CACHE;
+}
+
 function getRespostaHoje() {
   const p = perguntaDoDia();
-  const all = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+  const all = MURAL_CACHE || JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
   return all.find(r => r.data === p.data);
 }
 
-function setRespostaHoje(texto) {
+async function setRespostaHoje(texto) {
   const p = perguntaDoDia();
-  const all = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+  const all = (MURAL_CACHE || JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')).slice();
   const idx = all.findIndex(r => r.data === p.data);
   const entry = { data: p.data, categoria: p.cat, pergunta: p.q, resposta: texto, savedAt: new Date().toISOString() };
   if (idx >= 0) all[idx] = entry;
   else all.unshift(entry);
+  // 1. salva local (rápido, offline-first)
   localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+  MURAL_CACHE = all;
+  // 2. sincroniza com a nuvem (best-effort)
+  try {
+    await saveToBin(all);
+    return { ok: true };
+  } catch (e) {
+    console.warn('Sync bin falhou:', e.message);
+    return { ok: false, error: e.message };
+  }
 }
 
 function renderResposta() {
@@ -317,26 +373,36 @@ function renderHistorico() {
   }).join('');
 }
 
-document.getElementById('btnSalvar').addEventListener('click', () => {
+document.getElementById('btnSalvar').addEventListener('click', async () => {
   const texto = document.getElementById('resposta').value.trim();
+  const status = document.getElementById('saveStatus');
   if (!texto) {
-    document.getElementById('saveStatus').textContent = '⚠️ escreva algo antes de salvar';
+    status.textContent = '⚠️ escreva algo antes de salvar';
     return;
   }
-  setRespostaHoje(texto);
-  renderResposta();
-  renderHistorico();
-  // Feedback visual rápido
+  status.textContent = '⏳ salvando…';
   const btn = document.getElementById('btnSalvar');
   const orig = btn.textContent;
-  btn.textContent = '✓ salvo!';
-  setTimeout(() => btn.textContent = orig, 1500);
+  btn.disabled = true;
+  btn.textContent = '⏳ salvando…';
+  const res = await setRespostaHoje(texto);
+  renderResposta();
+  renderHistorico();
+  if (res.ok) {
+    btn.textContent = '✓ salvo na nuvem!';
+    status.className = 'save-status ok';
+  } else {
+    btn.textContent = '⚠️ salvo local';
+    status.textContent = 'salvo local; sync falhou: ' + res.error;
+    status.className = 'save-status';
+  }
+  setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2000);
 });
 
-document.getElementById('btnLimpar').addEventListener('click', () => {
+document.getElementById('btnLimpar').addEventListener('click', async () => {
   if (confirm('Limpar a resposta de HOJE? (histórico permanece)')) {
     document.getElementById('resposta').value = '';
-    setRespostaHoje('');
+    await setRespostaHoje('');
     renderResposta();
     renderHistorico();
   }
@@ -346,19 +412,31 @@ document.getElementById('btnLimpar').addEventListener('click', () => {
 let autoSaveTimer;
 document.getElementById('resposta').addEventListener('input', () => {
   clearTimeout(autoSaveTimer);
-  autoSaveTimer = setTimeout(() => {
+  autoSaveTimer = setTimeout(async () => {
     const texto = document.getElementById('resposta').value.trim();
     if (texto) {
-      setRespostaHoje(texto);
-      document.getElementById('saveStatus').textContent = '✓ auto-salvo';
-      document.getElementById('saveStatus').className = 'save-status ok';
+      const res = await setRespostaHoje(texto);
+      const status = document.getElementById('saveStatus');
+      if (res.ok) {
+        status.textContent = '✓ auto-salvo na nuvem';
+        status.className = 'save-status ok';
+      } else {
+        status.textContent = '⚠️ auto-salvo local; sync falhou';
+        status.className = 'save-status';
+      }
     }
   }, 1000);
 });
 
-renderPergunta();
-renderResposta();
-renderHistorico();
+// inicializa: carrega do bin, depois renderiza
+(async () => {
+  MURAL_CACHE = await loadFromBin();
+  // popula localStorage como cache offline
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(MURAL_CACHE));
+  renderPergunta();
+  renderResposta();
+  renderHistorico();
+})();
 </script>
 </body>
 </html>
