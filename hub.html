@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>🗺 Hub — onde a espada afia</title>
+<style>
+  :root {
+    --bg: #0b0d10; --panel: #14181d; --panel-2: #1a1f26; --border: #232a32;
+    --text: #e6e8eb; --muted: #8a94a0;
+    --blue: #3b82f6; --green: #22c55e; --purple: #a855f7; --orange: #fb923c;
+    --yellow: #eab308; --red: #ef4444; --gray: #6b7280;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh; padding: 24px; line-height: 1.5;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  header { margin-bottom: 32px; text-align: center; }
+  h1 { font-size: 28px; font-weight: 600; margin-bottom: 8px; }
+  .sub { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+  .back { color: var(--muted); text-decoration: none; font-size: 12px; }
+  .back:hover { color: var(--blue); }
+  .intro {
+    background: linear-gradient(135deg, #14181d 0%, #1a1f26 100%);
+    border: 1px solid var(--border); border-left: 4px solid var(--blue);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; font-size: 13px;
+  }
+  .intro code { background: var(--panel-2); padding: 2px 6px; border-radius: 4px; font-size: 12px; color: var(--blue); }
+  .intro a { color: var(--blue); }
+  .grupo { margin-bottom: 28px; }
+  .grupo-head {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 12px; padding: 8px 12px;
+    background: var(--panel); border: 1px solid var(--border);
+    border-left: 4px solid var(--blue); border-radius: 8px;
+  }
+  .grupo-emoji { font-size: 22px; }
+  .grupo-nome { font-size: 15px; font-weight: 600; }
+  .grupo-desc { font-size: 12px; color: var(--muted); margin-left: 12px; flex: 1; }
+  .grupo-count { font-size: 11px; color: var(--muted); background: var(--panel-2); padding: 2px 8px; border-radius: 10px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 12px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; display: flex; flex-direction: column; gap: 8px;
+    transition: border-color .2s, transform .2s;
+  }
+  .card:hover { border-color: var(--blue); transform: translateY(-1px); }
+  .card-head { display: flex; align-items: center; gap: 8px; }
+  .card-emoji { font-size: 22px; }
+  .card-nome { font-size: 14px; font-weight: 600; flex: 1; }
+  .badge { font-size: 10px; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; font-weight: 500; }
+  .b-green { background: rgba(34,197,94,.15); color: var(--green); }
+  .b-yellow { background: rgba(234,179,8,.15); color: var(--yellow); }
+  .b-red { background: rgba(239,68,68,.15); color: var(--red); }
+  .b-gray { background: rgba(107,114,128,.15); color: var(--gray); }
+  .b-blue { background: rgba(59,130,246,.15); color: var(--blue); }
+  .b-purple { background: rgba(168,85,247,.15); color: var(--purple); }
+  .b-orange { background: rgba(251,146,60,.15); color: var(--orange); }
+  .card-meta { font-size: 11px; color: var(--muted); display: flex; gap: 8px; flex-wrap: wrap; }
+  .card-foco { font-size: 12px; color: var(--text); line-height: 1.4; }
+  .card-evolucao { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .card-actions { display: flex; gap: 6px; }
+  .card-btn {
+    background: var(--panel-2); border: 1px solid var(--border);
+    color: var(--text); padding: 5px 10px; border-radius: 5px;
+    font-size: 11px; cursor: pointer; text-decoration: none; font-family: inherit;
+  }
+  .card-btn:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .comentarios { margin-top: 8px; border-top: 1px solid var(--border); padding-top: 8px; }
+  .comentario-lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .comentario-textarea {
+    width: 100%; min-height: 60px; background: var(--panel-2);
+    border: 1px solid var(--border); border-radius: 5px;
+    color: var(--text); padding: 6px 8px; font-family: inherit; font-size: 12px; resize: vertical;
+  }
+  .comentario-textarea:focus { outline: none; border-color: var(--blue); }
+  .comentario-textarea::placeholder { color: var(--muted); font-style: italic; }
+  .comentario-status { font-size: 10px; color: var(--muted); margin-top: 4px; }
+  .comentario-status.ok { color: var(--green); }
+  .comentario-status.err { color: var(--red); }
+  .comentarios-lista { margin-top: 8px; }
+  .comentario-item {
+    background: var(--panel-2); border-left: 2px solid var(--blue);
+    padding: 6px 8px; margin-bottom: 4px; border-radius: 4px; font-size: 11px; line-height: 1.4;
+  }
+  .comentario-data { color: var(--muted); font-size: 10px; margin-bottom: 2px; }
+  .comentario-texto { color: var(--text); white-space: pre-wrap; }
+  .grupo.destaque .grupo-head {
+    background: linear-gradient(90deg, rgba(251,146,60,.15) 0%, var(--panel) 100%);
+    border-left-color: var(--orange);
+  }
+  footer { margin-top: 40px; color: var(--muted); font-size: 11px; text-align: center; padding-top: 16px; border-top: 1px solid var(--border); }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a class="back" href="./">← voltar pro Kanban</a>
+    <h1>🗺 Hub — onde a espada afia</h1>
+    <div class="sub">Todas as ferramentas do Hermes. 1 visão. 1 clique pra qualquer uma.</div>
+  </header>
+  <div class="intro">
+    <strong>📌 Como usar:</strong> cada card tem 1 textarea onde você escreve o que quiser sobre a página. Quando salva, vai pra nuvem (JSONBin) e eu vejo depois. <strong>É o núcleo contínuo de interação.</strong>
+    <br><br>
+    <strong>🎯 Por que existe:</strong> você tinha dificuldade de acessar todas as páginas. Esse Hub é o índice. Aberto direto: <a href="https://olandrones.github.io/kanban-agentes/hub.html">olandrones.github.io/kanban-agentes/hub.html</a>
+    <br><br>
+    <strong>📊 Governança:</strong> cada card mostra <em>última atualização</em>, <em>foco</em>, <em>evolução</em>. Sincronizado de <code>hub-metadata.json</code>.
+  </div>
+  <div id="hubBody">carregando…</div>
+  <footer>
+    Hub do Hermes · auto-atualizado de <code>hub-metadata.json</code> + comentários salvos em <code>JSONBin (bin 6a28eccb…)</code> ·
+    <a href="./">Kanban</a> · <a href="./refletir.html">Mural</a>
+  </footer>
+</div>
+<script>
+const JSONBIN_BIN_ID = '6a28eccbf5f4af5e29d5f78a';
+const JSONBIN_MASTER_KEY = '$2a$10$g6jrm.ifugmyTO7nGzWKIue3Q4ypHTUTwrxhFciJF43NiplD8w9mG';
+const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
+const JSONBIN_HEADERS = { 'Content-Type': 'application/json', 'X-Master-Key': JSONBIN_MASTER_KEY };
+const STATUS_BADGE = {
+  'ativo': '<span class="badge b-green">ativo</span>',
+  'novo': '<span class="badge b-blue">novo</span>',
+  'semente → broto': '<span class="badge b-yellow">semente→broto</span>',
+  'tronco 35%': '<span class="badge b-yellow">tronco 35%</span>',
+  'LEGADO 07/06': '<span class="badge b-gray">LEGADO</span>',
+  'removido 09/06': '<span class="badge b-gray">removido</span>',
+};
+let COMENTARIOS = {};
+let METADATA = null;
+async function loadComentarios() {
+  try {
+    const r = await fetch(JSONBIN_URL + '/latest', { headers: JSONBIN_HEADERS });
+    if (!r.ok) throw new Error('http ' + r.status);
+    const j = await r.json();
+    COMENTARIOS = (j && j.record && j.record.comentarios) || {};
+    return true;
+  } catch (e) { console.warn('bin load falhou:', e.message); return false; }
+}
+async function saveComentario(pageId, texto) {
+  const lista = COMENTARIOS[pageId] || [];
+  lista.unshift({ texto, data: new Date().toISOString() });
+  COMENTARIOS[pageId] = lista;
+  const body = { comentarios: COMENTARIOS, metadata: { updated: new Date().toISOString() } };
+  const r = await fetch(JSONBIN_URL, { method: 'PUT', headers: JSONBIN_HEADERS, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error('http ' + r.status);
+}
+async function loadMetadata() {
+  try {
+    const r = await fetch('./hub-metadata.json?ts=' + Date.now());
+    if (!r.ok) throw new Error('http ' + r.status);
+    METADATA = await r.json();
+    return true;
+  } catch (e) { console.warn('metadata load falhou:', e.message); return false; }
+}
+function escapeHtml(s) {
+  return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function renderHub() {
+  if (!METADATA) {
+    document.getElementById('hubBody').innerHTML = '<div style="color:var(--muted);padding:40px;text-align:center">erro ao carregar hub-metadata.json</div>';
+    return;
+  }
+  const grupos = METADATA.grupos;
+  const paginas = METADATA.paginas;
+  const html = Object.entries(grupos).map(([gid, g]) => {
+    const pages = Object.entries(paginas).filter(([_, p]) => p.grupo === gid);
+    if (!pages.length) return '';
+    const isDestaque = gid === 'desenvolvimento';
+    return `
+      <div class="grupo ${isDestaque ? 'destaque' : ''}">
+        <div class="grupo-head" style="border-left-color:${g.cor}">
+          <span class="grupo-emoji">${g.emoji}</span>
+          <span class="grupo-nome">${g.nome}</span>
+          <span class="grupo-desc">${g.desc}</span>
+          <span class="grupo-count">${pages.length} ${pages.length === 1 ? 'página' : 'páginas'}</span>
+        </div>
+        <div class="cards">
+          ${pages.map(([pid, p]) => renderCard(pid, p, g)).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('hubBody').innerHTML = html;
+  bindTextareas();
+}
+function renderCard(pid, p, grupo) {
+  const badge = STATUS_BADGE[p.status] || `<span class="badge b-gray">${escapeHtml(p.status)}</span>`;
+  const target = (p.url || '#').startsWith('http') ? '_blank' : '_self';
+  const comentarios = COMENTARIOS[pid] || [];
+  return `
+    <div class="card" data-page="${pid}">
+      <div class="card-head">
+        <span class="card-emoji">${p.emoji}</span>
+        <span class="card-nome">${escapeHtml(p.nome)}</span>
+        ${badge}
+      </div>
+      <div class="card-meta">
+        <span>📅 ${escapeHtml(p.ultima_update)}</span>
+        ${p.tam_kb ? `<span>📦 ${p.tam_kb} KB</span>` : ''}
+      </div>
+      <div class="card-foco"><strong style="color:${grupo.cor}">🎯 Foco:</strong> ${escapeHtml(p.foco)}</div>
+      <div class="card-evolucao"><strong style="color:var(--green)">📈 Evolução:</strong> ${escapeHtml(p.evolucao)}</div>
+      <div class="card-actions">
+        <a class="card-btn" href="${p.url}" target="${target}">🔗 abrir</a>
+        <button class="card-btn" onclick="navigator.clipboard && navigator.clipboard.writeText('[hub ${pid}]')">📋 [hub ${pid}]</button>
+      </div>
+      <div class="comentarios">
+        <div class="comentario-lbl">💬 Comentário (núcleo contínuo de interação)</div>
+        <textarea class="comentario-textarea" data-page="${pid}" placeholder="escreve aqui o que quiser sobre essa página…"></textarea>
+        <div class="comentario-status" id="status-${pid}"></div>
+        ${comentarios.length ? `<div class="comentarios-lista">${comentarios.slice(0, 3).map(c => `
+          <div class="comentario-item">
+            <div class="comentario-data">${new Date(c.data).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</div>
+            <div class="comentario-texto">${escapeHtml(c.texto)}</div>
+          </div>
+        `).join('')}</div>` : ''}
+      </div>
+    </div>
+  `;
+}
+function bindTextareas() {
+  document.querySelectorAll('.comentario-textarea').forEach(ta => {
+    let timer;
+    ta.addEventListener('input', () => {
+      clearTimeout(timer);
+      const pid = ta.dataset.page;
+      const status = document.getElementById('status-' + pid);
+      status.textContent = '… digitando';
+      status.className = 'comentario-status';
+      timer = setTimeout(async () => {
+        const texto = ta.value.trim();
+        if (!texto) { status.textContent = ''; return; }
+        status.textContent = '⏳ salvando na nuvem…';
+        try {
+          await saveComentario(pid, texto);
+          status.textContent = '✓ salvo às ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+          status.className = 'comentario-status ok';
+        } catch (e) {
+          status.textContent = '⚠️ salvou local; sync falhou: ' + e.message;
+          status.className = 'comentario-status err';
+        }
+      }, 1000);
+    });
+  });
+}
+(async () => {
+  await loadMetadata();
+  await loadComentarios();
+  renderHub();
+})();
+</script>
+</body>
+</html>

@@ -1,8 +1,15 @@
 {
   "data": "2026-06-09",
   "autor": "Lyriane",
-  "alerta": "tese auto-revolução + memória crítica",
-  "alerta_cor": "vermelho",
-  "texto": "Renato cravou a TESE CENTRAL DO HERMES: ecossistema que promove auto-revolução. Sistema se auto-organiza, auto-delega, auto-detecta problemas. Referência: cto.new (Engine Labs, 2026) — marketplace de times de IA que ele NÃO vai usar (quere construir o conceito próprio). MEMÓRIA VAI ESTOURAR (94% cheia) — consolidada em 1 entry densa com mapa de conexões. Conexões mapeadas: Renato decisor → 8 agentes (Lyriane, Manutenção, Atlas, Pesquisa x3, Coach, agente-desenvolvimento, token-watch) → 2 projetos (App Música 🌱 + DemandScout 🌿). Lição crítica: tabela de persistência (JSONBin/Supabase) é IRRELEVANTE agora — auto-revolução detecta. FOCO: 'o objetivo é ganhar dinheiro. montar negócio que vai evoluir e começar a fazer renda'. Métrica dura: 1 cliente pagante até 30/06/2026. Princípio-guia: 'Sou exploratório, não metódico' — sistema é carapuça, não coleira.",
-  "tags": ["tese-central", "auto-revolucao", "memoria-critica", "mapa-conexoes", "foco-renda", "exploratorio"]
+  "alerta": "Hub no ar + M1 entregue 🎉",
+  "alerta_cor": "verde",
+  "texto": "Renato gravou o video demo do App de Musica (M1 do Mural ENTREGUE). Pediu Hub = indice de TODAS as paginas com persistencia JSONBin + comentarios por pagina + agrupamento por familia + ultima update. Criei hub.html (12.6KB) + hub-metadata.json + bin 6a28eccb (comentarios do Hub). 12 paginas catalogadas em 5 grupos: Operacao (Kanban, Mural, Coach), Pesquisa (Oportunidades, Tabela, Atlas Insights, Aprofundar), Comportamento, Desenvolvimento (App Musica, DemandScout) com destaque laranja, Legado (ProductMan, Heartbeat). Cada card tem textarea com auto-save na nuvem + lista dos 3 ultimos comentarios. Proximos: Aprofundar sync, Kanban comentarios sync, SOP documentado.",
+  "tags": [
+    "hub",
+    "indice",
+    "m1-entregue",
+    "app-musica",
+    "persistencia",
+    "nucleo-continuo"
+  ]
 }
