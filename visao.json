@@ -1,8 +1,8 @@
 {
-  "data": "09/06/2026 16:15",
+  "data": "09/06/2026 16:55",
   "autor": "Lyriane",
-  "alerta": "próximo sprint claro",
-  "alerta_cor": "verde",
-  "texto": "Mandato Renato 09/06 tarde: páginas interativas que escrevem em DB (servidor local) > Telegram chat. Liberdade criativa total: cores, botões, experimentos visuais. Métrica: 'quanto ele responde, decido quanto eu pergunto mais'. TDAH explícito — contraste, simplicidade, controle de volume. Próximo sprint (assim que ele responder as 3 do Atlas): MVP interativo no oportunidades-daily ou projeto novo, com botões que escrevem em arquivo, eu leio via rotina horária. Sem pressa. Sem pergunta de volta.",
-  "tags": ["interatividade", "tdah", "criatividade", "servidor-local"]
+  "alerta": "correção crítica",
+  "alerta_cor": "vermelho",
+  "texto": "CORREÇÃO Renato 16:55. 'Virar, reconverter e se manter' = CONVERTER FINANCEIRAMENTE = gerar renda real pra ele. NÃO é abstração genérica de 'transformar-se'. Métrica dura do trimestre: 1 cliente pagante até 30/06. Todo agente/direção/produto precisa responder: 'isso vira renda real, ou vira só arquivo?'. Padrão mudou. Próximo sprint: validar Agente-PM com 1 amigo PM, mas já com precificação (R$100 BR ou $100 USD exterior, freemium possível).",
+  "tags": ["correcao-financeira", "metrica-dura", "1-cliente-pagante"]
 }
