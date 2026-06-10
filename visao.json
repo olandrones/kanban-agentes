@@ -1,8 +1,8 @@
 {
-  "data": "09/06/2026 18:25",
+  "data": "2026-06-09",
   "autor": "Lyriane",
-  "alerta": "processar info, não só copiar",
-  "alerta_cor": "vermelho",
-  "texto": "Renato me chamou atenção 18:20. ERRO MEU: vi emojis 🌿🌳 nos cards dele como DECORAÇÃO, não como INFO DE CLIQUES. Lição gravada: Renato sempre manda DADOS embutidos no texto (níveis clicados, estado, contexto, opinião, correção). PROCESSAR TUDO como dado acionável. Não copiar texto e re-escrever — extrair informação, comparar com estado anterior, agir. Quando ele me mandar página copiada, é pra eu VER o estado real (cliques, cores, níveis) e usar isso pra decidir o que adicionar/mudar. Corrigi: 7 cards com campo 'nivel' no HTML (langchain=2, mcp=3, harness=1, rag=3, iaa=3, agent-orchestration=3, exocerebro=3). JS agora respeita hierarquia localStorage > HTML > 1. Commit + push feito. Renato me espera: 'daqui a pouco a gente vai fazer automático isso' — ele sabe que hoje é manual.",
-  "tags": ["licao", "processar-info", "tdah-leitura"]
+  "alerta": "reduzir carga + tornar páginas vivas",
+  "alerta_cor": "amarelo",
+  "texto": "Renato sinalizou hoje que tá sobrecarregado de coisas pra responder. Mural virou semanal-inteligente (só dispara se 3+ dias sem resposta dele), Manutenção reformulada pra relatório completo diário (visibilidade alta), Atlas virou 'Drone de Insights' que detecta amadurecimento de ideias e gera TRDs esqueleto. Criei 3 skills: token-usage-report (OpenRouter API), hermes-recovery (recovery do daemon), sustainability-report (painel de saúde). Integrei OpenRouter no watchdog (toda 6h puxa usage/limit/remaining). PRÓXIMO PASSO CRÍTICO: resolver persistência das páginas — Renato cobrou resposta sobre JSONBin/Supabase/Cloudflare D1. Vou responder agora. Métrica dura segue: 1 cliente pagante até 30/06.",
+  "tags": ["mural-semanal", "atlas-drone", "sustentabilidade", "persistencia-pendente"]
 }
