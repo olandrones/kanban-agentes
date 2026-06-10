@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="refresh" content="60" />
 <title>🤖 Kanban dos Agentes</title>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <style>
   :root {
     --bg: #0b0d10;
@@ -404,6 +405,98 @@
   }
   .cj-global:focus { outline: none; border-color: var(--blue); border-left-color: var(--blue); }
   .cj-global::placeholder { color: var(--muted); font-style: italic; }
+
+  /* Agentes — cards de qualificação */
+  .ag-grid {
+    max-width: 1400px;
+    margin: 0 auto 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 14px;
+  }
+  .ag-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    transition: border-color .2s, transform .2s;
+  }
+  .ag-card:hover { border-color: var(--blue); transform: translateY(-1px); }
+  .ag-card.legacy { opacity: 0.55; }
+  .ag-card-head { display: flex; align-items: center; gap: 10px; }
+  .ag-emoji { font-size: 28px; }
+  .ag-name { font-size: 15px; font-weight: 600; flex: 1; }
+  .ag-role { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .ag-meta-row { display: flex; gap: 8px; font-size: 12px; flex-wrap: wrap; }
+  .ag-meta-row .label { color: var(--muted); min-width: 64px; }
+  .ag-missao { font-size: 13px; line-height: 1.5; color: var(--text); padding: 8px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .ag-missao .lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
+  .ag-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .ag-stat { background: var(--panel-2); padding: 6px 8px; border-radius: 5px; text-align: center; }
+  .ag-stat-num { font-size: 14px; font-weight: 600; color: var(--blue); }
+  .ag-stat-lbl { font-size: 10px; color: var(--muted); margin-top: 1px; }
+  .ag-actions { display: flex; gap: 6px; }
+  .ag-btn {
+    flex: 1;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .ag-btn:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .ag-jobs { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .ag-jobs .job-id { color: var(--orange); font-family: ui-monospace, monospace; }
+
+  /* Modal */
+  .modal-back {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.7);
+    z-index: 1000;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow-y: auto;
+  }
+  .modal-back.open { display: flex; }
+  .modal {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    max-width: 900px;
+    width: 100%;
+    max-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .modal-title { font-size: 15px; font-weight: 600; flex: 1; }
+  .modal-close { background: transparent; border: none; color: var(--muted); font-size: 20px; cursor: pointer; padding: 4px 8px; }
+  .modal-close:hover { color: var(--text); }
+  .modal-body { padding: 20px; overflow-y: auto; }
+  .modal-body h1, .modal-body h2, .modal-body h3 { margin: 16px 0 8px; }
+  .modal-body h1 { font-size: 20px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .modal-body h2 { font-size: 16px; color: var(--blue); }
+  .modal-body h3 { font-size: 14px; color: var(--purple); }
+  .modal-body p, .modal-body li { font-size: 13px; line-height: 1.6; }
+  .modal-body ul, .modal-body ol { padding-left: 24px; }
+  .modal-body code { background: var(--panel-2); padding: 2px 6px; border-radius: 3px; font-size: 12px; }
+  .modal-body pre { background: var(--panel-2); padding: 12px; border-radius: 6px; overflow-x: auto; }
+  .modal-body strong { color: var(--text); }
+  .modal-body em { color: var(--muted); }
+  .modal-loading { color: var(--muted); font-style: italic; padding: 40px; text-align: center; }
   .visao-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
   .visao-autor { font-size: 11px; color: var(--purple); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
   .visao-data { font-size: 11px; color: var(--muted); }
@@ -437,6 +530,7 @@
 <nav class="tabs" id="mainTabs">
   <button class="tab active" data-view="visao">🎯 Visão Geral</button>
   <button class="tab" data-view="cronjobs">⏰ Cron Jobs (7)</button>
+  <button class="tab" data-view="agentes">🧬 Agentes (7)</button>
 </nav>
 
 <section class="visao" id="visaoLyriane">
@@ -557,6 +651,34 @@
     <textarea id="cjGlobal" class="cj-global" placeholder="Ex: 'Quero cancelar tudo que não vira renda direta. Atlas 21h tá ok mas precisa virar conteúdo vendável, não só provocação.'"></textarea>
   </div>
 </section>
+
+<section class="agentes" id="agentesView" style="display:none">
+  <h2 style="max-width:1400px;margin:0 auto 12px">🧬 Agentes &amp; Qualificações — quem é quem, o que sabe</h2>
+
+  <div class="cj-instrucoes">
+    <strong>📖 Currículo de cada agente</strong> está versionado em <code>agentes/agente-*.md</code> neste repo.
+    É a <em>fonte de verdade</em> sobre identidade, missão, estado, métricas, evolução.
+    Clique em <strong>📄 ver currículo</strong> num card pra abrir o markdown renderizado.
+    <br><br>
+    <strong>🎯 Por que importa:</strong> você consegue ver <em>o que cada agente tem na cabeça</em> (prompt + skills + fontes que pesquisa), o que ele <em>anda estudando</em> (tendências + evolução), e o que <em>ainda não aprendeu</em> (gaps).
+  </div>
+
+  <div class="ag-grid" id="agGrid"></div>
+</section>
+
+<!-- Modal currículo -->
+<div class="modal-back" id="modalBack" onclick="if(event.target===this) closeModal()">
+  <div class="modal">
+    <div class="modal-head">
+      <span class="modal-title" id="modalTitle">📄 Currículo</span>
+      <a class="ag-btn" id="modalRawLink" href="#" target="_blank" style="flex:0;text-decoration:none;display:inline-block">🔗 raw</a>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <div class="modal-loading">carregando currículo…</div>
+    </div>
+  </div>
+</div>
 
 <footer>
   Atualizado diariamente pelo <strong>agente-manutenção</strong> · Fonte: <code>E:\00 - Hermes System\agentes\*.md</code> · <a href="https://github.com/olandrones/kanban-agentes">ver código</a>
@@ -730,6 +852,16 @@ document.querySelectorAll('thead th[data-sort]').forEach(th => {
 });
 
 // === CRON JOBS — Painel de Decisão ===
+const AGENTE_POR_JOB = {
+  '4025': 'pesquisa',
+  '0ddc': 'pesquisa',
+  'eada': 'pesquisa',
+  'ce56': 'coaching',
+  'b17e': 'manutencao',
+  'dde3': 'token-watch',
+  'a7b3': 'atlas',
+};
+
 const CRON_JOBS = [
   { id:'4025', nome:'Pesquisa Oportunidades 18:50', freq:'50 18 * * *', status:'ativo',    status_cls:'b-green', runs:14, lasc:'atenção',  desc:'busca tendências + atualiza dados.json',     last:'09/06 18:56' },
   { id:'0ddc', nome:'Tendências 07:30',             freq:'30 7 * * *',  status:'ativo',    status_cls:'b-green', runs:14, lasc:'atenção',  desc:'GitHub Trending + Exploding Topics → dados.json', last:'09/06 07:56' },
@@ -744,6 +876,7 @@ function renderCronJobs() {
   const body = document.getElementById('cronBody');
   if (!body) return;
   const lascLabel = { tolpping:'🟠 tolping', atenção:'🔵 atenção', serviço:'🟢 serviço', coach:'🟣 coach', conversao:'🔴 conversão' };
+  const agLabel = { pesquisa:'🔍 Pesquisa', coaching:'🧠 Coaching', manutencao:'🔧 Manutenção', 'token-watch':'🛡 token-watch', atlas:'✨ Atlas' };
   body.innerHTML = CRON_JOBS.map(j => `
     <tr>
       <td><span class="cj-id" title="copie: [cron ${j.id}]" onclick="navigator.clipboard && navigator.clipboard.writeText('[cron ${j.id}]')">[cron ${j.id}]</span></td>
@@ -758,6 +891,10 @@ function renderCronJobs() {
       <td class="ts">${j.last}</td>
       <td><textarea class="cj-comment" data-id="${j.id}" placeholder="opine sobre [cron ${j.id}]…"></textarea></td>
     </tr>
+    <tr style="background:var(--panel-2)">
+      <td colspan="2" style="font-size:11px;color:var(--muted);padding:6px 14px"><strong>🤖 Agente responsável:</strong></td>
+      <td colspan="6" style="padding:6px 14px"><a href="#agentes" onclick="switchView('agentes')" style="color:var(--blue);text-decoration:none">${agLabel[AGENTE_POR_JOB[j.id]] || AGENTE_POR_JOB[j.id]}</a> <span style="font-size:11px;color:var(--muted)">— veja currículo na aba 🧬 Agentes</span></td>
+    </tr>
   `).join('');
 }
 
@@ -765,12 +902,254 @@ function switchView(view) {
   document.querySelectorAll('#mainTabs .tab').forEach(t => t.classList.toggle('active', t.dataset.view === view));
   document.getElementById('visaoView').style.display = view === 'visao' ? '' : 'none';
   document.getElementById('cronjobsView').style.display = view === 'cronjobs' ? '' : 'none';
+  document.getElementById('agentesView').style.display = view === 'agentes' ? '' : 'none';
   if (view === 'cronjobs') renderCronJobs();
+  if (view === 'agentes') renderAgentes();
 }
 
 document.querySelectorAll('#mainTabs .tab').forEach(t => {
   t.addEventListener('click', () => switchView(t.dataset.view));
 });
+
+// === AGENTES — Currículos & Qualificações ===
+const AGENTES = [
+  {
+    id: 'manutencao',
+    file: 'agente-manutencao.md',
+    emoji: '🔧',
+    nome: 'Manutenção',
+    role: 'cron · saúde + regenera Kanban',
+    status: 'ativo',
+    status_cls: 'b-green',
+    skill: 'system-maintenance',
+    tools: 'file, terminal, web',
+    criado: '2026-06-04',
+    freq: '1x/dia 09:00 Manaus',
+    missao: 'Garantir que os 3 sites (ProductMan, Oportunidades, Comportamento) estejam funcionando, atualizados, e evoluindo. Ser o "chief of staff" técnico.',
+    stats: [
+      { num: '10', lbl: 'execuções' },
+      { num: '3/3', lbl: 'sites OK' },
+      { num: '4/4', lbl: 'P0 ✅' },
+    ],
+    jobs: ['b17e'],
+    estudando: 'como tratar cada execução como snapshot de evolução (diff entre oportunidades-melhoria.md)',
+    gaps: 'sem skills customizadas, sem diff visual entre execuções, sem relatório semanal',
+    legacy: false,
+  },
+  {
+    id: 'pesquisa',
+    file: 'agente-pesquisa-oportunidades.md',
+    emoji: '🔍',
+    nome: 'Pesquisa Oportunidades',
+    role: 'autônomo · 3 turnos/dia (07:30, 12:00, 18:50)',
+    status: 'ativo (multi-job)',
+    status_cls: 'b-green',
+    skill: 'web-research',
+    tools: 'web (GitHub Trending, ExplodingTopics, Play Store)',
+    criado: '2026-06-04',
+    freq: '3x/dia',
+    missao: 'Encontrar e ranquear oportunidades (micro-SaaS, AI/agents, GitHub trending) e alimentar o site Oportunidades com dados frescos.',
+    stats: [
+      { num: '30', lbl: 'items coletados' },
+      { num: '4', lbl: 'com URL' },
+      { num: '41', lbl: 'runs (3 jobs)' },
+    ],
+    jobs: ['4025', '0ddc', 'eada'],
+    estudando: 'detectar URL automaticamente via GitHub API (owner/repo do título)',
+    gaps: 'falta url em 26/30 items, sem LLM pra manchete rica, Apps 12h pausado por 402',
+    legacy: false,
+  },
+  {
+    id: 'coaching',
+    file: 'agente-coaching-comportamento.md',
+    emoji: '🧠',
+    nome: 'Coaching Comportamento',
+    role: 'autônomo + interativo · 21:00 Manaus',
+    status: 'ativo',
+    status_cls: 'b-green',
+    skill: '(nenhuma declarada)',
+    tools: 'prompt puro · 3 categorias: ação/visão/momentum',
+    criado: '2026-06-04',
+    freq: '1x/dia 21:00',
+    missao: 'Ajudar Renato a evoluir comportamentalmente (PM, gestão pessoal) via provocações, diagnósticos, acompanhamento das 9 áreas de desenvolvimento.',
+    stats: [
+      { num: '9', lbl: 'áreas D1-D9' },
+      { num: '3/6', lbl: 'respondidas' },
+      { num: '2', lbl: 'críticas' },
+    ],
+    jobs: ['ce56'],
+    estudando: 'ritmo de provocações (não 1 só, várias em momentos chave)',
+    gaps: 'sem provocação nova há ~365 dias, sem triggers, sem medição de progresso gradual',
+    legacy: false,
+  },
+  {
+    id: 'atlas',
+    file: null, // NOVO — sem .md ainda
+    emoji: '✨',
+    nome: 'Atlas (Insights)',
+    role: 'autônomo · 08:00 Manaus',
+    status: 'novo',
+    status_cls: 'b-yellow',
+    skill: 'marketing-insights',
+    tools: 'web (trends), vision (analisa oportunidades-daily)',
+    criado: '2026-06-09',
+    freq: '1x/dia 08:00',
+    missao: 'Publicar painel /insights.html com hero insight + 4 mosaicos de cruzamento + 3 perguntas proativas ao Renato, fundamentado em dados de mercado.',
+    stats: [
+      { num: '0', lbl: 'runs' },
+      { num: '1', lbl: 'painel' },
+      { num: '—', lbl: 'próxima 10/06' },
+    ],
+    jobs: ['a7b3'],
+    estudando: 'precisa de .md canônico criado (próximo passo)',
+    gaps: 'precisa currículo versionado, ainda sem histórico de evolução',
+    legacy: false,
+  },
+  {
+    id: 'productman',
+    file: 'agente-productman.md',
+    emoji: '💼',
+    nome: 'ProductMan',
+    role: 'client-side · browser localStorage',
+    status: 'LEGADO',
+    status_cls: 'b-gray',
+    skill: '(localStorage)',
+    tools: 'localStorage do browser',
+    criado: '2026-06-04',
+    freq: 'a cada visita',
+    missao: 'Ajudar Renato a ser PM melhor — desafio diário, registro de ações, métricas de consistência (streak), insights rotativos.',
+    stats: [
+      { num: '14', lbl: 'challenges' },
+      { num: '8', lbl: 'insights' },
+      { num: '0', lbl: 'visitas (v2)' },
+    ],
+    jobs: [],
+    estudando: 'cross-device sync (atualmente perde dados se limpar browser)',
+    gaps: 'CRÍTICO: sem persistência cloud, sem exportação, sem integração com calendário',
+    legacy: true,
+  },
+  {
+    id: 'heartbeat',
+    file: 'agente-heartbeat.md',
+    emoji: '💓',
+    nome: 'Heartbeat',
+    role: 'autônomo (removido 09/06)',
+    status: 'desabilitado',
+    status_cls: 'b-gray',
+    skill: '(nenhuma)',
+    tools: 'file, web, terminal',
+    criado: '2026-06-04',
+    freq: '0 * * * * (removido)',
+    missao: 'Supervisionar todo o sistema (3 sites, 5 agentes, backlog) a cada hora. Reporte minimalista. Agir em coisas pequenas sem perguntar.',
+    stats: [
+      { num: '7', lbl: 'execuções' },
+      { num: '8', lbl: 'Ctrl+G' },
+      { num: '0', lbl: 'jobs ativos' },
+    ],
+    jobs: [],
+    estudando: 'incorporado no job Manutenção 09:00 (função mesclada)',
+    gaps: 'removido — função coberta pela manutenção diária',
+    legacy: true,
+  },
+  {
+    id: 'token-watch',
+    file: null,
+    emoji: '🛡',
+    nome: 'token-watch',
+    role: 'script Python (no_agent)',
+    status: 'ativo',
+    status_cls: 'b-blue',
+    skill: '(script)',
+    tools: 'Python',
+    criado: '2026-06-09',
+    freq: '0 */6 * * *',
+    missao: 'Watchdog silencioso de tokens OpenRouter. Se o script retornar erro, investigue e alerte.',
+    stats: [
+      { num: '4', lbl: 'checks/dia' },
+      { num: '0', lbl: 'alertas' },
+      { num: '✅', lbl: 'saudável' },
+    ],
+    jobs: ['dde3'],
+    estudando: '— (script, sem evolução textual)',
+    gaps: '—',
+    legacy: false,
+  },
+];
+
+function renderAgentes() {
+  const grid = document.getElementById('agGrid');
+  if (!grid) return;
+  grid.innerHTML = AGENTES.map(a => `
+    <div class="ag-card ${a.legacy ? 'legacy' : ''}">
+      <div class="ag-card-head">
+        <span class="ag-emoji">${a.emoji}</span>
+        <div style="flex:1;min-width:0">
+          <div class="ag-name">${a.nome}</div>
+          <div class="ag-role">${a.role}</div>
+        </div>
+        <span class="badge ${a.status_cls}">${a.status}</span>
+      </div>
+      <div class="ag-missao">
+        <div class="lbl">🎯 Missão</div>
+        ${a.missao}
+      </div>
+      <div class="ag-meta-row">
+        <span class="label">skill:</span><span style="color:var(--purple)">${a.skill}</span>
+      </div>
+      <div class="ag-meta-row">
+        <span class="label">tools:</span><span style="color:var(--muted)">${a.tools}</span>
+      </div>
+      <div class="ag-meta-row">
+        <span class="label">freq:</span><span style="color:var(--orange);font-family:ui-monospace,monospace">${a.freq}</span>
+      </div>
+      <div class="ag-stats">
+        ${a.stats.map(s => `<div class="ag-stat"><div class="ag-stat-num">${s.num}</div><div class="ag-stat-lbl">${s.lbl}</div></div>`).join('')}
+      </div>
+      <div style="font-size:11px;color:var(--muted);line-height:1.5">
+        <strong style="color:var(--green)">📚 Estudando:</strong> ${a.estudando}
+      </div>
+      <div style="font-size:11px;color:var(--muted);line-height:1.5">
+        <strong style="color:var(--red)">⚠️ Gaps:</strong> ${a.gaps}
+      </div>
+      <div class="ag-jobs">
+        ${a.jobs.length ? '🕐 Jobs: ' + a.jobs.map(j => `<span class="job-id">[cron ${j}]</span>`).join(' ') : '🕐 sem cron ativo'}
+      </div>
+      <div class="ag-actions">
+        ${a.file
+          ? `<button class="ag-btn" onclick="openModal('${a.id}')">📄 ver currículo (.md)</button>`
+          : `<button class="ag-btn" disabled style="opacity:.5;cursor:not-allowed" title="agente novo, sem .md ainda">📄 currículo pendente</button>`}
+        <button class="ag-btn" onclick="navigator.clipboard && navigator.clipboard.writeText('[agente ${a.id}]')">📋 [agente ${a.id}]</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function openModal(agenteId) {
+  const a = AGENTES.find(x => x.id === agenteId);
+  if (!a || !a.file) return;
+  const modal = document.getElementById('modalBack');
+  const title = document.getElementById('modalTitle');
+  const body = document.getElementById('modalBody');
+  const raw = document.getElementById('modalRawLink');
+  title.textContent = `${a.emoji} ${a.nome} — currículo`;
+  raw.href = `https://raw.githubusercontent.com/olandrones/kanban-agentes/main/${a.file}`;
+  body.innerHTML = '<div class="modal-loading">carregando currículo…</div>';
+  modal.classList.add('open');
+  try {
+    const r = await fetch(raw.href + '?ts=' + Date.now());
+    if (!r.ok) throw new Error('http ' + r.status);
+    const md = await r.text();
+    body.innerHTML = marked.parse(md);
+  } catch (e) {
+    body.innerHTML = `<div class="modal-loading">erro ao carregar: ${e.message}<br><br>Se for a 1ª vez, aguarde 1-2 min pro GitHub Pages indexar o commit com os .md.</div>`;
+  }
+}
+
+function closeModal() {
+  document.getElementById('modalBack').classList.remove('open');
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 // === VISÃO LYRIANE — fetch do visao.json ===
 async function loadVisao() {
