@@ -1,0 +1,170 @@
+{
+  "gerado_em": "2026-06-09",
+  "renato_tem_2_paginas_ativas_e_5_legado": "App de Musica 🎸 🎉 (semente) - VIDEO DEMO gravado sabado/domingo (M1 entregue!)",
+  "grupos": {
+    "operacao": {
+      "emoji": "🎯",
+      "nome": "Operação",
+      "desc": "O coração do sistema. Kanban, Mural, Coach.",
+      "cor": "#3b82f6"
+    },
+    "pesquisa": {
+      "emoji": "🔍",
+      "nome": "Pesquisa",
+      "desc": "Tendências, oportunidades, insights. Alimenta a tomada de decisão.",
+      "cor": "#22c55e"
+    },
+    "comportamento": {
+      "emoji": "🧠",
+      "nome": "Comportamento",
+      "desc": "Diagnósticos, áreas de desenvolvimento, provocações.",
+      "cor": "#a855f7"
+    },
+    "desenvolvimento": {
+      "emoji": "🚀",
+      "nome": "Desenvolvimento",
+      "desc": "Onde a espada afia. App Música + DemandScout. Repo: olandrones/desenvolvimento.",
+      "cor": "#fb923c"
+    },
+    "legado": {
+      "emoji": "🏛",
+      "nome": "Legado",
+      "desc": "Pausado, em hold, ou desabilitado. Disponível pra reviver quando decidir.",
+      "cor": "#6b7280"
+    }
+  },
+  "paginas": {
+    "kanban": {
+      "grupo": "operacao",
+      "emoji": "🎯",
+      "nome": "Kanban dos Agentes",
+      "url": "./",
+      "ultima_update": "2026-06-09 noite",
+      "tam_kb": 57,
+      "status": "ativo",
+      "foco": "Visão geral + 4 abas: Visão / Cron Jobs / Agentes / Projetos",
+      "evolucao": "Auto-recarrega silenciosa a cada 60s (sem perder textareas). Tab persiste em F5."
+    },
+    "mural": {
+      "grupo": "operacao",
+      "emoji": "🪞",
+      "nome": "Mural de Reflexão",
+      "url": "./refletir.html",
+      "ultima_update": "2026-06-09 noite",
+      "tam_kb": 15,
+      "status": "ativo",
+      "foco": "1 pergunta/dia, respostas salvas na nuvem (JSONBin)",
+      "evolucao": "Persistência nuvem ativa. LocalStorage como fallback offline."
+    },
+    "atlas-reflete": {
+      "grupo": "operacao",
+      "emoji": "🌙",
+      "nome": "Coach Pessoal (cron)",
+      "url": "#cron-ce56",
+      "ultima_update": "2026-06-09 noite",
+      "tam_kb": 0,
+      "status": "ativo",
+      "foco": "1 pergunta desafiadora 21:00 Manaus (postura/identidade/energia/ritmo)",
+      "evolucao": "Reformulado pra PESSOAL, max 20 palavras, semanal-inteligente."
+    },
+    "oportunidades": {
+      "grupo": "pesquisa",
+      "emoji": "🔍",
+      "nome": "Oportunidades (cards)",
+      "url": "https://olandrones.github.io/oportunidades-daily/",
+      "ultima_update": "2026-06-09 18:50",
+      "tam_kb": 29,
+      "status": "ativo",
+      "foco": "30 items ranqueados (AI agents / micro-SaaS / GitHub trending)",
+      "evolucao": "3 turnos/dia (07:30, 12:00, 18:50). Apps 12:00 retomado, cereja do bolo."
+    },
+    "tabela": {
+      "grupo": "pesquisa",
+      "emoji": "📊",
+      "nome": "Oportunidades (tabela)",
+      "url": "https://olandrones.github.io/oportunidades-daily/tabela.html",
+      "ultima_update": "2026-06-09 18:50",
+      "tam_kb": 28,
+      "status": "ativo",
+      "foco": "View sort/search/filtros com coluna descrição + filtro Período",
+      "evolucao": "Estável desde 06/06."
+    },
+    "atlas-insights": {
+      "grupo": "pesquisa",
+      "emoji": "✨",
+      "nome": "Atlas Insights",
+      "url": "https://olandrones.github.io/oportunidades-daily/insights.html",
+      "ultima_update": "2026-06-09 (criado)",
+      "tam_kb": 11,
+      "status": "novo",
+      "foco": "Painel mosaicos com 4 cruzamentos + 3 perguntas proativas",
+      "evolucao": "Reformulado como Drone de Insights: semente→broto→árvore→floresta→TRD."
+    },
+    "aprofundar": {
+      "grupo": "pesquisa",
+      "emoji": "🌱",
+      "nome": "Aprofundar (4 níveis)",
+      "url": "https://olandrones.github.io/oportunidades-daily/aprofundar.html",
+      "ultima_update": "2026-06-09 noite",
+      "tam_kb": 23,
+      "status": "ativo",
+      "foco": "26+ cards conceituais clicáveis (semente→broto→árvore→floresta)",
+      "evolucao": "Hierarquia: localStorage > HTML > 1. Sem persistência nuvem ainda."
+    },
+    "comportamento": {
+      "grupo": "comportamento",
+      "emoji": "🧠",
+      "nome": "Comportamento-daily",
+      "url": "https://olandrones.github.io/comportamento-daily/",
+      "ultima_update": "2026-06-08",
+      "tam_kb": 27,
+      "status": "ativo",
+      "foco": "9 áreas D1-D9, 3 respondidas (A1/A2/V1)",
+      "evolucao": "M1 (postar vídeo demo) entregue 09/06! M2 (publicar 1 coisa) em curso."
+    },
+    "app-musica": {
+      "grupo": "desenvolvimento",
+      "emoji": "🎸",
+      "nome": "App de Música",
+      "url": "https://github.com/olandrones/desenvolvimento",
+      "ultima_update": "2026-06-09 (M1 entregue!)",
+      "tam_kb": 0,
+      "status": "semente → broto",
+      "foco": "Violão + campos harmônicos + BTN/MIDI + exportar MP3",
+      "evolucao": "🎉 VIDEO DEMO gravado (sábado/domingo). Semente virou BROTO. Próximo: wireframe HTML + TRD esqueleto."
+    },
+    "demandscout": {
+      "grupo": "desenvolvimento",
+      "emoji": "🔍",
+      "nome": "DemandScout AI",
+      "url": "https://github.com/olandrones/desenvolvimento",
+      "ultima_update": "2026-06-09 (análise feita)",
+      "tam_kb": 230,
+      "status": "tronco 35%",
+      "foco": "Plataforma IA que detecta lacunas de demanda (cto.new reference)",
+      "evolucao": "230KB de brainstorm destilados. Modelo: SaaS + Pay-per-Report. Próximo: TRD esqueleto via Atlas Drone."
+    },
+    "productman": {
+      "grupo": "legado",
+      "emoji": "💼",
+      "nome": "ProductMan",
+      "url": "https://olandrones.github.io/productman/",
+      "ultima_update": "2026-06-04 v2.0",
+      "tam_kb": 15,
+      "status": "LEGADO 07/06",
+      "foco": "Desafio diário PM, streak, insights rotativos",
+      "evolucao": "0 visitas pós-v2.0. Em hold por decisão. .md bem escrito, vale revisar antes de reviver."
+    },
+    "heartbeat": {
+      "grupo": "legado",
+      "emoji": "💓",
+      "nome": "Heartbeat (removido)",
+      "url": "#legado",
+      "ultima_update": "2026-06-05 (última)",
+      "tam_kb": 0,
+      "status": "removido 09/06",
+      "foco": "Health check horário (7 execuções)",
+      "evolucao": "Função coberta por Manutenção 09:00 (cron b17e)."
+    }
+  }
+}
