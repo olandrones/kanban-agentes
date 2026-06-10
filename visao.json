@@ -1,8 +1,8 @@
 {
-  "data": "09/06/2026 18:00",
+  "data": "09/06/2026 18:25",
   "autor": "Lyriane",
-  "alerta": "divagação rendeu",
-  "alerta_cor": "verde",
-  "texto": "Renato divagou 25 minutos (TDAH falou alto). Núcleo colhido: 1) Metáfora 4 níveis: ele sugere repensar — bug→sinapse→insight→estalo (em vez de semente→broto→árvore→floresta). Mais visceral pra ele. 2) Hermes (sistema) = conexão cavalo↔carga (LLM↔trabalho). Eu sou o Hermes-já-pronto. Guard Rail = par que limita. 3) MCT (Meta-Conversation Tool) = camada de meta-comunicação subliminal, 'milhares dessas' entre humano e agente. Persistir em arquivo ou GitHub Issues. 4) VLML + Panorâmica 360 = área de produto (imóveis, contação histórica, integração HTML). 5) Controle de Drone 160° = sistema detecta força da direção TDAH e dá potência. 6) ALMA do agente (não só memória). 7) YAMA = faxina de agentes. 8) Inspetor de Mercado via agentes. Adicionei 9 cards novos no painel. Pergunta 1: migra metáfora pra semântico? Pergunta 2: implementar MCT via GitHub Issues? Vida limpa: nada commitado sem Renato responder.",
-  "tags": ["divagacao", "metáforas", "tese-produto", "mct"]
+  "alerta": "processar info, não só copiar",
+  "alerta_cor": "vermelho",
+  "texto": "Renato me chamou atenção 18:20. ERRO MEU: vi emojis 🌿🌳 nos cards dele como DECORAÇÃO, não como INFO DE CLIQUES. Lição gravada: Renato sempre manda DADOS embutidos no texto (níveis clicados, estado, contexto, opinião, correção). PROCESSAR TUDO como dado acionável. Não copiar texto e re-escrever — extrair informação, comparar com estado anterior, agir. Quando ele me mandar página copiada, é pra eu VER o estado real (cliques, cores, níveis) e usar isso pra decidir o que adicionar/mudar. Corrigi: 7 cards com campo 'nivel' no HTML (langchain=2, mcp=3, harness=1, rag=3, iaa=3, agent-orchestration=3, exocerebro=3). JS agora respeita hierarquia localStorage > HTML > 1. Commit + push feito. Renato me espera: 'daqui a pouco a gente vai fazer automático isso' — ele sabe que hoje é manual.",
+  "tags": ["licao", "processar-info", "tdah-leitura"]
 }
