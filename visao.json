@@ -1,8 +1,8 @@
 {
-  "data": "09/06/2026 16:55",
+  "data": "09/06/2026 17:25",
   "autor": "Lyriane",
-  "alerta": "correção crítica",
-  "alerta_cor": "vermelho",
-  "texto": "CORREÇÃO Renato 16:55. 'Virar, reconverter e se manter' = CONVERTER FINANCEIRAMENTE = gerar renda real pra ele. NÃO é abstração genérica de 'transformar-se'. Métrica dura do trimestre: 1 cliente pagante até 30/06. Todo agente/direção/produto precisa responder: 'isso vira renda real, ou vira só arquivo?'. Padrão mudou. Próximo sprint: validar Agente-PM com 1 amigo PM, mas já com precificação (R$100 BR ou $100 USD exterior, freemium possível).",
-  "tags": ["correcao-financeira", "metrica-dura", "1-cliente-pagante"]
+  "alerta": "divagando é válido",
+  "alerta_cor": "verde",
+  "texto": "Renato divagou bonito sobre arquitetura de agentes (TDAH falou mais alto que o foco). Núcleo do que ele disse: 1) LlamaIndex é mais específico que LangChain, 2) Walker/Klopper resolvem o técnico mas não cobrem produto/negócio, 3) NCT e Blender são 'ferramentas que viabilizam produtos' — não são negócios sozinhos, 4) Text-to-3D democratiza criação, 5) Comunidades: ele quer MERGULHAR, não colecionar conceitos. Adicionei 8 cards novos no painel Aprofundar (Walker, Klopper, NCT, Blender, text-to-3D, tool use, agent loop, comunidades IA BR). Próxima ação útil: ajudar ele a ESCOLHER 1 comunidade e ENTRAR (não 5). Sem pressa. Sem pergunta de volta.",
+  "tags": ["divagacao-tdah", "comunidades", "mergulhar"]
 }
