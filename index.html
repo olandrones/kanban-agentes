@@ -912,6 +912,92 @@ function renderCronJobs() {
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
+// === PROJETOS — onde a espada afia ===
+const PROJETOS = [
+  {
+    id: 'app-musica',
+    nome: '🎸 App de Música',
+    emoji: '🎸',
+    status: 'semente',
+    status_emoji: '🌱',
+    status_cor: '#4ade80',
+    repo: 'https://github.com/olandrones/desenvolvimento',
+    desc: 'Brincar com cordas de violão, criar melodias a partir de campos harmônicos, com auxílio de BTN/MIDI controlado, mistura com strings/arpejos. Salvar, cortar, mixar, exportar MP3.',
+    uso: 'teatro · background de lugares · ouvir no carro · estudar violão/guitarra',
+    tech: 'Web Audio API + Tone.js (browser-native)',
+    amadurecimento: 5,
+    proximo_passo: '1) wireframe HTML com 1 tela de criação de melodia. 2) TRD esqueleto (problema, persona, JTBD, escopo MVP, fora-de-escopo).',
+  },
+  {
+    id: 'demandscout',
+    nome: '🔍 DemandScout',
+    emoji: '🔍',
+    status: 'tronco',
+    status_emoji: '🌿',
+    status_cor: '#6ee7b7',
+    repo: 'https://github.com/olandrones/desenvolvimento',
+    desc: 'Plataforma de IA que identifica lacunas de demanda e tendências lucrativas em tempo real. Analisa buscas, redes sociais e marketplaces pra sugerir modelos de negócio validados.',
+    uso: 'aspirantes a empreendedor + freelancers buscando serviços de alta demanda + pequenos investidores',
+    tech: 'A definir (lean: GitHub Pages + Supabase)',
+    amadurecimento: 35,
+    proximo_passo: '1) Destilar 191KB de brainstorm em TRD. 2) Validar Value Prop com 5 potenciais usuários. 3) Wireframe da landing page.',
+    valor: {
+      proposition: 'Plataforma de inteligência de mercado orientada por IA — risco de mercado zero pra quem quer empreender',
+      revenue: 'SaaS (assinatura) + Pay-per-Report (dossiês)',
+      kpis: 'Taxa de Ativação · Churn Rate · NPS',
+    },
+  },
+];
+
+function renderProjetos() {
+  const grid = document.getElementById('projGrid');
+  if (!grid) return;
+  grid.innerHTML = PROJETOS.map(p => `
+    <div class="ag-card" style="border-left: 4px solid ${p.status_cor}">
+      <div class="ag-card-head">
+        <span class="ag-emoji">${p.emoji}</span>
+        <div style="flex:1;min-width:0">
+          <div class="ag-name">${p.nome}</div>
+          <div class="ag-role">${p.status_emoji} ${p.status}</div>
+        </div>
+        <span class="badge b-yellow">${p.amadurecimento}% maduro</span>
+      </div>
+      <div class="ag-missao">
+        <div class="lbl">🎯 Conceito</div>
+        ${p.desc}
+      </div>
+      <div class="ag-meta-row">
+        <span class="label">uso:</span><span style="color:var(--muted)">${p.uso}</span>
+      </div>
+      <div class="ag-meta-row">
+        <span class="label">tech:</span><span style="color:var(--orange);font-family:ui-monospace,monospace">${p.tech}</span>
+      </div>
+      ${p.valor ? `
+      <div style="font-size:11px;color:var(--muted);line-height:1.5;border-top:1px solid var(--border);padding-top:8px;margin-top:4px">
+        <strong style="color:var(--green)">💰 Modelo:</strong> ${p.valor.proposition}<br>
+        <strong style="color:var(--green)">💵 Receita:</strong> ${p.valor.revenue}<br>
+        <strong style="color:var(--green)">📊 KPIs:</strong> ${p.valor.kpis}
+      </div>
+      ` : ''}
+      <div style="font-size:11px;color:var(--muted);line-height:1.5;border-top:1px solid var(--border);padding-top:8px;margin-top:4px">
+        <strong style="color:var(--blue)">🎯 Próximo passo:</strong> ${p.proximo_passo}
+      </div>
+      <div class="ag-stats">
+        <div class="ag-stat"><div class="ag-stat-num">${p.amadurecimento}%</div><div class="ag-stat-lbl">amadurecimento</div></div>
+        <div class="ag-stat"><div class="ag-stat-num">0</div><div class="ag-stat-lbl">runs</div></div>
+        <div class="ag-stat"><div class="ag-stat-num">—</div><div class="ag-stat-lbl">próxima</div></div>
+      </div>
+      <div class="ag-jobs">
+        📦 <a href="${p.repo}" target="_blank" style="color:var(--blue)">${p.repo}</a>
+      </div>
+      <div class="ag-actions">
+        <button class="ag-btn" onclick="window.open('${p.repo}', '_blank')">📂 abrir repo</button>
+        <button class="ag-btn" onclick="navigator.clipboard && navigator.clipboard.writeText('[proj ${p.id}]')">📋 [proj ${p.id}]</button>
+      </div>
+    </div>
+  `).join('');
+}
+
 // === PERSISTÊNCIA: tab ativa + atualização silenciosa (sem meta refresh) ===
 function switchView(view) {
   document.querySelectorAll('#mainTabs .tab').forEach(t => t.classList.toggle('active', t.dataset.view === view));
