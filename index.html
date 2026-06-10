@@ -255,6 +255,155 @@
     border-radius: 10px;
     padding: 16px 20px;
   }
+
+  /* Tabs de navegação */
+  .tabs {
+    max-width: 1400px;
+    margin: 0 auto 20px;
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab {
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    color: var(--muted);
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px 6px 0 0;
+    font-family: inherit;
+  }
+  .tab:hover { color: var(--text); background: var(--panel-2); }
+  .tab.active {
+    background: var(--panel);
+    border-color: var(--border);
+    color: var(--blue);
+    border-bottom: 1px solid var(--panel);
+    margin-bottom: -1px;
+  }
+
+  /* Cron Jobs — Painel de Decisão */
+  .cj-instrucoes {
+    max-width: 1400px;
+    margin: 0 auto 16px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .cj-instrucoes code {
+    background: var(--panel-2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--blue);
+  }
+  .cj-lasc {
+    max-width: 1400px;
+    margin: 0 auto 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .lasc-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    border-top: 3px solid var(--muted);
+  }
+  .lasc-num {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .lasc-lbl {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+  .lasc-tolping   { border-top-color: var(--orange); }
+  .lasc-tolping   .lasc-num { color: var(--orange); }
+  .lasc-atencao   { border-top-color: var(--blue); }
+  .lasc-atencao   .lasc-num { color: var(--blue); }
+  .lasc-servico   { border-top-color: var(--green); }
+  .lasc-servico   .lasc-num { color: var(--green); }
+  .lasc-coach     { border-top-color: var(--purple); }
+  .lasc-coach     .lasc-num { color: var(--purple); }
+  .lasc-conversao { border-top-color: var(--red); }
+  .lasc-conversao .lasc-num { color: var(--red); }
+  .lasc-conversao.zero { background: rgba(239,68,68,.08); }
+  .lasc-conversao.zero::after {
+    content: '⚠️ falta';
+    display: block;
+    font-size: 10px;
+    color: var(--red);
+    margin-top: 4px;
+    font-weight: 600;
+  }
+  .cj-id {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--blue);
+    background: var(--panel-2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .cj-id:hover { color: var(--text); }
+  .cj-name { font-weight: 500; font-size: 13px; }
+  .cj-freq { font-family: ui-monospace, monospace; font-size: 12px; color: var(--orange); white-space: nowrap; }
+  .cj-runs { font-family: ui-monospace, monospace; font-size: 13px; color: var(--text); text-align: center; }
+  .cj-lasc-cell { font-size: 11px; }
+  .cj-comment {
+    width: 100%;
+    min-height: 50px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text);
+    padding: 6px 8px;
+    font-family: inherit;
+    font-size: 12px;
+    resize: vertical;
+  }
+  .cj-comment:focus { outline: none; border-color: var(--blue); }
+  .cj-comment::placeholder { color: var(--muted); font-style: italic; }
+  .cj-global-wrap {
+    max-width: 1400px;
+    margin: 16px auto 0;
+  }
+  .cj-global-wrap label {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .cj-global {
+    width: 100%;
+    min-height: 80px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--purple);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 13px;
+    resize: vertical;
+  }
+  .cj-global:focus { outline: none; border-color: var(--blue); border-left-color: var(--blue); }
+  .cj-global::placeholder { color: var(--muted); font-style: italic; }
   .visao-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
   .visao-autor { font-size: 11px; color: var(--purple); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
   .visao-data { font-size: 11px; color: var(--muted); }
@@ -285,6 +434,11 @@
   </div>
 </header>
 
+<nav class="tabs" id="mainTabs">
+  <button class="tab active" data-view="visao">🎯 Visão Geral</button>
+  <button class="tab" data-view="cronjobs">⏰ Cron Jobs (7)</button>
+</nav>
+
 <section class="visao" id="visaoLyriane">
   <div class="visao-head">
     <span class="visao-autor">✨ Visão Lyriane</span>
@@ -296,6 +450,7 @@
   </div>
 </section>
 
+<div id="visaoView">
 <div class="board" id="board"></div>
 
 <section class="tasks">
@@ -342,6 +497,64 @@
       </thead>
       <tbody id="tasksBody"></tbody>
     </table>
+  </div>
+</section>
+
+</div><!-- /visaoView -->
+
+<section class="cronjobs" id="cronjobsView" style="display:none">
+  <h2 style="max-width:1400px;margin:0 auto 12px">⏰ Cron Jobs — Painel de Decisão de Investimento</h2>
+
+  <div class="cj-instrucoes">
+    <strong>📌 Como comentar:</strong> copie o <code>[cron XXXX]</code> do job que quer opinar, escreva o texto no textarea dele e me mande por aqui no Telegram. Exemplo:<br>
+    <code>[cron 0ddc] está redundante com 4025. Sugestão: fundir em 1 job às 09:00 cobrindo os 2 turnos.</code><br>
+    <em>(enquanto não temos servidor + DB interativo, esse é o caminho mais rápido — você opina, eu aplico)</em>
+  </div>
+
+  <div class="cj-lasc">
+    <div class="lasc-card lasc-tolping">
+      <div class="lasc-num">0</div>
+      <div class="lasc-lbl">Tolping (captação)</div>
+    </div>
+    <div class="lasc-card lasc-atencao">
+      <div class="lasc-num">4</div>
+      <div class="lasc-lbl">Atenção (conteúdo)</div>
+    </div>
+    <div class="lasc-card lasc-servico">
+      <div class="lasc-num">2</div>
+      <div class="lasc-lbl">Serviço (operação)</div>
+    </div>
+    <div class="lasc-card lasc-coach">
+      <div class="lasc-num">1</div>
+      <div class="lasc-lbl">Coach/Visão</div>
+    </div>
+    <div class="lasc-card lasc-conversao zero">
+      <div class="lasc-num">0</div>
+      <div class="lasc-lbl">Conversão (renda)</div>
+    </div>
+  </div>
+
+  <div class="table-wrap" style="max-width:1400px;margin:0 auto">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Schedule</th>
+          <th>Status</th>
+          <th>Runs</th>
+          <th>LASC</th>
+          <th>Última</th>
+          <th style="min-width:280px">Comentário (copie e mande)</th>
+        </tr>
+      </thead>
+      <tbody id="cronBody"></tbody>
+    </table>
+  </div>
+
+  <div class="cj-global-wrap">
+    <label for="cjGlobal">💬 Comentário global sobre estratégia de cron jobs</label>
+    <textarea id="cjGlobal" class="cj-global" placeholder="Ex: 'Quero cancelar tudo que não vira renda direta. Atlas 21h tá ok mas precisa virar conteúdo vendável, não só provocação.'"></textarea>
   </div>
 </section>
 
@@ -514,6 +727,49 @@ document.querySelectorAll('thead th[data-sort]').forEach(th => {
     th.querySelector('.arrow').textContent = sortDir === 1 ? '↑' : '↓';
     renderTasks();
   });
+});
+
+// === CRON JOBS — Painel de Decisão ===
+const CRON_JOBS = [
+  { id:'4025', nome:'Pesquisa Oportunidades 18:50', freq:'50 18 * * *', status:'ativo',    status_cls:'b-green', runs:14, lasc:'atenção',  desc:'busca tendências + atualiza dados.json',     last:'09/06 18:56' },
+  { id:'0ddc', nome:'Tendências 07:30',             freq:'30 7 * * *',  status:'ativo',    status_cls:'b-green', runs:14, lasc:'atenção',  desc:'GitHub Trending + Exploding Topics → dados.json', last:'09/06 07:56' },
+  { id:'eada', nome:'Apps e Produtos 12:00',         freq:'0 12 * * *',  status:'pausado',  status_cls:'b-red',   runs:13, lasc:'atenção',  desc:'Play Store + GitHub + SaaS — ERRO 402 (sem crédito)', last:'09/06 12:00 (erro)' },
+  { id:'ce56', nome:'Atlas Reflete 21:00',           freq:'0 21 * * *',  status:'ativo',    status_cls:'b-green', runs:12, lasc:'coach',    desc:'3 provocações: ação / visão / momentum',     last:'09/06 21:01' },
+  { id:'b17e', nome:'Manutenção 09:00',              freq:'0 9 * * *',   status:'ativo',    status_cls:'b-green', runs:10, lasc:'serviço',  desc:'checklist diário + regenera Kanban HTML',   last:'09/06 09:05' },
+  { id:'dde3', nome:'token-health-check',            freq:'0 */6 * * *', status:'ativo',    status_cls:'b-blue',  runs:null, lasc:'serviço', desc:'script silencioso (watchdog de tokens)',    last:'09/06 18:00' },
+  { id:'a7b3', nome:'Atlas Insights 08:00',         freq:'0 8 * * *',   status:'novo',     status_cls:'b-yellow',runs:0,  lasc:'atenção',  desc:'publica painel /insights.html (Atlas)',      last:'— (próxima: 10/06 08:00)' },
+];
+
+function renderCronJobs() {
+  const body = document.getElementById('cronBody');
+  if (!body) return;
+  const lascLabel = { tolpping:'🟠 tolping', atenção:'🔵 atenção', serviço:'🟢 serviço', coach:'🟣 coach', conversao:'🔴 conversão' };
+  body.innerHTML = CRON_JOBS.map(j => `
+    <tr>
+      <td><span class="cj-id" title="copie: [cron ${j.id}]" onclick="navigator.clipboard && navigator.clipboard.writeText('[cron ${j.id}]')">[cron ${j.id}]</span></td>
+      <td>
+        <div class="cj-name">${j.nome}</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">${j.desc}</div>
+      </td>
+      <td><span class="cj-freq">${j.freq}</span></td>
+      <td><span class="badge ${j.status_cls}">${j.status}</span></td>
+      <td class="cj-runs">${j.runs ?? '—'}</td>
+      <td class="cj-lasc-cell">${lascLabel[j.lasc] || j.lasc}</td>
+      <td class="ts">${j.last}</td>
+      <td><textarea class="cj-comment" data-id="${j.id}" placeholder="opine sobre [cron ${j.id}]…"></textarea></td>
+    </tr>
+  `).join('');
+}
+
+function switchView(view) {
+  document.querySelectorAll('#mainTabs .tab').forEach(t => t.classList.toggle('active', t.dataset.view === view));
+  document.getElementById('visaoView').style.display = view === 'visao' ? '' : 'none';
+  document.getElementById('cronjobsView').style.display = view === 'cronjobs' ? '' : 'none';
+  if (view === 'cronjobs') renderCronJobs();
+}
+
+document.querySelectorAll('#mainTabs .tab').forEach(t => {
+  t.addEventListener('click', () => switchView(t.dataset.view));
 });
 
 // === VISÃO LYRIANE — fetch do visao.json ===
