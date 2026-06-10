@@ -1,8 +1,8 @@
 {
   "data": "2026-06-09",
   "autor": "Lyriane",
-  "alerta": "carapuça de explorativo",
-  "alerta_cor": "amarelo",
-  "texto": "Renato cravou: 'Sou exploratório, não metódico'. Sistema precisa ser FERRAMENTA EXPLORATÓRIA, não checklist. Reformulei Mural/Coach (ce56) pra ser PESSOAL (postura/identidade/energia/ritmo, max 20 palavras, semanal-inteligente). 2 projetos novos identificados: (1) App de Música 🌱semente — violão + campos harmônicos + BTN/MIDI + exportar MP3; (2) DemandScout 🌿tronco — plataforma de IA pra detectar lacunas de demanda, brainstorm denso de 230KB. Criei skill 'agente-desenvolvimento' (PM+CTO+Designer+Marketing). Aba nova '🚀 Projetos' no Kanban com cards dos 2. Repo destino: olandrones/desenvolvimento (criado por Renato). Ele respondeu V2/M1/M2 — vai publicar demo do app música no sábado/domingo. 'Espada de lindas' = ferramenta afiada que corta rápido. Métrica dura segue: 1 cliente pagante até 30/06.",
-  "tags": ["exploratorio", "coach-pessoal", "app-musica", "demandscout", "agente-desenvolvimento", "carapuca-explorativo"]
+  "alerta": "tese auto-revolução + memória crítica",
+  "alerta_cor": "vermelho",
+  "texto": "Renato cravou a TESE CENTRAL DO HERMES: ecossistema que promove auto-revolução. Sistema se auto-organiza, auto-delega, auto-detecta problemas. Referência: cto.new (Engine Labs, 2026) — marketplace de times de IA que ele NÃO vai usar (quere construir o conceito próprio). MEMÓRIA VAI ESTOURAR (94% cheia) — consolidada em 1 entry densa com mapa de conexões. Conexões mapeadas: Renato decisor → 8 agentes (Lyriane, Manutenção, Atlas, Pesquisa x3, Coach, agente-desenvolvimento, token-watch) → 2 projetos (App Música 🌱 + DemandScout 🌿). Lição crítica: tabela de persistência (JSONBin/Supabase) é IRRELEVANTE agora — auto-revolução detecta. FOCO: 'o objetivo é ganhar dinheiro. montar negócio que vai evoluir e começar a fazer renda'. Métrica dura: 1 cliente pagante até 30/06/2026. Princípio-guia: 'Sou exploratório, não metódico' — sistema é carapuça, não coleira.",
+  "tags": ["tese-central", "auto-revolucao", "memoria-critica", "mapa-conexoes", "foco-renda", "exploratorio"]
 }
