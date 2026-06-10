@@ -1,8 +1,8 @@
 {
-  "data": "09/06/2026 17:25",
+  "data": "09/06/2026 18:00",
   "autor": "Lyriane",
-  "alerta": "divagando é válido",
+  "alerta": "divagação rendeu",
   "alerta_cor": "verde",
-  "texto": "Renato divagou bonito sobre arquitetura de agentes (TDAH falou mais alto que o foco). Núcleo do que ele disse: 1) LlamaIndex é mais específico que LangChain, 2) Walker/Klopper resolvem o técnico mas não cobrem produto/negócio, 3) NCT e Blender são 'ferramentas que viabilizam produtos' — não são negócios sozinhos, 4) Text-to-3D democratiza criação, 5) Comunidades: ele quer MERGULHAR, não colecionar conceitos. Adicionei 8 cards novos no painel Aprofundar (Walker, Klopper, NCT, Blender, text-to-3D, tool use, agent loop, comunidades IA BR). Próxima ação útil: ajudar ele a ESCOLHER 1 comunidade e ENTRAR (não 5). Sem pressa. Sem pergunta de volta.",
-  "tags": ["divagacao-tdah", "comunidades", "mergulhar"]
+  "texto": "Renato divagou 25 minutos (TDAH falou alto). Núcleo colhido: 1) Metáfora 4 níveis: ele sugere repensar — bug→sinapse→insight→estalo (em vez de semente→broto→árvore→floresta). Mais visceral pra ele. 2) Hermes (sistema) = conexão cavalo↔carga (LLM↔trabalho). Eu sou o Hermes-já-pronto. Guard Rail = par que limita. 3) MCT (Meta-Conversation Tool) = camada de meta-comunicação subliminal, 'milhares dessas' entre humano e agente. Persistir em arquivo ou GitHub Issues. 4) VLML + Panorâmica 360 = área de produto (imóveis, contação histórica, integração HTML). 5) Controle de Drone 160° = sistema detecta força da direção TDAH e dá potência. 6) ALMA do agente (não só memória). 7) YAMA = faxina de agentes. 8) Inspetor de Mercado via agentes. Adicionei 9 cards novos no painel. Pergunta 1: migra metáfora pra semântico? Pergunta 2: implementar MCT via GitHub Issues? Vida limpa: nada commitado sem Renato responder.",
+  "tags": ["divagacao", "metáforas", "tese-produto", "mct"]
 }
