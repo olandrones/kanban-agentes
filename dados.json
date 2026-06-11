@@ -1,5 +1,126 @@
 [
   {
+    "tipo": "tendencia",
+    "titulo": "Apple Container — Linux VMs em Mac Apple Silicon",
+    "descricao": "apple/container: Linux containers via VMs leve em Mac Apple silicon. 30.7k★ total, 1.6k★/dia. Ferramenta dev que resolve problema real: containers em Mac M-series.",
+    "categoria": "tech",
+    "origem": "global",
+    "fonte": "GitHub Trending",
+    "metricas": {
+      "stars": 30705,
+      "stars_today": 1611,
+      "growth_30d": 0,
+      "volume": 0
+    },
+    "tags": [
+      "containers",
+      "apple-silicon",
+      "macos",
+      "dev-tool",
+      "virtualization"
+    ],
+    "data_publicacao": "2026-06-11",
+    "badge": "🔥 1.6k★/dia",
+    "cross_ref": null,
+    "sugere_oportunidade": "sim"
+  },
+  {
+    "tipo": "tendencia",
+    "titulo": "AI Agent Security Scanner — Detectar riscos em skills",
+    "descricao": "NVIDIA/SkillSpector: scanner de segurança pra skills de agentes AI. Detecta vulnerabilidades e padrões maliciosos. 2.3k★, 308★/dia. Mercado: empresas deployando agentes.",
+    "categoria": "tech",
+    "origem": "global",
+    "fonte": "GitHub Trending",
+    "metricas": {
+      "stars": 2265,
+      "stars_today": 308,
+      "growth_30d": 0,
+      "volume": 0
+    },
+    "tags": [
+      "ai",
+      "security",
+      "agents",
+      "dev-tool",
+      "nvidia"
+    ],
+    "data_publicacao": "2026-06-11",
+    "badge": "🛡️ 308★/dia",
+    "cross_ref": null,
+    "sugere_oportunidade": "sim"
+  },
+  {
+    "tipo": "tendencia",
+    "titulo": "PM Skills Marketplace — 100+ skills agentic",
+    "descricao": "phuryn/pm-skills: marketplace com 100+ skills agentic de discovery a growth. 15.9k★, 804★/dia. Similar ao agent-skills mas focado em PM.",
+    "categoria": "tech",
+    "origem": "global",
+    "fonte": "GitHub Trending",
+    "metricas": {
+      "stars": 15866,
+      "stars_today": 804,
+      "growth_30d": 0,
+      "volume": 0
+    },
+    "tags": [
+      "agents",
+      "pm",
+      "marketplace",
+      "product-management",
+      "subscription"
+    ],
+    "data_publicacao": "2026-06-11",
+    "badge": "📦 804★/dia",
+    "cross_ref": null,
+    "sugere_oportunidade": "sim"
+  },
+  {
+    "tipo": "tendencia",
+    "titulo": "Podcast Microphone Surge — +1086% crescimento",
+    "descricao": "Exploding Topics: microfone pra podcast +1086% crescimento, 60.5K volume. Mercado: criadores de conteúdo, podcasters profissionais. Offline-first.",
+    "categoria": "consumo",
+    "origem": "global",
+    "fonte": "Exploding Topics",
+    "metricas": {
+      "stars": 0,
+      "growth_30d": 1086,
+      "volume": 60500
+    },
+    "tags": [
+      "podcast",
+      "content-creation",
+      "microphone",
+      "growth"
+    ],
+    "data_publicacao": "2026-06-11",
+    "badge": "🎙️ +1086% | 60.5K vol",
+    "cross_ref": null,
+    "sugere_oportunidade": "sim"
+  },
+  {
+    "tipo": "tendencia",
+    "titulo": "Freeze-Dried Pet Food — +525% e 40.5K volume",
+    "descricao": "Exploding Topics: ração liofilizada pra pet +525% crescimento, 40.5K volume. Nicho premium pet food crescendo. Mercado: donos de pet conscientes.",
+    "categoria": "consumo",
+    "origem": "global",
+    "fonte": "Exploding Topics",
+    "metricas": {
+      "stars": 0,
+      "growth_30d": 525,
+      "volume": 40500
+    },
+    "tags": [
+      "pet-food",
+      "freeze-dried",
+      "nicho",
+      "premium"
+    ],
+    "data_publicacao": "2026-06-11",
+    "badge": "🐕 +525% | 40.5K vol",
+    "cross_ref": null,
+    "sugere_oportunidade": "sim"
+  },
+  {
     "tipo": "oportunidade",
     "categoria": "app",
     "cereja": true,
