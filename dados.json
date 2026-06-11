@@ -1,436 +1,526 @@
 [
   {
-    "tipo": "tendencia",
-    "titulo": "Apple Container — Linux VMs em Mac Apple Silicon",
-    "descricao": "apple/container: Linux containers via VMs leve em Mac Apple silicon. 30.7k★ total, 1.6k★/dia. Ferramenta dev que resolve problema real: containers em Mac M-series.",
-    "categoria": "tech",
-    "origem": "global",
+    "id": "1",
+    "titulo": "Superpowers",
+    "descricao": "Agentic skills framework que funciona - metodologia open-source de development com 224K stars. Potencial: cursos e templates pagos.",
     "fonte": "GitHub Trending",
-    "metricas": {
-      "stars": 30705,
-      "stars_today": 1611,
-      "growth_30d": 0,
-      "volume": 0
-    },
-    "tags": [
-      "containers",
-      "apple-silicon",
-      "macos",
-      "dev-tool",
-      "virtualization"
-    ],
-    "data_publicacao": "2026-06-11",
-    "badge": "🔥 1.6k★/dia",
-    "cross_ref": null,
-    "sugere_oportunidade": "sim"
-  },
-  {
-    "tipo": "tendencia",
-    "titulo": "AI Agent Security Scanner — Detectar riscos em skills",
-    "descricao": "NVIDIA/SkillSpector: scanner de segurança pra skills de agentes AI. Detecta vulnerabilidades e padrões maliciosos. 2.3k★, 308★/dia. Mercado: empresas deployando agentes.",
-    "categoria": "tech",
-    "origem": "global",
-    "fonte": "GitHub Trending",
-    "metricas": {
-      "stars": 2265,
-      "stars_today": 308,
-      "growth_30d": 0,
-      "volume": 0
-    },
     "tags": [
       "ai",
-      "security",
-      "agents",
-      "dev-tool",
-      "nvidia"
+      "agent",
+      "framework",
+      "methodology"
     ],
-    "data_publicacao": "2026-06-11",
-    "badge": "🛡️ 308★/dia",
-    "cross_ref": null,
-    "sugere_oportunidade": "sim"
-  },
-  {
-    "tipo": "tendencia",
-    "titulo": "PM Skills Marketplace — 100+ skills agentic",
-    "descricao": "phuryn/pm-skills: marketplace com 100+ skills agentic de discovery a growth. 15.9k★, 804★/dia. Similar ao agent-skills mas focado em PM.",
-    "categoria": "tech",
-    "origem": "global",
-    "fonte": "GitHub Trending",
-    "metricas": {
-      "stars": 15866,
-      "stars_today": 804,
-      "growth_30d": 0,
-      "volume": 0
-    },
-    "tags": [
-      "agents",
-      "pm",
-      "marketplace",
-      "product-management",
-      "subscription"
-    ],
-    "data_publicacao": "2026-06-11",
-    "badge": "📦 804★/dia",
-    "cross_ref": null,
-    "sugere_oportunidade": "sim"
-  },
-  {
-    "tipo": "tendencia",
-    "titulo": "Podcast Microphone Surge — +1086% crescimento",
-    "descricao": "Exploding Topics: microfone pra podcast +1086% crescimento, 60.5K volume. Mercado: criadores de conteúdo, podcasters profissionais. Offline-first.",
-    "categoria": "consumo",
-    "origem": "global",
-    "fonte": "Exploding Topics",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 1086,
-      "volume": 60500
-    },
-    "tags": [
-      "podcast",
-      "content-creation",
-      "microphone",
-      "growth"
-    ],
-    "data_publicacao": "2026-06-11",
-    "badge": "🎙️ +1086% | 60.5K vol",
-    "cross_ref": null,
-    "sugere_oportunidade": "sim"
-  },
-  {
-    "tipo": "tendencia",
-    "titulo": "Freeze-Dried Pet Food — +525% e 40.5K volume",
-    "descricao": "Exploding Topics: ração liofilizada pra pet +525% crescimento, 40.5K volume. Nicho premium pet food crescendo. Mercado: donos de pet conscientes.",
-    "categoria": "consumo",
-    "origem": "global",
-    "fonte": "Exploding Topics",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 525,
-      "volume": 40500
-    },
-    "tags": [
-      "pet-food",
-      "freeze-dried",
-      "nicho",
-      "premium"
-    ],
-    "data_publicacao": "2026-06-11",
-    "badge": "🐕 +525% | 40.5K vol",
-    "cross_ref": null,
-    "sugere_oportunidade": "sim"
-  },
-  {
-    "tipo": "oportunidade",
     "categoria": "app",
-    "cereja": true,
-    "titulo": "Cold Email Copilot — Wrapper Claude API · $49/mês",
-    "descricao": "Gera emails de prospecção fria personalizados via Claude API. Dor: SDRs gastam 2h/dia. Modelo: $49/usuário/mês (Starter). Rápido de construir.",
-    "url": "https://github.com/search?q=cold+email+ai+claude&sort=stars",
-    "vertical": "ai-tool",
     "origem": "global",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "$49/user/mês"
-    },
+    "stars": 224758,
+    "forks": 19980,
+    "badge": "⚡ 224.8K stars - Agentic Skills Framework"
+  },
+  {
+    "id": "2",
+    "titulo": "hermes-agent",
+    "descricao": "The agent that grows with you",
+    "fonte": "GitHub Trending",
     "tags": [
       "ai",
-      "cold-email",
-      "saas",
-      "subscription",
-      "claude"
+      "agent",
+      "open-source",
+      "framework"
     ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 185826,
+    "forks": 31960,
+    "badge": "🤖 185.8K stars - AI Agent Framework"
+  },
+  {
+    "id": "3",
+    "titulo": "llama.cpp",
+    "descricao": "LLM inference in C/C++",
     "fonte": "GitHub Trending",
-    "data_publicacao": "2026-06-10"
-  },
-  {
-    "tipo": "oportunidade",
-    "categoria": "app",
-    "cereja": true,
-    "titulo": "last30days-skill as Service — Research agent · $29/pesquisa",
-    "descricao": "Agent AI que pesquisa qualquer tema em Reddit, X, HN e Polymarket, sintetiza resumo. Modelo: $29/pesquisa ou $199/mês ilimitado. Usuários: VCs, sales teams, analysts.",
-    "url": "https://github.com/mvanhorn/last30days-skill",
-    "vertical": "ai-tool",
-    "origem": "global",
-    "metricas": {
-      "stars": 39012,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "$29/pesquisa"
-    },
-    "tags": [
-      "ai",
-      "research",
-      "agents",
-      "subscription"
-    ],
-    "fonte": "GitHub Trending",
-    "data_publicacao": "2026-06-10"
-  },
-  {
-    "tipo": "oportunidade",
-    "categoria": "app",
-    "cereja": true,
-    "titulo": "Publora — The Publishing API for AI agents · $2.99/account/mês",
-    "descricao": "API unificada pra postar em 10 redes sociais. Modelo: $2.99/conta/mês (Starter/Team). 65 votos PH. Tração: trending.",
-    "url": "https://publora.com",
-    "vertical": "ai-tool",
-    "origem": "global",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "N/A"
-    },
-    "tags": [
-      "ai",
-      "social-media",
-      "api",
-      "subscription"
-    ],
-    "fonte": "ProductHunt",
-    "data_publicacao": "2026-06-10"
-  },
-  {
-    "tipo": "oportunidade",
-    "categoria": "app",
-    "cereja": true,
-    "titulo": "WeDoDev — Software development subscription para startups",
-    "descricao": "Equipe de desenvolvimento dedicada por assinatura mensal. Desenvolvimento web, SaaS, mobile e MVP sem contratar agências.",
-    "url": "https://www.wedodev.co",
-    "vertical": "dev-tool",
-    "origem": "global",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "N/A"
-    },
-    "tags": [
-      "subscription",
-      "dev",
-      "saas",
-      "startups"
-    ],
-    "fonte": "HackerNews",
-    "data_publicacao": "2026-06-10"
-  },
-  {
-    "tipo": "oportunidade",
-    "categoria": "app",
-    "cereja": true,
-    "titulo": "Healthchecks.io — Cron job monitoring · freemium",
-    "descricao": "Monitor de cron jobs com alertas. Freemium até 20 jobs. Modelo de receita: planos pagos por quantidade de jobs. Mencionado em post $10k MRR.",
-    "url": "https://healthchecks.io",
-    "vertical": "dev-tool",
-    "origem": "global",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "$10k+ MRR"
-    },
-    "tags": [
-      "dev-tool",
-      "monitoring",
-      "freemium",
-      "saas"
-    ],
-    "fonte": "HackerNews",
-    "data_publicacao": "2026-06-10"
-  },
-  {
-    "tipo": "oportunidade",
-    "categoria": "app",
-    "cereja": true,
-    "titulo": "TypingMind — Chat UI para LLMs · API key model",
-    "descricao": "Interface ChatGPT/Gemini/Claude unificada. Paga só pelo que usa (API key). 2k+ forks GitHub. Modelo: API-based, não assinatura.",
-    "url": "https://www.typingmind.com",
-    "vertical": "ai-tool",
-    "origem": "global",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "N/A"
-    },
     "tags": [
       "ai",
       "llm",
-      "api",
-      "productivity"
+      "c++",
+      "inference",
+      "open-source"
     ],
-    "fonte": "ProductHunt",
-    "data_publicacao": "2026-06-10"
+    "categoria": "app",
+    "origem": "global",
+    "stars": 115289,
+    "forks": 19295,
+    "badge": "⚡ 115.3K stars - LLM Inference"
   },
   {
-    "tipo": "oportunidade",
-    "categoria": "app",
-    "cereja": true,
-    "titulo": "Spotlight by Backplanes — Relatórios de sessões Claude Code/Codex",
-    "descricao": "Lê sessões do Claude Code e Codex, mostra o que agentes fizeram e como melhorar. Dev tool com potencial de assinatura.",
-    "url": "https://backplanes.io",
-    "vertical": "dev-tool",
-    "origem": "global",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "N/A"
-    },
-    "tags": [
-      "ai",
-      "agents",
-      "dev-tool",
-      "subscription"
-    ],
-    "fonte": "ProductHunt",
-    "data_publicacao": "2026-06-10"
-  },
-  {
-    "tipo": "oportunidade",
-    "categoria": "app",
-    "cereja": false,
-    "titulo": "Spotlight for AI Agents — Session analytics · freemium",
-    "descricao": "Analytics de sessões Claude Code/Codex. Complementa Spotlight (Backplanes). Freemium + $29-99/mês por equipe. Dev tool com público engajado.",
-    "url": "https://backplanes.io",
-    "vertical": "dev-tool",
-    "origem": "global",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "$29-99/mês"
-    },
-    "tags": [
-      "dev-tool",
-      "ai",
-      "agents",
-      "analytics",
-      "freemium"
-    ],
+    "id": "4",
+    "titulo": "OpenCV",
+    "descricao": "Open Source Computer Vision Library - real-time computer vision and ML",
     "fonte": "GitHub Trending",
-    "data_publicacao": "2026-06-10",
-    "vinculado_a": "Spotlight by Backplanes"
-  },
-  {
-    "tipo": "oportunidade",
-    "categoria": "app",
-    "cereja": false,
-    "titulo": "Whistle AI — Personal trainer com Apple Health · subscription",
-    "descricao": "Lê dados do Apple Health e constrói plano de treino real baseado no nível de fitness e recuperação. Potencial freemium + assinatura.",
-    "url": "https://whistle.ai",
-    "vertical": "health",
-    "origem": "global",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "N/A"
-    },
     "tags": [
-      "health",
-      "fitness",
-      "apple-health",
-      "subscription"
-    ],
-    "fonte": "ProductHunt",
-    "data_publicacao": "2026-06-10"
-  },
-  {
-    "tipo": "oportunidade",
-    "categoria": "app",
-    "cereja": false,
-    "titulo": "AnkiMobile Flashcards — App de flashcards pago",
-    "descricao": "App de flashcards número 1 na App Store. Compra única (não assinatura). Alta retenção por ser conteúdo do usuário.",
-    "url": "https://apps.apple.com/app/ankimobile-flashcards/id373395666",
-    "vertical": "education",
-    "origem": "global",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "N/A"
-    },
-    "tags": [
-      "education",
-      "flashcards",
-      "paid-app"
-    ],
-    "fonte": "AppStore",
-    "data_publicacao": "2026-06-10"
-  },
-  {
-    "tipo": "oportunidade",
-    "categoria": "app",
-    "cereja": false,
-    "titulo": "HotSchedules — Gestão de equipes · B2B subscription",
-    "descricao": "Plataforma de scheduling para funcionários (restaurantes, hotéis, retail). Enterprise subscription. Top Paid App Store.",
-    "url": "https://www.hotschedules.com",
-    "vertical": "productivity",
-    "origem": "global",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "N/A"
-    },
-    "tags": [
-      "enterprise",
-      "scheduling",
-      "subscription",
-      "b2b"
-    ],
-    "fonte": "AppStore",
-    "data_publicacao": "2026-06-10"
-  },
-  {
-    "tipo": "oportunidade",
-    "categoria": "app",
-    "cereja": false,
-    "titulo": "Hero Studio Photos — Identificar e precificar itens para venda",
-    "descricao": "Identifica, precifica e lista itens para venda em segundos. Potencial marketplace / take rate ou freemium.",
-    "url": "https://www.producthunt.com/products/hero-9",
-    "vertical": "productivity",
-    "origem": "global",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "N/A"
-    },
-    "tags": [
-      "marketplace",
-      "pricing",
-      "ecommerce"
-    ],
-    "fonte": "ProductHunt",
-    "data_publicacao": "2026-06-10"
-  },
-  {
-    "tipo": "oportunidade",
-    "categoria": "app",
-    "cereja": false,
-    "titulo": "LayerProof — Social content com AI · freemium",
-    "descricao": "Cria carrossis e content social de alta qualidade com AI. 8 votos PH. Modelo: freemium ou API-based.",
-    "url": "https://www.producthunt.com/products/layerproof-social-content-generation",
-    "vertical": "social",
-    "origem": "global",
-    "metricas": {
-      "stars": 0,
-      "growth_30d": 0,
-      "volume": 0,
-      "mrr_estimado": "N/A"
-    },
-    "tags": [
-      "social",
+      "cv",
+      "computer-vision",
       "ai",
-      "content-creation",
-      "freemium"
+      "python",
+      "c++",
+      "open-source"
     ],
-    "fonte": "ProductHunt",
-    "data_publicacao": "2026-06-10"
+    "categoria": "app",
+    "origem": "global",
+    "stars": 88042,
+    "forks": 56596,
+    "badge": "👁️ 88K stars - Computer Vision"
+  },
+  {
+    "id": "5",
+    "titulo": "Svelte",
+    "descricao": "Web development for the rest of us",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "javascript",
+      "framework",
+      "web",
+      "svelte"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 87097,
+    "forks": 4940,
+    "badge": "⚡ 87.1K stars - Web Framework"
+  },
+  {
+    "id": "6",
+    "titulo": "Vite",
+    "descricao": "Next generation frontend tooling. It's fast!",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "javascript",
+      "tooling",
+      "build",
+      "typescript"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 81178,
+    "forks": 8274,
+    "badge": "⚡ 81.2K stars - Frontend Tooling"
+  },
+  {
+    "id": "7",
+    "titulo": "AI Agent Skills",
+    "descricao": "Engineering skills production-grade para AI coding agents. Subscription: skill packs pagos via API wrapper.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agent",
+      "engineering",
+      "coding"
+    ],
+    "categoria": "ferramenta",
+    "origem": "global",
+    "stars": 54599,
+    "forks": 5936,
+    "badge": "🔧 54.6K stars - AI Coding Agent Skills",
+    "vinculado_a": "cross_ref:id=20"
+  },
+  {
+    "id": "8",
+    "titulo": "MemPalace",
+    "descricao": "The best-benchmarked open-source AI memory system. And it's free.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "memory",
+      "python",
+      "open-source"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 54532,
+    "forks": 7127,
+    "badge": "🔥 54.5K stars - AI Memory"
+  },
+  {
+    "id": "9",
+    "titulo": "Maybe",
+    "descricao": "The personal finance app for everyone - open source finance management",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "finance",
+      "personal-finance",
+      "ruby",
+      "open-source"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 54151,
+    "forks": 5605,
+    "badge": "💰 54.2K stars - Personal Finance"
+  },
+  {
+    "id": "10",
+    "titulo": "career-ops",
+    "descricao": "AI-powered job search system built on Claude Code. 14 skill modes, Go dashboard, PDF generation, batch processing.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "job-search",
+      "claude-code",
+      "automation",
+      "career"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 50432,
+    "forks": 10329,
+    "badge": "💼 50.4K stars - AI Job Search"
+  },
+  {
+    "id": "11",
+    "titulo": "VibeVoice",
+    "descricao": "Open-Source Frontier Voice AI from Microsoft",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "voice",
+      "python",
+      "microsoft"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 48467,
+    "forks": 5391,
+    "badge": "🎙️ 48.5K stars - Voice AI"
+  },
+  {
+    "id": "12",
+    "titulo": "goose",
+    "descricao": "An open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agent",
+      "extensible",
+      "python"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 47432,
+    "forks": 5005,
+    "badge": "🦆 47.4K stars - AI Agent"
+  },
+  {
+    "id": "13",
+    "titulo": "taste-skill",
+    "descricao": "Gives your AI good taste - stops the AI from generating boring, generic slop",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agent",
+      "creativity",
+      "prompting"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 36474,
+    "forks": 2639,
+    "badge": "🎨 36.5K stars - AI Taste"
+  },
+  {
+    "id": "14",
+    "titulo": "Trivy",
+    "descricao": "Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "security",
+      "devops",
+      "go",
+      "vulnerability"
+    ],
+    "categoria": "negocio",
+    "origem": "global",
+    "stars": 36067,
+    "forks": 458,
+    "badge": "🛡️ 36.1K stars - Security Scanner"
+  },
+  {
+    "id": "15",
+    "titulo": "last30days-skill",
+    "descricao": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agent",
+      "research",
+      "python",
+      "automation"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 34311,
+    "forks": 2811,
+    "badge": "🔍 34.3K stars - AI Research Agent"
+  },
+  {
+    "id": "16",
+    "titulo": "CopilotKit",
+    "descricao": "The Frontend Stack for Agents & Generative UI. Makers of the AG-UI Protocol",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "agent",
+      "generative-ui",
+      "react",
+      "typescript",
+      "ai"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 33519,
+    "forks": 4263,
+    "badge": "🤖 33.5K stars - AI Agent UI"
+  },
+  {
+    "id": "17",
+    "titulo": "Maigret OSINT",
+    "descricao": "Collect dossiers by username across 3000+ sites. Modelo: API SaaS (R$19-99/mes) para recruiters e investigators.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "osint",
+      "security",
+      "automation",
+      "saas"
+    ],
+    "categoria": "servico",
+    "origem": "global",
+    "stars": 32574,
+    "forks": 2386,
+    "badge": "🕵️ 32.6K stars - OSINT People Search"
+  },
+  {
+    "id": "18",
+    "titulo": "Project N.O.M.A.D",
+    "descricao": "Self-contained, offline survival computer packed with critical tools, knowledge, and AI to keep you informed and empowered—anytime, anywhere",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "offline",
+      "survival",
+      "knowledge",
+      "tools"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 29664,
+    "forks": 2938,
+    "badge": "🏕️ 29.7K stars - Offline AI"
+  },
+  {
+    "id": "19",
+    "titulo": "Open Notebook",
+    "descricao": "An Open Source implementation of Notebook LM with more flexibility and features",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "notebook",
+      "typescript",
+      "open-source"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 27171,
+    "forks": 3089,
+    "badge": "📓 27.2K stars - AI Notebook"
+  },
+  {
+    "id": "20",
+    "titulo": "Agent-Reach",
+    "descricao": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agent",
+      "web-scraping",
+      "multi-platform",
+      "cli"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 24014,
+    "forks": 2026,
+    "badge": "🌐 24K stars - Multi-platform AI Scraping"
+  },
+  {
+    "id": "21",
+    "titulo": "SkillsMarket",
+    "descricao": "Marketplace de skills para agentes AI - vende skill packages de R$29-199. Criado por phuryn (mesmo autor de pm-skills).",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agent",
+      "marketplace"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 16164,
+    "forks": 1682,
+    "badge": "💼 16.2K stars - AI Skills Marketplace",
+    "vinculado_a": "cross_ref:id=20"
+  },
+  {
+    "id": "22",
+    "titulo": "Personal AI Infrastructure",
+    "descricao": "Agentic AI Infrastructure for magnifying HUMAN capabilities. Open source personal AI stack.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agentic",
+      "infrastructure",
+      "personal",
+      "automation"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 15392,
+    "forks": 2158,
+    "badge": "🔮 15.4K stars - Agentic AI Stack"
+  },
+  {
+    "id": "23",
+    "titulo": "tolaria",
+    "descricao": "Desktop app to manage markdown knowledge bases. Build and organize your personal wiki.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "markdown",
+      "knowledge-base",
+      "desktop",
+      "productivity",
+      "wiki"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 13520,
+    "forks": 950,
+    "badge": "📚 13.5K stars - Markdown KB Manager"
+  },
+  {
+    "id": "24",
+    "titulo": "pm-skills",
+    "descricao": "PM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and growth.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agent",
+      "pm",
+      "product-management",
+      "marketplace"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 12598,
+    "forks": 1494,
+    "badge": "📊 12.6K stars - PM Skills Marketplace"
+  },
+  {
+    "id": "25",
+    "titulo": "google/skills",
+    "descricao": "Agent Skills for Google products and technologies. Connect AI agents to Google ecosystem.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "ai",
+      "agent",
+      "google",
+      "skills",
+      "integration"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 12335,
+    "forks": 965,
+    "badge": "🔗 12.3K stars - Google Agent Skills"
+  },
+  {
+    "id": "26",
+    "titulo": "turbovec",
+    "descricao": "A vector index built on TurboQuant, written in Rust with Python bindings",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "vector-search",
+      "rust",
+      "python",
+      "ai",
+      "infrastructure"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 8711,
+    "forks": 808,
+    "badge": "⚡ 8.7K stars - Rust Vector Index"
+  },
+  {
+    "id": "27",
+    "titulo": "SkillSpector",
+    "descricao": "Scanner de seguranca para skills de agentes AI - detecta vulnerabilidades. Modelo: B2B SaaS subscription para empresas com agentes.",
+    "fonte": "GitHub Trending",
+    "tags": [
+      "security",
+      "ai",
+      "agent",
+      "devops"
+    ],
+    "categoria": "ferramenta",
+    "origem": "global",
+    "stars": 2596,
+    "forks": 208,
+    "badge": "🛡️ 2.6K stars - AI Skills Security Scanner"
+  },
+  {
+    "id": "28",
+    "titulo": "Ulanzi",
+    "descricao": "Company specializing in research, development, production, and sales of accessories for mobile phone and camera photography",
+    "fonte": "Exploding Topics",
+    "tags": [
+      "photography",
+      "accessories",
+      "hardware",
+      "content-creator"
+    ],
+    "categoria": "negocio",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "📷 74K Volume +271% - Photo Accessories"
+  },
+  {
+    "id": "29",
+    "titulo": "Lovescape",
+    "descricao": "AI-based platform that generates photorealistic, uncensored adult content with full control and privacy",
+    "fonte": "Exploding Topics",
+    "tags": [
+      "ai",
+      "adult",
+      "privacy",
+      "content"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "🔥 60.5K Volume +3233% - AI Content"
+  },
+  {
+    "id": "30",
+    "titulo": "Luminance",
+    "descricao": "UK-based legal technology company providing AI solutions for contract analysis, negotiation, and eDiscovery",
+    "fonte": "Exploding Topics",
+    "tags": [
+      "legal",
+      "ai",
+      "contracts",
+      "automation"
+    ],
+    "categoria": "app",
+    "origem": "global",
+    "stars": 0,
+    "forks": 0,
+    "badge": "⚖️ 49.5K Volume +257% - Legal AI"
   }
 ]
