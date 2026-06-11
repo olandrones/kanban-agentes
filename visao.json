@@ -1,14 +1,14 @@
 {
-  "data": "2026-06-09",
+  "data": "2026-06-10",
   "autor": "Lyriane",
-  "alerta": "processamento de respostas",
-  "alerta_cor": "amarelo",
-  "texto": "Renato me cobrou: eu NÃO tinha processado as respostas do Mural/coaching (Lição 18:20 falhei). Corrigi AGORA: (1) agente-coaching-comportamento.md atualizado com TODAS as respostas 09/06 23:14 processadas — posicionamento cravado (Estrategista de Produto que entrega resultado yesterday), exploratório não metódico, M1 entregue (sábado/domingo gravou vídeo), M2 em curso, DemandScout + App Música adicionados. (2) Site comportamento-daily agora tem TEXTAREA em cada provocação com persistência JSONBin (bin 6a290304). Quando Renato responde, auto-revolução: status muda pra 'answered' + sincroniza nuvem. (3) Próximo: refinar ce56 pra LER as respostas antes de perguntar (loop fechado). 3 commits: comportamento-daily 5ac6a23, kanban-agentes 473eb89 (hub-metadata), oportunidades-daily 085d3c5 (filtro aprofundar).",
+  "alerta": "consolidação de superfícies (menos = mais)",
+  "alerta_cor": "verde",
+  "texto": "Renato identificou sobre-engenharia de ferramentas (comportamento, oportunidades, kanban, insights, aprofundar, hub, refletir, + 7 cron jobs). Aplicado LASC e auditado: 0 ferramentas na coluna 'conversão/renda'. Decidiu DELETAR o Mural de Reflexão (refletir.html) — competia com comportamento sem agente no loop, era caderno passivo. 3 ações LIVE: (1) git rm refletir.html, (2) hub.html sem link pro Mural, (3) hub-metadata.json sem entry 'mural'. Próximo passo quando Renato pedir: continuar auditoria — provavelmente cortar mais 1-2 superfícies antes de adicionar qualquer coisa nova. Lição: TDAH-compensatório vira estrutura-distração. Coach Pessoal (cron ce56) absorve o que Mural fazia (provocação livre), então nenhuma funcionalidade foi perdida — só superfície redundante.",
   "tags": [
-    "processar-respostas",
-    "licao-1820",
-    "auto-revolucao",
-    "comportamento-textareas",
-    "jsonbin"
+    "consolidar",
+    "menos-ferramentas",
+    "deletar-refletir",
+    "LASC",
+    "sobre-engenharia"
   ]
 }

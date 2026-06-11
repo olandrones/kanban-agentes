@@ -45,17 +45,6 @@
       "foco": "Visão geral + 4 abas: Visão / Cron Jobs / Agentes / Projetos",
       "evolucao": "Auto-recarrega silenciosa a cada 60s (sem perder textareas). Tab persiste em F5."
     },
-    "mural": {
-      "grupo": "operacao",
-      "emoji": "🪞",
-      "nome": "Mural de Reflexão",
-      "url": "./refletir.html",
-      "ultima_update": "2026-06-09 noite",
-      "tam_kb": 15,
-      "status": "ativo",
-      "foco": "1 pergunta/dia, respostas salvas na nuvem (JSONBin)",
-      "evolucao": "Persistência nuvem ativa. LocalStorage como fallback offline."
-    },
     "atlas-reflete": {
       "grupo": "operacao",
       "emoji": "🌙",
