@@ -1,5 +1,100 @@
 [
   {
+    "id": 31,
+    "tipo": "tendencia",
+    "titulo": "Apple Container: VMs Linux leves em Mac Apple Silicon",
+    "fonte": "GitHub Trending",
+    "volume": "34.2K stars total, 2.4K stars/day",
+    "crescimento": "+novo repo, viralizou em 24h",
+    "categoria": "tech",
+    "origem": "global",
+    "data": "2026-06-12T11:32:25.640Z",
+    "tags": [
+      "apple",
+      "container",
+      "virtualizacao",
+      "macos",
+      "swift"
+    ],
+    "sugere_oportunidade": "sim"
+  },
+  {
+    "id": 32,
+    "tipo": "tendencia",
+    "titulo": "Bedrock Robotics: robótica autônoma para canteiros de obra",
+    "fonte": "Exploding Topics",
+    "volume": "6.6K mentions",
+    "crescimento": "+5400% growth",
+    "categoria": "servico",
+    "origem": "global",
+    "data": "2026-06-12T11:32:25.641Z",
+    "tags": [
+      "robotica",
+      "construcao",
+      "autonomo",
+      "automation"
+    ],
+    "sugere_oportunidade": "sim"
+  },
+  {
+    "id": 33,
+    "tipo": "tendencia",
+    "titulo": "Electric Bike Pump: bomba elétrica portátil para bikes",
+    "fonte": "Exploding Topics",
+    "volume": "14.8K mentions",
+    "crescimento": "+1433% growth",
+    "categoria": "consumo",
+    "origem": "global",
+    "data": "2026-06-12T11:32:25.641Z",
+    "tags": [
+      "bicicleta",
+      "gadget",
+      "portatil",
+      "esporte"
+    ],
+    "sugere_oportunidade": "sim"
+  },
+  {
+    "id": 34,
+    "tipo": "tendencia",
+    "titulo": "AI agent skills para coding agents se tornou categoria própria",
+    "fonte": "GitHub Trending",
+    "volume": "56K stars / addyosmani, 16.6K stars / phuryn",
+    "crescimento": "3.2K+ stars/day no agent-skills",
+    "categoria": "tech",
+    "origem": "global",
+    "data": "2026-06-12T11:32:25.641Z",
+    "tags": [
+      "ai-agent",
+      "coding-agent",
+      "skills",
+      "agentic"
+    ],
+    "cross_ref": [
+      7,
+      21,
+      24
+    ]
+  },
+  {
+    "id": 35,
+    "tipo": "tendencia",
+    "titulo": "Crochet Set: volta do crafts DIY com kits prontos",
+    "fonte": "Exploding Topics",
+    "volume": "22.2K mentions",
+    "crescimento": "+1033% growth",
+    "categoria": "consumo",
+    "origem": "global",
+    "data": "2026-06-12T11:32:25.641Z",
+    "tags": [
+      "crochet",
+      "DIY",
+      "crafts",
+      "yarn"
+    ],
+    "sugere_oportunidade": "sim"
+  },
+  {
     "id": "1",
     "titulo": "Superpowers",
     "descricao": "Agentic skills framework que funciona - metodologia open-source de development com 224K stars. Potencial: cursos e templates pagos.",
