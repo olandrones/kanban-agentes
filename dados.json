@@ -617,5 +617,80 @@
     "stars": 0,
     "forks": 0,
     "badge": "⚖️ 49.5K Volume +257% - Legal AI"
+  },
+  {
+    "tipo": "oportunidade",
+    "categoria": "app",
+    "cereja": true,
+    "titulo": "KOSH Money — conta USD + cartões para freelancers · subscription",
+    "descricao": "Conta USD e cartões para freelancers e creators. Modelo: assinatura mensal + taxa de manutenção. Tração: lançamento recente no PH, nicho crescente de remote workers.",
+    "url": "https://www.producthunt.com/products/kosh-money",
+    "vertical": "fintech",
+    "origem": "global",
+    "metricas": {
+      "volume": 0,
+      "growth_30d": 0,
+      "mrr_estimado": "N/A - recente"
+    },
+    "tags": [
+      "fintech",
+      "freelancer",
+      "usd",
+      "cartoes",
+      "subscription"
+    ],
+    "fonte": "ProductHunt",
+    "data_publicacao": "2026-06-11",
+    "id": "36"
+  },
+  {
+    "tipo": "oportunidade",
+    "categoria": "app",
+    "cereja": true,
+    "titulo": "Easybilling — billing API para AI products · usage-based",
+    "descricao": "Billing e pagamentos nativo para AI products usage-based. Modelo: % por transação ou plano mensal. API rápida de implementar, nicho aquecido.",
+    "url": "https://www.producthunt.com/products/easybilling",
+    "vertical": "fintech",
+    "origem": "global",
+    "metricas": {
+      "volume": 0,
+      "growth_30d": 0,
+      "mrr_estimado": "N/A - recente"
+    },
+    "tags": [
+      "billing",
+      "api",
+      "ai",
+      "saas",
+      "payments"
+    ],
+    "fonte": "ProductHunt",
+    "data_publicacao": "2026-06-10",
+    "id": "37"
+  },
+  {
+    "tipo": "oportunidade",
+    "categoria": "app",
+    "cereja": true,
+    "titulo": "ShellMate — gerenciar servidores SSH em equipe · team plan",
+    "descricao": "Gerencia servidores SSH, credenciais e times em um lugar. Modelo: team plan mensal por usuário. DevOps SaaS com demanda recorrente.",
+    "url": "https://www.producthunt.com/products/shellmate-2",
+    "vertical": "dev-tool",
+    "origem": "global",
+    "metricas": {
+      "volume": 0,
+      "growth_30d": 0,
+      "mrr_estimado": "N/A - recente"
+    },
+    "tags": [
+      "devops",
+      "ssh",
+      "team",
+      "saas",
+      "subscription"
+    ],
+    "fonte": "ProductHunt",
+    "data_publicacao": "2026-06-11",
+    "id": "38"
   }
 ]
