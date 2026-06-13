@@ -1,14 +1,16 @@
 {
-  "data": "2026-06-10",
+  "data": "2026-06-12",
   "autor": "Lyriane",
-  "alerta": "consolidação de superfícies (menos = mais)",
-  "alerta_cor": "verde",
-  "texto": "Renato identificou sobre-engenharia de ferramentas (comportamento, oportunidades, kanban, insights, aprofundar, hub, refletir, + 7 cron jobs). Aplicado LASC e auditado: 0 ferramentas na coluna 'conversão/renda'. Decidiu DELETAR o Mural de Reflexão (refletir.html) — competia com comportamento sem agente no loop, era caderno passivo. 3 ações LIVE: (1) git rm refletir.html, (2) hub.html sem link pro Mural, (3) hub-metadata.json sem entry 'mural'. Próximo passo quando Renato pedir: continuar auditoria — provavelmente cortar mais 1-2 superfícies antes de adicionar qualquer coisa nova. Lição: TDAH-compensatório vira estrutura-distração. Coach Pessoal (cron ce56) absorve o que Mural fazia (provocação livre), então nenhuma funcionalidade foi perdida — só superfície redundante.",
+  "alerta": "PIVÔ ESTRATÉGICO — foco 100% em desenvolvimento (3 projetos)",
+  "alerta_cor": "amarelo",
+  "texto": "Renato recalibrou a régua: 'métrica de resultado = repercussão + engajamento + →$$ (não ok/error)'. Pivô 12/06: 0 cron jobs ativos (7/7 pausados — incluindo Manutenção, Tendências, Apps, Atlas, Pesquisa, Coach, token-health-check). Foco total em 3 projetos numa plataforma nova (crescer.html): 🎸 App Violão (semente, já existe), 🤖 PM Skills / Agente-PM (broto, já existe), 🦷 Clínica Chatbot (URGENTE — este fim-de-semana). Clínica = WhatsApp + RAG + Guard Rails + CRM interno (SQLite) + API futura. TRD salvo em oportunidades/trd/clinica-chatbot-arquitetura.md (7.5KB, 7 seções). Decisões pendentes que travam o start: (1) VPS (Oracle Cloud Free Tier / Contabo / existente?), (2) WhatsApp provider (Evolution API / Meta oficial / Z-API), (3) Visualização (aba Clínica no crescer.html / admin.html separado). Stack proposto: Node 20 + Fastify + sqlite-vec + OpenRouter + Evolution API. Próximo passo IMEDIATO: assim que Renato responder as 3, provisiono VPS e subo Evolution hoje à noite.",
   "tags": [
-    "consolidar",
-    "menos-ferramentas",
-    "deletar-refletir",
-    "LASC",
-    "sobre-engenharia"
+    "pivô-estratégico",
+    "foco-desenvolvimento",
+    "clinica-chatbot-urgente",
+    "3-projetos",
+    "crescer-html",
+    "cron-pausados",
+    "trd-clinica"
   ]
 }
